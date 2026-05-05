@@ -1,0 +1,90 @@
+{"id":"general_001","category":"general_knowledge","query":"Explain how AlphaFold changed protein structure prediction and what limitations remain."}
+{"id":"general_002","category":"general_knowledge","query":"What are the main differences between supervised learning, unsupervised learning, and reinforcement learning?"}
+{"id":"general_003","category":"general_knowledge","query":"Why are transformers important for modern natural language processing?"}
+{"id":"general_004","category":"general_knowledge","query":"How do diffusion models generate images, and what are their main limitations?"}
+{"id":"general_005","category":"general_knowledge","query":"What is the role of embeddings in information retrieval systems?"}
+{"id":"general_006","category":"general_knowledge","query":"Explain the difference between classification and regression in machine learning."}
+{"id":"general_007","category":"general_knowledge","query":"What is overfitting, and how can machine learning practitioners reduce it?"}
+{"id":"general_008","category":"general_knowledge","query":"How does attention help neural networks process long sequences?"}
+{"id":"general_009","category":"general_knowledge","query":"What are convolutional neural networks useful for, and why?"}
+{"id":"general_010","category":"general_knowledge","query":"Explain why GPUs are commonly used for training deep learning models."}
+{"id":"general_011","category":"general_knowledge","query":"What is transfer learning, and why is it useful?"}
+{"id":"general_012","category":"general_knowledge","query":"How do recommendation systems personalize content for users?"}
+{"id":"general_013","category":"general_knowledge","query":"What is the difference between symbolic AI and statistical machine learning?"}
+{"id":"general_014","category":"general_knowledge","query":"Why is data preprocessing important in machine learning projects?"}
+{"id":"general_015","category":"general_knowledge","query":"Explain the basic idea of retrieval-augmented generation."}
+{"id":"general_016","category":"general_knowledge","query":"What are vector databases, and why are they used in AI applications?"}
+{"id":"general_017","category":"general_knowledge","query":"How does reinforcement learning learn from rewards and actions?"}
+{"id":"general_018","category":"general_knowledge","query":"What are common limitations of large language models?"}
+{"id":"general_019","category":"general_knowledge","query":"Why is prompt design important when using large language models?"}
+{"id":"general_020","category":"general_knowledge","query":"What is model fine-tuning, and when is it useful?"}
+{"id":"general_021","category":"general_knowledge","query":"Explain how speech recognition systems convert audio into text."}
+{"id":"general_022","category":"general_knowledge","query":"What is computer vision, and what tasks does it usually solve?"}
+{"id":"general_023","category":"general_knowledge","query":"How do language models predict the next token in a sequence?"}
+{"id":"general_024","category":"general_knowledge","query":"What is the difference between precision and recall?"}
+{"id":"general_025","category":"general_knowledge","query":"Why are benchmark datasets important for evaluating AI systems?"}
+{"id":"general_026","category":"general_knowledge","query":"What is federated learning, and what privacy benefits can it provide?"}
+{"id":"general_027","category":"general_knowledge","query":"Explain the difference between generative and discriminative models."}
+{"id":"general_028","category":"general_knowledge","query":"What are graph neural networks, and what kinds of data do they model?"}
+{"id":"general_029","category":"general_knowledge","query":"How can AI systems be evaluated for robustness?"}
+{"id":"general_030","category":"general_knowledge","query":"What is explainable AI, and why do users need it?"}
+{"id":"dependency_001","category":"logical_dependency","query":"Why must an AI system verify retrieved evidence before aggregating an answer, and what can go wrong if these steps are executed in parallel without dependencies?"}
+{"id":"dependency_002","category":"logical_dependency","query":"Explain why entity linking should happen before knowledge graph retrieval in a grounded text generation pipeline."}
+{"id":"dependency_003","category":"logical_dependency","query":"Why should a reasoning system build dependencies between claims before expanding them in parallel?"}
+{"id":"dependency_004","category":"logical_dependency","query":"In a multi-step answer generation pipeline, why should contradiction checking happen before final summarization?"}
+{"id":"dependency_005","category":"logical_dependency","query":"Explain why some thought nodes can be generated in parallel while others must wait for prerequisite evidence."}
+{"id":"dependency_006","category":"logical_dependency","query":"Why should a system identify the user intent before selecting retrieval sources?"}
+{"id":"dependency_007","category":"logical_dependency","query":"Explain why query decomposition should happen before parallel sub-question answering."}
+{"id":"dependency_008","category":"logical_dependency","query":"Why does a generated conclusion depend on validating intermediate claims first?"}
+{"id":"dependency_009","category":"logical_dependency","query":"In a RAG system, why should document ranking happen before evidence synthesis?"}
+{"id":"dependency_010","category":"logical_dependency","query":"Why should a system resolve coreference before extracting relations from text?"}
+{"id":"dependency_011","category":"logical_dependency","query":"Explain why temporal ordering matters when answering questions about historical events."}
+{"id":"dependency_012","category":"logical_dependency","query":"Why should an AI planner check preconditions before executing a multi-step plan?"}
+{"id":"dependency_013","category":"logical_dependency","query":"Explain why data cleaning must happen before model training."}
+{"id":"dependency_014","category":"logical_dependency","query":"Why does feature selection depend on understanding the prediction target?"}
+{"id":"dependency_015","category":"logical_dependency","query":"In a scientific explanation, why should definitions be established before causal claims?"}
+{"id":"dependency_016","category":"logical_dependency","query":"Why should a dialogue system track context before deciding the next response?"}
+{"id":"dependency_017","category":"logical_dependency","query":"Explain why conflict detection should happen before merging multiple generated drafts."}
+{"id":"dependency_018","category":"logical_dependency","query":"Why should task constraints be identified before generating candidate solutions?"}
+{"id":"dependency_019","category":"logical_dependency","query":"In code generation, why should requirements analysis precede implementation?"}
+{"id":"dependency_020","category":"logical_dependency","query":"Why should a system evaluate source credibility before using a source as evidence?"}
+{"id":"dependency_021","category":"logical_dependency","query":"Explain why causal reasoning requires distinguishing correlation from cause before drawing conclusions."}
+{"id":"dependency_022","category":"logical_dependency","query":"Why must a multi-agent workflow define dependencies before assigning tasks in parallel?"}
+{"id":"dependency_023","category":"logical_dependency","query":"Why should a reasoning graph avoid cycles when scheduling thought nodes?"}
+{"id":"dependency_024","category":"logical_dependency","query":"Explain why an answer generator should not summarize unsupported evidence before checking it."}
+{"id":"dependency_025","category":"logical_dependency","query":"Why should ontology alignment happen before combining two knowledge graphs?"}
+{"id":"dependency_026","category":"logical_dependency","query":"Why does relation extraction depend on correctly identifying entities first?"}
+{"id":"dependency_027","category":"logical_dependency","query":"Explain why an AI system should plan before expanding long-form report sections."}
+{"id":"dependency_028","category":"logical_dependency","query":"Why should a system check logical consistency before presenting final recommendations?"}
+{"id":"dependency_029","category":"logical_dependency","query":"Why should evidence provenance be attached before downstream reasoning uses the evidence?"}
+{"id":"dependency_030","category":"logical_dependency","query":"Explain why aggregation should depend on terminal reasoning nodes rather than all intermediate nodes."}
+{"id":"verification_001","category":"fact_verification","query":"How can knowledge graphs help reduce hallucination in retrieval-augmented generation systems?"}
+{"id":"verification_002","category":"fact_verification","query":"Why can outdated evidence cause factual errors in AI-generated answers, and how should a system handle it?"}
+{"id":"verification_003","category":"fact_verification","query":"How should an AI system handle two retrieved sources that make conflicting claims?"}
+{"id":"verification_004","category":"fact_verification","query":"Why is source provenance important when generating answers from retrieved knowledge?"}
+{"id":"verification_005","category":"fact_verification","query":"Explain how evidence grounding improves the reliability of long-form generated reports."}
+{"id":"verification_006","category":"fact_verification","query":"How can a system check whether a generated claim is supported by retrieved evidence?"}
+{"id":"verification_007","category":"fact_verification","query":"Why should AI-generated medical advice require stronger evidence checks than casual explanations?"}
+{"id":"verification_008","category":"fact_verification","query":"How can entity disambiguation reduce factual errors in generated answers?"}
+{"id":"verification_009","category":"fact_verification","query":"Why can relying only on model memory lead to hallucinated citations?"}
+{"id":"verification_010","category":"fact_verification","query":"How should a system respond when retrieved evidence is insufficient to answer a question?"}
+{"id":"verification_011","category":"fact_verification","query":"Why is cross-source agreement useful but not sufficient for fact verification?"}
+{"id":"verification_012","category":"fact_verification","query":"How can knowledge graph constraints help detect impossible generated relations?"}
+{"id":"verification_013","category":"fact_verification","query":"Why should numerical claims in generated reports be checked against sources?"}
+{"id":"verification_014","category":"fact_verification","query":"How can temporal metadata help avoid outdated answers?"}
+{"id":"verification_015","category":"fact_verification","query":"Why should generated legal or policy answers cite verified sources?"}
+{"id":"verification_016","category":"fact_verification","query":"How can provenance tracking improve trust in AI-generated summaries?"}
+{"id":"verification_017","category":"fact_verification","query":"Why does fact verification become harder when sources use different terminology?"}
+{"id":"verification_018","category":"fact_verification","query":"How can a system detect when two sources are about different entities with similar names?"}
+{"id":"verification_019","category":"fact_verification","query":"Why should claims about scientific consensus be grounded in reliable evidence?"}
+{"id":"verification_020","category":"fact_verification","query":"How can evidence scoring help decide which retrieved facts to use?"}
+{"id":"verification_021","category":"fact_verification","query":"Why can generated summaries hide contradictions between sources?"}
+{"id":"verification_022","category":"fact_verification","query":"How can knowledge graphs support consistency checking across generated paragraphs?"}
+{"id":"verification_023","category":"fact_verification","query":"Why should a RAG system separate retrieved passages from verified evidence?"}
+{"id":"verification_024","category":"fact_verification","query":"How can confidence scores guide whether a generated claim should be included?"}
+{"id":"verification_025","category":"fact_verification","query":"Why should answers distinguish verified facts from plausible inferences?"}
+{"id":"verification_026","category":"fact_verification","query":"How can a system use relation constraints to reduce hallucinated entity relationships?"}
+{"id":"verification_027","category":"fact_verification","query":"Why is it risky to aggregate evidence from low-quality sources?"}
+{"id":"verification_028","category":"fact_verification","query":"How can contradiction detection improve the factuality of generated reports?"}
+{"id":"verification_029","category":"fact_verification","query":"Why should an AI answer admit uncertainty when evidence is incomplete?"}
+{"id":"verification_030","category":"fact_verification","query":"How can grounding generated text in a knowledge graph improve answer auditability?"}

@@ -1,0 +1,13 @@
+[project]
+name = "rule-guided-parallel-text-generation"
+version = "0.1.0"
+description = "Rule-guided KG and GoT enhanced parallel text generation prototype."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+rgptg = "rgptg.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

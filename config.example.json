@@ -1,0 +1,19 @@
+{
+  "llm": {
+    "provider": "mock",
+    "base_url": "https://api.openai.com/v1",
+    "api_key_env": "OPENAI_API_KEY",
+    "model": "gpt-4o-mini",
+    "timeout": 60
+  },
+  "kg": {
+    "provider": "json",
+    "json_path": "data/sample_kg.json",
+    "neo4j_uri": "bolt://localhost:7687",
+    "neo4j_user_env": "NEO4J_USER",
+    "neo4j_password_env": "NEO4J_PASSWORD"
+  },
+  "runtime": {
+    "max_workers": 4
+  }
+}

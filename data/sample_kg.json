@@ -1,0 +1,27 @@
+{
+  "entities": [
+    {"id": "sot", "name": "Skeleton of Thought", "aliases": ["SoT", "骨架思维"]},
+    {"id": "cot", "name": "Chain of Thought", "aliases": ["CoT", "思维链"]},
+    {"id": "got", "name": "Graph of Thoughts", "aliases": ["GoT", "思维图"]},
+    {"id": "kg", "name": "Knowledge Graph", "aliases": ["KG", "知识图谱"]},
+    {"id": "parallel_decoding", "name": "Parallel Decoding", "aliases": ["并行解码"]},
+    {"id": "hallucination", "name": "Hallucination", "aliases": ["幻觉"]},
+    {"id": "dependency", "name": "Logical Dependency", "aliases": ["逻辑依赖"]},
+    {"id": "verification", "name": "Verification", "aliases": ["验证", "校验"]}
+  ],
+  "triples": [
+    {"head": "sot", "relation": "uses", "tail": "parallel_decoding", "confidence": 0.95},
+    {"head": "sot", "relation": "has_risk", "tail": "hallucination", "confidence": 0.74},
+    {"head": "sot", "relation": "weak_at", "tail": "dependency", "confidence": 0.82},
+    {"head": "cot", "relation": "strong_at", "tail": "dependency", "confidence": 0.9},
+    {"head": "got", "relation": "models", "tail": "dependency", "confidence": 0.92},
+    {"head": "kg", "relation": "reduces", "tail": "hallucination", "confidence": 0.86},
+    {"head": "verification", "relation": "reduces", "tail": "hallucination", "confidence": 0.83},
+    {"head": "kg", "relation": "supports", "tail": "verification", "confidence": 0.88},
+    {"head": "got", "relation": "improves", "tail": "sot", "confidence": 0.8}
+  ],
+  "constraints": [
+    {"relation": "reduces", "opposite": "causes", "severity": "hard"},
+    {"relation": "strong_at", "opposite": "weak_at", "severity": "soft"}
+  ]
+}

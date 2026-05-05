@@ -1,0 +1,7 @@
+# Optional dependencies for real integrations and developer workflow.
+# The core prototype can run without these packages.
+
+openai>=1.0.0
+neo4j>=5.0.0
+pytest>=8.0.0
+rich>=13.0.0

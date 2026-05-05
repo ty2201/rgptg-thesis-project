@@ -1,0 +1,2948 @@
+{
+  "topic_id": "Q11660",
+  "topic_name": "artificial intelligence",
+  "entities": [
+    {
+      "id": "Q103474",
+      "name": "2001: A Space Odyssey",
+      "description": "1968 film by Stanley Kubrick",
+      "aliases": [
+        "2001 A Space Odyssey",
+        "2001 Space Odyssey",
+        "2001: Space Odyssey"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1037852",
+      "name": "public-domain software",
+      "description": "software that is in the public domain",
+      "aliases": [
+        "公共領域軟件",
+        "公共领域"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1039416",
+      "name": "frame",
+      "description": "artificial intelligence data structure used to divide knowledge into substructures by representing stereotyped situations",
+      "aliases": [
+        "frame representation language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1047113",
+      "name": "field of study",
+      "description": "field limited to a specific area of knowledge; specialization in an occupation or branch of learning; a specific use",
+      "aliases": [
+        "domain",
+        "specialty",
+        "specialism",
+        "special field",
+        "specialized field of study",
+        "sub-discipline",
+        "subdiscipline",
+        "subject area"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q104858074",
+      "name": "disinformation attack",
+      "description": "coordinated dissemination of false information",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q105604957",
+      "name": "ethical artificial intelligence",
+      "description": "",
+      "aliases": [
+        "ethical AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q106548707",
+      "name": "Lee Luda",
+      "description": "AI chatbot",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q106808934",
+      "name": "Wombo",
+      "description": "lip-syncing deepfake creation app for mobile devices",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1078276",
+      "name": "natural language understanding",
+      "description": "subtopic of natural language processing in artificial intelligence",
+      "aliases": [
+        "NLU"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q109524982",
+      "name": "HPL-AI",
+      "description": "",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q10959",
+      "name": "Ruzena Bajcsy",
+      "description": "American computer scientist",
+      "aliases": [
+        "Ruzena Kucera Bajcsy"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q109975550",
+      "name": "Phi-Sat-2",
+      "description": "earth observation satellite mission",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q11016",
+      "name": "technology",
+      "description": "making, modification, usage, and knowledge of tools, machines, techniques, crafts, systems, and methods of organization, or tools and techniques so created",
+      "aliases": [
+        "tech",
+        "technicology",
+        "technologies",
+        "technological science",
+        "technological sciences",
+        "technology sector"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q110946204",
+      "name": "rule-based language",
+      "description": "programming language that instantiates rules when activated by conditions in a set of data",
+      "aliases": [
+        "rule-based programming language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q111598768",
+      "name": "You.com",
+      "description": "private search engine",
+      "aliases": [
+        "you.com"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1122090",
+      "name": "computational intelligence",
+      "description": "ability of a computer to learn a specific task from data or experimental observation",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q112629176",
+      "name": "Scale AI",
+      "description": "American multinational data annotation company",
+      "aliases": [
+        "Scale AI",
+        "Inc."
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q113127602",
+      "name": "ChatBot",
+      "description": "AI Chatbot Software for Website",
+      "aliases": [
+        "chatbot",
+        "ChatBot",
+        "ChatBot.com"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1142726",
+      "name": "intelligent agent",
+      "description": "agent that perceives its environment, takes actions autonomously in order to achieve goals, and may improve its performance with learning or acquiring knowledge",
+      "aliases": [
+        "IA",
+        "AI agent",
+        "AI agents",
+        "intelligent agents"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q116205378",
+      "name": "Causal AI",
+      "description": "development of artificial intelligence",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q11660",
+      "name": "artificial intelligence",
+      "description": "field of computer science that develops and studies software enabling machines to exhibit intelligent behavior",
+      "aliases": [
+        "AI",
+        "intelligent machine",
+        "AI software",
+        "artificial Intelligence",
+        "artificial smartness",
+        "artificially intelligent",
+        "artificially intelligent beings",
+        "computational rationality"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q11689",
+      "name": "Sabina Jeschke",
+      "description": "German mechanical engineer",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q116956702",
+      "name": "Midjourney, Inc.",
+      "description": "Artificial intelligence company in the United States",
+      "aliases": [
+        "Midjourney"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q11757",
+      "name": "Janet Kolodner",
+      "description": "American cognitive scientist",
+      "aliases": [
+        "Janet L. Kolodner",
+        "Janet Lynne Kolodner"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1185775",
+      "name": "frame problem",
+      "description": "the problem of finding adequate collections of axioms for a viable description of a robot environment using first-order logic",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1185804",
+      "name": "affective computing",
+      "description": "area of research in computer science aiming to understand the emotional state of users",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q11862829",
+      "name": "academic discipline",
+      "description": "academic field of study or profession",
+      "aliases": [
+        "discipline",
+        "research field",
+        "field of study",
+        "academic field",
+        "field of research",
+        "sub-discipline",
+        "academic specialty",
+        "academic branch"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q118970497",
+      "name": "machine unlearning",
+      "description": "field of study in artificial intelligence that aims to give machines the ability to \"forget\" learned information",
+      "aliases": [
+        "MU"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1197129",
+      "name": "evolutionary computation",
+      "description": "subfield of artificial intelligence",
+      "aliases": [
+        "进化算法"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1207836",
+      "name": "Computer Go",
+      "description": "field of artificial intelligence dedicated to creating a computer program that plays Go",
+      "aliases": [
+        "Computer Baduk",
+        "Computer Weiqi"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q123370638",
+      "name": "branch of computer science",
+      "description": "Computer Science sub-disciplines",
+      "aliases": [
+        "branch of computer science",
+        "subfield of computer science",
+        "Computer Science sub-discipline"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q126198166",
+      "name": "artificial intelligence in higher education",
+      "description": "application of artificial intelligence in higher education",
+      "aliases": [
+        "AI in higher education"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q126486452",
+      "name": "Apple Intelligence",
+      "description": "artificial intelligence platform developed by Apple",
+      "aliases": [
+        "Apple AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q12727779",
+      "name": "ethics of artificial intelligence",
+      "description": "ethics of technology specific to robots and other artificially intelligent beings",
+      "aliases": [
+        "ethical AI",
+        "ethical artificial intelligence",
+        "AI ethics",
+        "artificial intelligence ethics"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q127449019",
+      "name": "AI washing",
+      "description": "marketing tactic",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q12772052",
+      "name": "multi-paradigm programming language",
+      "description": "programming language type",
+      "aliases": [
+        "多重范式编程语言"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q12795384",
+      "name": "MAUT",
+      "description": "scientific theory",
+      "aliases": [
+        "Multi-Attribute Utility Theory"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1296464",
+      "name": "Google Health",
+      "description": "division of Google, dealing with personal health information",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1301730",
+      "name": "FIDeS",
+      "description": "German early warning system",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q130609847",
+      "name": "learning approach",
+      "description": "metaclass for learning and education",
+      "aliases": [
+        "type of learning"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q130948825",
+      "name": "Alloy",
+      "description": "AI prototyping software company",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q132820774",
+      "name": "SPINACH Wikidata Agent",
+      "description": "natural language processing AI tool to create sparql Wikidata queries",
+      "aliases": [
+        "SPARQL-Based Information Navigation for Challenging Real-World Questions",
+        "SPINACH Wikidata Bot",
+        "SPINACH Wikidata tool"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q132874",
+      "name": "Lisp",
+      "description": "functional programming language based on the lambda calculus",
+      "aliases": [
+        "ISO/IEC 13816",
+        "JIS X 3012",
+        "Lisp (programming language)",
+        "List Processor",
+        "LISt Processor"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q133141218",
+      "name": "Kling AI",
+      "description": "generative AI tool for image and video creation offering artistic and commercial applications",
+      "aliases": [
+        "Kling AI Generator",
+        "Kling Video AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q133573942",
+      "name": "Lyro",
+      "description": "AI agent for customer service",
+      "aliases": [
+        "Lyro",
+        "Lyro AI",
+        "Lyro AI Agent",
+        "Lyro app",
+        "Lyro chatbot",
+        "Tidio Lyro AI",
+        "Tidio's Lyro",
+        "Lyro by Tidio"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q133868868",
+      "name": "miwo",
+      "description": "AI-based application for detecting KUZUSHI-JI",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134260478",
+      "name": "infrastructure intelligence",
+      "description": "Integration of artificial intelligence with physical infrastructure to enable real-time optimization, automation, and self-learning across energy, mobility, and smart services.",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134263749",
+      "name": "AI-powered infrastructure",
+      "description": "A class of infrastructure where artificial intelligence governs operation, optimization, and management of physical assets across energy, mobility, and digital services.",
+      "aliases": [
+        "AI-driven infrastructure",
+        "autonomous infrastructure",
+        "intelligent infrastructure"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134267434",
+      "name": "real-time optimization",
+      "description": "The continuous process of adjusting decisions, controls, or operations based on live data to achieve optimal outcomes with minimal delay.",
+      "aliases": [
+        "continuous system tuning",
+        "live optimization",
+        "real-time AI optimization"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134281458",
+      "name": "price forecasting",
+      "description": "The process of predicting future prices of goods, services, or assets based on historical data, real-time signals, economic models, and statistical or machine learning techniques.",
+      "aliases": [
+        "market price forecasting",
+        "price prediction",
+        "price projection"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134281645",
+      "name": "energy arbitrage using AI",
+      "description": "the application of artificial intelligence to optimize energy arbitrage by determining when to store, hold, or release electricity based on real-time pricing, forecasts, and system constraints",
+      "aliases": [
+        "AI-powered energy arbitrage",
+        "battery arbitrage optimization",
+        "intelligent arbitrage engine"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134281765",
+      "name": "dynamic pricing in infrastructure services",
+      "description": "The use of AI and real-time data to continuously adjust pricing for infrastructure-based services such as EV charging, energy supply, & automated mobility systems based on demand, supply.",
+      "aliases": [
+        "AI-driven pricing",
+        "infrastructure service price optimization",
+        "real-time pricing for infrastructure"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134524398",
+      "name": "Artificial Intelligence in Care",
+      "description": "",
+      "aliases": [
+        "Artificial intelligence in care"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q134963054",
+      "name": "Tizy",
+      "description": "Consulting firm specializing in CRM and Artificial Intelligence in France",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q135189342",
+      "name": "Enterprise Expo 2024",
+      "description": "Business conference organized by Work Avenue in London, UK",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1353169",
+      "name": "artificial organ",
+      "description": "engineered device or tissue that is implanted or integrated into a human to replace a natural organ",
+      "aliases": [
+        "artificial organs",
+        "synthetic organ"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1362688",
+      "name": "intelligence amplification",
+      "description": "augmentation of intelligence through the use of information technology",
+      "aliases": [
+        "augmented intelligence",
+        "cognitive augmentation",
+        "computational symbiosis",
+        "machine augmented intelligence"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q136994735",
+      "name": "Tidio",
+      "description": "AI customer service software platform",
+      "aliases": [
+        "Tidio",
+        "Tidio Chat",
+        "Tidio app",
+        "Tidio software"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q137271831",
+      "name": "Multimodal fusion of ultrasound images using HXM-Net for breast cancer diagnosis",
+      "description": "Research project on multimodal deep-learning fusion of ultrasound images (HXM-Net) for automated breast cancer diagnosis",
+      "aliases": [
+        "HXM-Net breast cancer project",
+        "Multimodal ultrasound fusion (HXM-Net)",
+        "HXM Net ultrasound breast cancer",
+        "Multimodal fusion using HXM-Net",
+        "Ultrasound HXM-Net breast cancer diagnosis"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q138409003",
+      "name": "Infinite Team Architecture",
+      "description": "A systems-theory meta-framework for boundaryless coordination where \"team\" is defined as the infinite set of all entities—human, systemic, technological, and temporal—whose performance affects a project's outcome.",
+      "aliases": [
+        "Infinite_Team_Architecture"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q14234",
+      "name": "Sarit Kraus",
+      "description": "Israeli computer scientist",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1434706",
+      "name": "Perforce IMSL",
+      "description": "commercial collection of software libraries of numerical analysis functionality",
+      "aliases": [
+        "IMSL",
+        "IMSL Numerical Libraries",
+        "RogueWave"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q147638",
+      "name": "cognitive science",
+      "description": "interdisciplinary scientific study of the mind and its processes",
+      "aliases": [
+        "認知學",
+        "認知科學家"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1513879",
+      "name": "natural language generation",
+      "description": "automatic text generation using a computer algorithm",
+      "aliases": [
+        "text generation",
+        "NLG",
+        "natural language text generation"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q151885",
+      "name": "concept",
+      "description": "semantic unit understood in different ways, e.g. as mental representation, ability or abstract object (philosophy)",
+      "aliases": [
+        "觀念"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1568240",
+      "name": "PDP-10",
+      "description": "mainframe computer family from DEC",
+      "aliases": [
+        "DEC-10",
+        "decstation-10"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q158474",
+      "name": "Eagle Eye",
+      "description": "2008 film directed by D. J. Caruso",
+      "aliases": [
+        "鷹眼追擊"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q16000353",
+      "name": "timeline of artificial intelligence",
+      "description": "timeline",
+      "aliases": [
+        "AI timeline",
+        "artificial intelligence timeline",
+        "timeline of AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1603203",
+      "name": "commonsense knowledge base",
+      "description": "facts about the everyday world that all humans are expected to know",
+      "aliases": [
+        "commonsense knowledge"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q16490",
+      "name": "Jeannette Wing",
+      "description": "American computer scientist",
+      "aliases": [
+        "J. M. Wing",
+        "Jeannette M. Wing",
+        "Jeannette Marie Wing"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q165372",
+      "name": "CLIPS",
+      "description": "public domain software tool for building expert systems",
+      "aliases": [
+        "CLIPS程序设计语言"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q166142",
+      "name": "application software",
+      "description": "software program or group of programs designed for end-users",
+      "aliases": [
+        "software",
+        "app",
+        "application program",
+        "software application",
+        "computer application"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1661989",
+      "name": "Industry 4.0",
+      "description": "4th Industrial revolution or current trend of automation and data exchange in manufacturing technologies 4.0",
+      "aliases": [
+        "4IR",
+        "4th Industrial Revolution"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q16632290",
+      "name": "Intelligent Autonomous Systems",
+      "description": "",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q16655792",
+      "name": "Intelligent Robotics",
+      "description": "",
+      "aliases": [
+        "智能机器人学"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q16673018",
+      "name": "Berenson the Robot",
+      "description": "Exploring aesthetic judgment from an interactive point of view with a humanoid robot at the show Persona: Oddly Human",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q17130715",
+      "name": "Slack",
+      "description": "web-based instant messaging service",
+      "aliases": [
+        "chatly.io",
+        "chatlyio",
+        "Slack HQ"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q172491",
+      "name": "data mining",
+      "description": "the process of extracting and discovering patterns in large data sets",
+      "aliases": [
+        "datamining",
+        "knowledge discovery",
+        "data discovery",
+        "information mining",
+        "mining data",
+        "mining of data"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1763653",
+      "name": "LiveChat",
+      "description": "AI live chat software for business",
+      "aliases": [
+        "Live Chat Software with AI",
+        "LiveChat.com",
+        "Live Chat",
+        "livechat software"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q17737",
+      "name": "theory",
+      "description": "contemplative and rational type of abstract or generalizing thinking, or the results of such thinking",
+      "aliases": [
+        "theories"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q17986565",
+      "name": "COART",
+      "description": "The mobile application (IBM Watson) allows visitors to the exhibition Michael Willmann. Opus Magnum to interact about the work Paradise in Polish by asking questions.",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q18114355",
+      "name": "RoboThespian",
+      "description": "humanoid robot",
+      "aliases": [
+        "Robo Thespian"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q184609",
+      "name": "expert system",
+      "description": "computer system that emulates the decision-making ability of a human expert",
+      "aliases": [
+        "專家系統"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q184843",
+      "name": "Blade Runner",
+      "description": "1982 film by Ridley Scott",
+      "aliases": [
+        "Blade Runner",
+        "公元2020",
+        "银翼杀手"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q188860",
+      "name": "software library",
+      "description": "collection of non-volatile resources used by computer programs, often for software development",
+      "aliases": [
+        "library",
+        "lib",
+        "programming library",
+        "code generation library",
+        "computer library"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q189210",
+      "name": "web application",
+      "description": "application that uses a web browser as a client",
+      "aliases": [
+        "web tool",
+        "online tool",
+        "web app",
+        "web interface",
+        "web-based application",
+        "web-based interface",
+        "webapp"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q192776",
+      "name": "artificial neural network",
+      "description": "computational model used in machine learning, based on connected, hierarchical functions",
+      "aliases": [
+        "neural network",
+        "NN",
+        "ANN",
+        "SNN",
+        "artificial neural networks",
+        "connectionist system",
+        "connectionist systems",
+        "deep nets"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1981968",
+      "name": "heuristic",
+      "description": "type of algorithm that may sometimes fail or produce an approximate, incorrect, or suboptimal result",
+      "aliases": [
+        "computer heuristic",
+        "computer heuristics",
+        "heuristic algorithm",
+        "heuristic programming"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q1993334",
+      "name": "interpreted language",
+      "description": "programming language for which most of its implementations execute instructions directly",
+      "aliases": [
+        "interpreted programming language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q200572",
+      "name": "I, Robot",
+      "description": "2004 film directed by Alex Proyas",
+      "aliases": [
+        "我，机械人",
+        "我，機器人",
+        "智能叛变",
+        "智能叛變"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q203790",
+      "name": "connectionism",
+      "description": "approach in cognitive science that hopes to explain mental phenomena using artificial neural networks",
+      "aliases": [
+        "connexionism"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q207011",
+      "name": "neuroscience",
+      "description": "scientific study of the nervous system",
+      "aliases": [
+        "neurobiology",
+        "neurosciences"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2072794",
+      "name": "particle swarm optimization",
+      "description": "optimization method using a set of candidate solutions moving around in the search-space",
+      "aliases": [
+        "Particle Swarm Optimization"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q210868",
+      "name": "sampling",
+      "description": "measurement of a signal at discrete time intervals",
+      "aliases": [
+        "temporal sampling",
+        "time-domain sampling"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q21198",
+      "name": "computer science",
+      "description": "study of computation",
+      "aliases": [
+        "computer sciences",
+        "computing",
+        "informatics",
+        "CS",
+        "Computer Science",
+        "comp sci",
+        "comp. sci",
+        "comp. sci."
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q221113",
+      "name": "A.I. Artificial Intelligence",
+      "description": "2001 film directed by Steven Spielberg",
+      "aliases": [
+        "Artificial Intelligence",
+        "A.I.: Artificial Intelligence",
+        "AI",
+        "A.I.",
+        "Artificial Intelligence: A.I."
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2264109",
+      "name": "artificial general intelligence",
+      "description": "theoretical class of AI able to perform any intelligence-based task humans can",
+      "aliases": [
+        "AGI",
+        "GAI",
+        "full AI",
+        "full artificial intelligence",
+        "general AI",
+        "General Artificial Intelligence",
+        "general intelligent action",
+        "strong AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2267705",
+      "name": "field of study",
+      "description": "field of study leading to a specific degree",
+      "aliases": [
+        "field of education",
+        "area of study"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q22908627",
+      "name": "语义学者",
+      "description": "search service for journal articles",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q23404",
+      "name": "anthropology",
+      "description": "scientific study of humans, human behavior, and societies",
+      "aliases": [
+        "anthropological"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q23407",
+      "name": "philosophy of mind",
+      "description": "branch of philosophy that studies the nature of the mind",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q24868018",
+      "name": "masked language model",
+      "description": "a model which predicts a masked word in a sentence",
+      "aliases": [
+        "masked language modeling"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2494121",
+      "name": "artificial intelligence in video games",
+      "description": "simulation of human-like intelligence in video games",
+      "aliases": [
+        "AI in video games",
+        "AI in video gaming",
+        "artificial intelligence in video gaming",
+        "video game AI",
+        "video game artificial intelligence"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2539",
+      "name": "machine learning",
+      "description": "scientific study of algorithms and statistical models that computer systems use to perform tasks without explicit instructions",
+      "aliases": [
+        "ML",
+        "statistical learning",
+        "statistical machine learning"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2555318",
+      "name": "automated reasoning",
+      "description": "subfield of computer science and logic",
+      "aliases": [
+        "reasoning"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2592244",
+      "name": "history of artificial intelligence",
+      "description": "overview of the history of artificial intelligence",
+      "aliases": [
+        "artificial intelligence history",
+        "history of AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q25933185",
+      "name": "artificial intelligence in fiction",
+      "description": "artificial intelligence as depicted in works of fiction",
+      "aliases": [
+        "AI in fiction"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2626581",
+      "name": "Moravec's paradox",
+      "description": "observation that perception requires more computation than reasoning",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2631895",
+      "name": "automated planning and scheduling",
+      "description": "branch of artificial intelligence that concerns the realization of strategies or action sequences",
+      "aliases": [
+        "AI planning"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2652378",
+      "name": "hybrid intelligent system",
+      "description": "software system which employs a combination techniques from artificial intelligence subfields",
+      "aliases": [
+        "混合的"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q26751",
+      "name": "Moon",
+      "description": "2009 film directed by Duncan Jones",
+      "aliases": [
+        "寂寞月影",
+        "月劫余生"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28038508",
+      "name": "image recognition",
+      "description": "image identification made by artificial intelligence",
+      "aliases": [
+        "影像识别"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28324942",
+      "name": "Quick, Draw!",
+      "description": "browser video game by Google",
+      "aliases": [
+        "DRAW!"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28324961",
+      "name": "artificial intelligence in healthcare",
+      "description": "use of complex algorithms and software to approximate human cognition in the analysis of complicated medical data",
+      "aliases": [
+        "AI in healthcare",
+        "AI in medicine",
+        "artificial intelligence in medicine"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2882343",
+      "name": "multi-armed bandit",
+      "description": "reinforcement learning problem exemplifying the exploration–exploitation tradeoff",
+      "aliases": [
+        "bandit problem",
+        "K-armed bandit",
+        "multi-armed bandit problem",
+        "N-armed bandit"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28865",
+      "name": "Python",
+      "description": "general-purpose programming language",
+      "aliases": [
+        "Python (computer language)",
+        "Python (computing)",
+        "Python (lang)",
+        "Python (language)",
+        "Python (Programming Language)",
+        "Python (programming)",
+        "Python (scripting language)",
+        "Python (software)"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28922885",
+      "name": "procedural programming language",
+      "description": "type of programming language",
+      "aliases": [
+        "procedural language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28922887",
+      "name": "metaprogramming language",
+      "description": "programming language",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28922893",
+      "name": "reflective programming language",
+      "description": "programming language",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q28957014",
+      "name": "Google Cloud Search",
+      "description": "software",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q293917",
+      "name": "MIT-AI",
+      "description": "PDP 10 computer",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q2993663",
+      "name": "artificial consciousness",
+      "description": "field in cognitive science",
+      "aliases": [
+        "AC"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q30325604",
+      "name": "FaceApp",
+      "description": "mobile application",
+      "aliases": [
+        "Face app",
+        "Face app old face",
+        "Faceapp old face"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q30642",
+      "name": "natural language processing",
+      "description": "field of computer science and linguistics",
+      "aliases": [
+        "NLP"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3153007",
+      "name": "distributed artificial intelligence",
+      "description": "subfield of artificial intelligence",
+      "aliases": [
+        "DAI",
+        "AI Swarm Intelligence"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3478658",
+      "name": "knowledge representation and reasoning",
+      "description": "field of artificial intelligence on representing information in a form that a computer system can use to solve complex tasks",
+      "aliases": [
+        "KR",
+        "KRR",
+        "KR&R",
+        "KR²"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q35127",
+      "name": "website",
+      "description": "set of related web pages served from a single web domain",
+      "aliases": [
+        "site",
+        "web site",
+        "websites",
+        "Internet site",
+        "World Wide Web site",
+        "WWW site"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3839507",
+      "name": "functional programming language",
+      "description": "programming language that uses functional programming principles",
+      "aliases": [
+        "functional language",
+        "functional languages"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3841450",
+      "name": "MNOD",
+      "description": "algorithm",
+      "aliases": [
+        "Multi-Networks for Object Detection"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3851731",
+      "name": "Automated Mathematician",
+      "description": "1970s discovery system software",
+      "aliases": [
+        "automaths"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q3889635",
+      "name": "toy problem",
+      "description": "simplified example problem used for research or exposition",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4117674",
+      "name": "self-management",
+      "description": "planning and organizing done by an artificial intelligence",
+      "aliases": [
+        "machine self-management"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q431289",
+      "name": "brand",
+      "description": "identification for a good or service",
+      "aliases": [
+        "brandmark"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4386060",
+      "name": "cognitive architecture",
+      "description": "blueprint for intelligent agents",
+      "aliases": [
+        "认知架构"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4652026",
+      "name": "AI capability control",
+      "description": "hypothetical isolated computer hardware system where a possibly dangerous artificial intelligence is kept constrained in a virtual prison and not allowed to manipulate events in the external world",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4652028",
+      "name": "AI winter",
+      "description": "period of reduced funding and interest in AI",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4671286",
+      "name": "academic major",
+      "description": "focus of academic study leading to a degree",
+      "aliases": [
+        "major",
+        "field of study",
+        "main discipline",
+        "main field of study",
+        "main speciality of study",
+        "major concentration",
+        "major discipline",
+        "speciality of study"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4677630",
+      "name": "activity recognition",
+      "description": "field of research related to recognizing the actions and goals of computer agents",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4692102",
+      "name": "agentic leadership",
+      "description": "style of leadership",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4781507",
+      "name": "applications of artificial intelligence",
+      "description": "applications of machine intelligence",
+      "aliases": [
+        "applications of AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4801076",
+      "name": "artificial imagination",
+      "description": "artificial simulation of human imagination",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q4927302",
+      "name": "blocks world",
+      "description": "toy problem in artificial intelligence research",
+      "aliases": [
+        "blocksworld"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q50330193",
+      "name": "Operation Serenata de Amor",
+      "description": "cyber activism project",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q503343",
+      "name": "Westworld",
+      "description": "1973 film directed by Michael Crichton",
+      "aliases": [
+        "西方極樂園"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q504697",
+      "name": "WarGames",
+      "description": "1983 film directed by John Badham",
+      "aliases": [
+        "Wargames"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q5153664",
+      "name": "commonsense reasoning",
+      "description": "branch of artificial intelligence aiming to create AI systems with \"common sense\"",
+      "aliases": [
+        "常识推理"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q5156336",
+      "name": "competitions and prizes in artificial intelligence",
+      "description": "Research awards",
+      "aliases": [
+        "人工智能競賽及獎項"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q51781",
+      "name": "Katia Sycara",
+      "description": "Greek-American computer scientist",
+      "aliases": [
+        "Ekaterini Sycara"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q519910",
+      "name": "Eva",
+      "description": "2011 film directed by Kike Maíllo",
+      "aliases": [
+        "EVA奇機世界"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q540125",
+      "name": "Short Circuit",
+      "description": "1986 film directed by John Badham",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q5514059",
+      "name": "symbolic artificial intelligence",
+      "description": "methods in artificial intelligence research that are based on high-level symbolic representations of problems, logic and search, dominant from the 1950s until the 1980s",
+      "aliases": [
+        "symbolic AI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q56248890",
+      "name": "artificial intelligence in Wikimedia projects",
+      "description": "artificial intelligence research and tools applied to Wikimedia projects",
+      "aliases": [
+        "AI and Wikipedia",
+        "Wikipedia and AI",
+        "AI in Wikimedia projects",
+        "Wikimedia projects and AI",
+        "Wikimedia projects and artificial intelligence"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q56248902",
+      "name": "Wikimedia community project",
+      "description": "project of the Wikimedia community",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q564345",
+      "name": "Person of Interest",
+      "description": "American science fiction crime drama television series (2011–2016)",
+      "aliases": [
+        "P.O.I."
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q568723",
+      "name": "MASSIVE",
+      "description": "software package for generating crowd-related visual effects for film and television",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q6044153",
+      "name": "intelligent user interface",
+      "description": "as in the design of human-computer interaction",
+      "aliases": [
+        "IUI",
+        "intelligent UI",
+        "interface agent"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q607112",
+      "name": "The Three-Body Problem",
+      "description": "science fiction novel by Liu Cixin",
+      "aliases": [
+        "Three-Body Problem"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q607276",
+      "name": "The Dark Forest",
+      "description": "2008 science fiction novel by Liu Cixin, sequel to The Three-Body Problem",
+      "aliases": [
+        "187J3X1",
+        "Three Body II: The Dark Forest"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q60827595",
+      "name": "AlphaFold",
+      "description": "software by DeepMind that has predicated how every protein folds",
+      "aliases": [
+        "AlphaFold 2",
+        "Alpha Fold",
+        "AlphaFold 3"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q620588",
+      "name": "Terminator",
+      "description": "science fiction action media franchise",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q620615",
+      "name": "mobile app",
+      "description": "software application designed to run on mobile devices",
+      "aliases": [
+        "app",
+        "apps",
+        "mobile application",
+        "smartphone app",
+        "smartphone application",
+        "mobile applications",
+        "Mobile applications",
+        "mobile apps"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q626483",
+      "name": "Tron",
+      "description": "1982 film directed by Steven Lisberger",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q64139102",
+      "name": "KBpedia",
+      "description": "free ontology aimed at making data and knowledge interoperable for machine learning",
+      "aliases": [
+        "knowledge base pedia"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q6770893",
+      "name": "marketing and artificial intelligence",
+      "description": "artificial intelligence assisted marketing",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q6804076",
+      "name": "means–ends analysis",
+      "description": "problem-solving technique used commonly in artificial intelligence for limiting search in AI programs",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q688651",
+      "name": "Armitage III",
+      "description": "1995 cyberpunk original video animation series",
+      "aliases": [
+        "奥美帝Ⅲ",
+        "奧美帝III"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q7002613",
+      "name": "neurorobotics",
+      "description": "combined study of neuroscience, robotics, and artificial intelligence",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q715526",
+      "name": "Summer Wars",
+      "description": "2009 Japanese anime film",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q731789",
+      "name": "Pixel Perfect",
+      "description": "2004 television film directed by Mark A.Z. Dippé",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q7397",
+      "name": "software",
+      "description": "non-tangible executable component of a computer",
+      "aliases": [
+        "computational tool",
+        "computer software",
+        "dghed"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q77446651",
+      "name": "photography by artificial intelligence",
+      "description": "photographic technique",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q7795822",
+      "name": "Thompson sampling",
+      "description": "heuristic for choosing actions that addresses the exploration-exploitation dilemma in the multi-armed bandit problem",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q785031",
+      "name": "Weird Science",
+      "description": "1985 film by John Hughes",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q788172",
+      "name": "autonomic computing",
+      "description": "a machine, a device, or software that can operate with minimal or no human control",
+      "aliases": [
+        "AC",
+        "autonomous technologies",
+        "autonomous technology",
+        "autonomy-oriented computation"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q788822",
+      "name": "Her",
+      "description": "2013 film by Spike Jonze",
+      "aliases": [
+        "觸不到的她",
+        "雲端情人"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q795924",
+      "name": "Mobile World Congress",
+      "description": "exhibition for the mobile industry",
+      "aliases": [
+        "MWC",
+        "GSMA Mobile World Congress",
+        "MWC Barcelona",
+        "MWC2019"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q8162",
+      "name": "linguistics",
+      "description": "scientific study of language",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q816264",
+      "name": "formal science",
+      "description": "set of disciplines concerned with formal systems, such as logic, mathematics, and game theory",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q83495",
+      "name": "The Matrix",
+      "description": "1999 American science fiction action thriller film",
+      "aliases": [
+        "Matrix I",
+        "The Matrix I"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q8366",
+      "name": "algorithm",
+      "description": "sequence of instructions to perform a task",
+      "aliases": [
+        "algorithms",
+        "mathematical algorithm"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q84997310",
+      "name": "SYNTHESYS+",
+      "description": "EU project",
+      "aliases": [
+        "SYNTHESYS PLUS"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q852453",
+      "name": "motion detection",
+      "description": "process of detecting a change in the position of an object relative to its surroundings or a change in the surroundings relative to an object",
+      "aliases": [
+        "动作传感器",
+        "动作感应",
+        "运动传感",
+        "运动感应"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q85738917",
+      "name": "AI Dungeon",
+      "description": "text adventure game generated by artificial intelligence",
+      "aliases": [
+        "AI Dungeon 2"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q863401",
+      "name": "International Joint Conference on Artificial Intelligence",
+      "description": "scientific conference on AI",
+      "aliases": [
+        "International Joint Conferences on Artificial Intelligence",
+        "IJCAI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q867283",
+      "name": "The Iron Giant",
+      "description": "1999 film by Brad Bird",
+      "aliases": [
+        "Iron Giant"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q870780",
+      "name": "chatbot",
+      "description": "program or set of instructions that simulates conversation with humans",
+      "aliases": [
+        "bot",
+        "chatbots",
+        "AI chatbot",
+        "chatterbot",
+        "chat bot",
+        "chat-bot",
+        "chatter bot",
+        "conversational UI"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q899523",
+      "name": "object-based language",
+      "description": "programming language",
+      "aliases": [
+        "object-oriented programming language",
+        "OOP",
+        "object-oriented language",
+        "OOP programming language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q9143",
+      "name": "programming language",
+      "description": "language for communicating instructions to a machine",
+      "aliases": [
+        "computer programming",
+        "computer language",
+        "computer programming language",
+        "coding language"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q924044",
+      "name": "Lecture Notes in Computer Science",
+      "description": "book series by Springer publishing",
+      "aliases": [
+        "0302-9743",
+        "LNCS",
+        "Springer Lecture Notes in Computer Science",
+        "Springer Series 558",
+        "Springer Series-ID 558"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92646",
+      "name": "John Henry Holland",
+      "description": "US university professor ,American scientist (1929–2015)",
+      "aliases": [
+        "John Holland",
+        "John Hollander",
+        "John H. Holland"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92665",
+      "name": "John F. Sowa",
+      "description": "artificial intelligence researcher",
+      "aliases": [
+        "John Florian Sowa"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92691",
+      "name": "Daniel G. Bobrow",
+      "description": "American computer scientist (1935-2017)",
+      "aliases": [
+        "D. G. Bobrow",
+        "Daniel Gureasko Bobrow",
+        "Danny Bobrow"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92723",
+      "name": "Harold Cohen",
+      "description": "English painter and computer artist, active in the United States (1928–2016)",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92735",
+      "name": "Jürgen Schmidhuber",
+      "description": "German computer scientist and artificial intelligence researcher",
+      "aliases": [
+        "Schmidhuber",
+        "J Schmidhuber",
+        "J. Schmidhuber",
+        "Juergen Schmidhuber",
+        "Schmidhuber J",
+        "Schmidhuber J."
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92739",
+      "name": "John McCarthy",
+      "description": "American computer scientist and cognitive scientist (1927-2011)",
+      "aliases": [
+        "约翰·麦肯锡"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92767",
+      "name": "Lotfi A. Zadeh",
+      "description": "American electrical engineer and computer scientist (1921–2017)",
+      "aliases": [
+        "卢菲特·泽德"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92809",
+      "name": "Rodney Brooks",
+      "description": "Australian roboticist",
+      "aliases": [
+        "Rodney A Brooks",
+        "Rodney A. Brooks",
+        "Rodney Allen Brooks"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92820",
+      "name": "Raj Reddy",
+      "description": "Indian-American computer scientist",
+      "aliases": [
+        "Dabbala Rajagopal \"Raj\" Reddy",
+        "Dabbala Rajagopal Reddy"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92823",
+      "name": "Edward Feigenbaum",
+      "description": "American computer scientist (born 1936)",
+      "aliases": [
+        "Ed Feigenbaum",
+        "Edward A. Feigenbaum",
+        "Edward Albert Feigenbaum"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92826",
+      "name": "Terry Winograd",
+      "description": "American professor",
+      "aliases": [
+        "Terry Allen Winograd"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92834",
+      "name": "David Waltz",
+      "description": "computer scientist (1943–2012)",
+      "aliases": [
+        "Dave Waltz",
+        "David L. Waltz",
+        "David Leigh Waltz"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92890",
+      "name": "Richard Wallace",
+      "description": "American computer programmer",
+      "aliases": [
+        "Richard S. Wallace 0001"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92894",
+      "name": "杰弗里·欣顿",
+      "description": "British-Canadian computer scientist and psychologist",
+      "aliases": [
+        "G. E. Hinton",
+        "Geoff Hinton"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92924",
+      "name": "Mihai Nadin",
+      "description": "Romanian computer scientist",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92968",
+      "name": "Georgy Adelson-Velsky",
+      "description": "Russian mathematician (1922–2014)",
+      "aliases": [
+        "Georgy Maximovich Adelson-Velsky"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92985",
+      "name": "Robin Li",
+      "description": "billionaire businessman and entrepreneur",
+      "aliases": [
+        "Li Yanhong",
+        "Robin Li Yanhong"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q92995",
+      "name": "Wolfgang Wahlster",
+      "description": "German artificial intelligence researcher",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q93012",
+      "name": "Jonathan Schaeffer",
+      "description": "Canadian computer scientist",
+      "aliases": [
+        "Jonathan Herbert Schaeffer"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q9418",
+      "name": "psychology",
+      "description": "study of mental functions and behaviours",
+      "aliases": [
+        "心理学"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q942348",
+      "name": "robot-assisted dih",
+      "description": "surgical procedure aided by robotic systems",
+      "aliases": [
+        "robotic surgery",
+        "robotic surgical procedure",
+        "robotic surgical procedures"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q95076531",
+      "name": "semi-automatic image recognition",
+      "description": "image identification made by artificial intelligence followed by a human review",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q960369",
+      "name": "AI effect",
+      "description": "phenomenon that onlookers discount the behavior of an artificial intelligence program by arguing that it is not real intelligence",
+      "aliases": [
+        "Tesler's Theorem"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q96407327",
+      "name": "synthetic media",
+      "description": "artificial data manipulation",
+      "aliases": [
+        "deepfake",
+        "deep fake",
+        "AI-generated media",
+        "generative media",
+        "personalized media"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q97359109",
+      "name": "Dimensions in Testimony",
+      "description": "Visitors can enter into a \"dialogue\" with virtual twins of Holocaust survivors via an interactive display.",
+      "aliases": [],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q977260",
+      "name": "artificial brain",
+      "description": "software and hardware with cognitive abilities similar to those of the animal or human brain",
+      "aliases": [
+        "artificial mind"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q98682849",
+      "name": "Rapid",
+      "description": "OpenStreetMap editor for mass building imports",
+      "aliases": [
+        "RapiD",
+        "Rapid Editor"
+      ],
+      "source": "wikidata"
+    },
+    {
+      "id": "Q99441821",
+      "name": "Museums and Artificial Intelligence Network",
+      "description": "AHRC Research Grant (2019)",
+      "aliases": [],
+      "source": "wikidata"
+    }
+  ],
+  "relations": [
+    {
+      "head": "Q16632290",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q17130715",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q60827595",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q106548707",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q111598768",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q112629176",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q113127602",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q116956702",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q126198166",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q126486452",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q127449019",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q130948825",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132820774",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q133141218",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q133573942",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q133868868",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134260478",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134263749",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134267434",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134281458",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134281645",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134281765",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134524398",
+      "relation": "instance_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q30642",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q184609",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q788172",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1122090",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1185804",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1197129",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1207836",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1362688",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1981968",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2072794",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2264109",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2631895",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q3153007",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q3478658",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q3851731",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4117674",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4652026",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4677630",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4781507",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q5514059",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q6770893",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q7002613",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q16655792",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q25933185",
+      "relation": "subclass_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q11660",
+      "relation": "part_of",
+      "tail": "Q21198",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q203790",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2555318",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4386060",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q7795822",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q12795384",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q28038508",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q64139102",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q95076531",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q116205378",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q118970497",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q137271831",
+      "relation": "part_of",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4386060",
+      "relation": "part_of",
+      "tail": "Q151885",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q7795822",
+      "relation": "part_of",
+      "tail": "Q210868",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q7795822",
+      "relation": "part_of",
+      "tail": "Q2882343",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q118970497",
+      "relation": "part_of",
+      "tail": "Q21198",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q1047113",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q2267705",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q11862829",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q123370638",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q2539",
+      "relation": "part_of",
+      "tail": "Q130609847",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q203790",
+      "relation": "part_of",
+      "tail": "Q17737",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q28865",
+      "relation": "use",
+      "tail": "Q899523",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q1993334",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q3839507",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q12772052",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q28922885",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q28922887",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q132874",
+      "relation": "use",
+      "tail": "Q28922893",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q165372",
+      "relation": "use",
+      "tail": "Q9143",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q165372",
+      "relation": "use",
+      "tail": "Q184609",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q165372",
+      "relation": "use",
+      "tail": "Q899523",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q165372",
+      "relation": "use",
+      "tail": "Q1037852",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q165372",
+      "relation": "use",
+      "tail": "Q110946204",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q293917",
+      "relation": "use",
+      "tail": "Q1568240",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1434706",
+      "relation": "use",
+      "tail": "Q188860",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1434706",
+      "relation": "use",
+      "tail": "Q431289",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q7397",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q11016",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q35127",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q166142",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q189210",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q431289",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q620615",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1763653",
+      "relation": "use",
+      "tail": "Q870780",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q3841450",
+      "relation": "use",
+      "tail": "Q8366",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q4927302",
+      "relation": "use",
+      "tail": "Q3889635",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q11660",
+      "relation": "has_part",
+      "tail": "Q2539",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q11660",
+      "relation": "has_part",
+      "tail": "Q203790",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q11660",
+      "relation": "has_part",
+      "tail": "Q5514059",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q11660",
+      "relation": "has_part",
+      "tail": "Q105604957",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q21198",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q977260",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q1661989",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q56248890",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q134963054",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q135189342",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q136994735",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q138409003",
+      "relation": "has_part",
+      "tail": "Q11660",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q21198",
+      "relation": "has_part",
+      "tail": "Q816264",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q8162",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q9418",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q23404",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q23407",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q207011",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q977260",
+      "relation": "has_part",
+      "tail": "Q1353169",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q56248890",
+      "relation": "has_part",
+      "tail": "Q56248902",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q21198",
+      "relation": "has_part",
+      "tail": "Q4671286",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q21198",
+      "relation": "has_part",
+      "tail": "Q11862829",
+      "confidence": 1.0,
+      "source": "wikidata"
+    },
+    {
+      "head": "Q147638",
+      "relation": "has_part",
+      "tail": "Q2267705",
+      "confidence": 1.0,
+      "source": "wikidata"
+    }
+  ]
+}

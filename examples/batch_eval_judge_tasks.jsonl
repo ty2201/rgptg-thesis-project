@@ -1,0 +1,3 @@
+{"id":"general_001","category":"general_knowledge","query":"Explain how AlphaFold changed protein structure prediction and what limitations remain."}
+{"id":"dependency_001","category":"logical_dependency","query":"Why must an AI system verify retrieved evidence before aggregating an answer, and what can go wrong if these steps are executed in parallel without dependencies?"}
+{"id":"verification_001","category":"fact_verification","query":"How can knowledge graphs help reduce hallucination in retrieval-augmented generation systems?"}

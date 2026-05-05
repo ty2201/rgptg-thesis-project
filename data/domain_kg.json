@@ -1,0 +1,163 @@
+{
+  "entities": [
+    {
+      "id": "artificial_intelligence",
+      "name": "Artificial Intelligence",
+      "aliases": ["AI", "人工智能", "智能系统"],
+      "description": "A broad field of systems that perform tasks normally requiring human intelligence."
+    },
+    {
+      "id": "sot",
+      "name": "Skeleton of Thought",
+      "aliases": ["SoT", "骨架思维", "思维骨架"],
+      "description": "A generation strategy that first creates a skeleton and then expands nodes in parallel."
+    },
+    {
+      "id": "cot",
+      "name": "Chain of Thought",
+      "aliases": ["CoT", "思维链"],
+      "description": "A sequential reasoning style that expands intermediate reasoning steps in order."
+    },
+    {
+      "id": "got",
+      "name": "Graph of Thoughts",
+      "aliases": ["GoT", "思维图"],
+      "description": "A reasoning framework that organizes thoughts as graph nodes and dependencies."
+    },
+    {
+      "id": "kg",
+      "name": "Knowledge Graph",
+      "aliases": ["KG", "知识图谱"],
+      "description": "A structured representation of entities and typed relations used for grounding and verification."
+    },
+    {
+      "id": "dag",
+      "name": "Directed Acyclic Graph",
+      "aliases": ["DAG", "有向无环图"],
+      "description": "A graph structure whose directed dependencies do not form cycles."
+    },
+    {
+      "id": "parallel_decoding",
+      "name": "Parallel Decoding",
+      "aliases": ["并行解码", "并行生成"],
+      "description": "Expanding independent generation units concurrently."
+    },
+    {
+      "id": "hallucination",
+      "name": "Hallucination",
+      "aliases": ["幻觉", "事实幻觉"],
+      "description": "Generated content that is unsupported, false, or inconsistent with evidence."
+    },
+    {
+      "id": "dependency",
+      "name": "Logical Dependency",
+      "aliases": ["dependency", "dependencies", "logical dependency", "逻辑依赖", "前置依赖"],
+      "description": "A relation indicating that one thought node should be generated after another."
+    },
+    {
+      "id": "verification",
+      "name": "Verification",
+      "aliases": ["verify", "verifies", "verified", "verification", "evidence verification", "验证", "校验", "事实校验"],
+      "description": "Checking generated claims against evidence or constraints."
+    },
+    {
+      "id": "entity_linking",
+      "name": "Entity Linking",
+      "aliases": ["实体链接", "语义锚定"],
+      "description": "Mapping words in the user query to knowledge graph entities."
+    },
+    {
+      "id": "kg_retrieval",
+      "name": "KG Retrieval",
+      "aliases": ["retrieval", "retrieved evidence", "knowledge retrieval", "KG retrieval", "图谱检索", "知识检索"],
+      "description": "Retrieving relevant triples and paths from the knowledge graph."
+    },
+    {
+      "id": "node_planning",
+      "name": "Thought Node Planning",
+      "aliases": ["节点规划", "骨架节点生成"],
+      "description": "Creating thought nodes before expansion."
+    },
+    {
+      "id": "evidence_branch",
+      "name": "Evidence Branch",
+      "aliases": ["evidence", "retrieved evidence", "evidence branch", "evidence node", "证据分支", "证据节点"],
+      "description": "A thought node grounded by a specific knowledge graph triple or path."
+    },
+    {
+      "id": "aggregation",
+      "name": "Aggregation",
+      "aliases": ["aggregate", "aggregating", "aggregation", "answer aggregation", "聚合", "综合回答"],
+      "description": "Combining expanded thought nodes into the final answer."
+    },
+    {
+      "id": "constraint_checking",
+      "name": "Constraint Checking",
+      "aliases": ["约束检查", "规则校验"],
+      "description": "Using rules and KG constraints to prune or downgrade invalid nodes."
+    },
+    {
+      "id": "scheduler",
+      "name": "DAG Scheduler",
+      "aliases": ["DAG 调度器", "混合调度"],
+      "description": "Running independent nodes in parallel and dependent nodes in order."
+    },
+    {
+      "id": "answer_quality",
+      "name": "Answer Quality",
+      "aliases": ["文本质量", "回答质量"],
+      "description": "The combined quality of factuality, coherence, coverage, and structure."
+    },
+    {
+      "id": "factuality",
+      "name": "Factuality",
+      "aliases": ["事实性", "真实性"],
+      "description": "The degree to which generated text is supported by reliable evidence."
+    },
+    {
+      "id": "coherence",
+      "name": "Coherence",
+      "aliases": ["连贯性", "一致性"],
+      "description": "The logical and textual consistency of the generated answer."
+    }
+  ],
+  "triples": [
+    {"head": "sot", "relation": "uses", "tail": "parallel_decoding", "confidence": 0.95},
+    {"head": "sot", "relation": "has_risk", "tail": "hallucination", "confidence": 0.82},
+    {"head": "sot", "relation": "weak_at", "tail": "dependency", "confidence": 0.84},
+    {"head": "cot", "relation": "strong_at", "tail": "dependency", "confidence": 0.9},
+    {"head": "got", "relation": "models", "tail": "dependency", "confidence": 0.93},
+    {"head": "got", "relation": "improves", "tail": "sot", "confidence": 0.86},
+    {"head": "got", "relation": "uses", "tail": "dag", "confidence": 0.92},
+    {"head": "dag", "relation": "models", "tail": "dependency", "confidence": 0.91},
+    {"head": "kg", "relation": "supports", "tail": "entity_linking", "confidence": 0.9},
+    {"head": "entity_linking", "relation": "enables", "tail": "kg_retrieval", "confidence": 0.88},
+    {"head": "kg_retrieval", "relation": "supports", "tail": "node_planning", "confidence": 0.9},
+    {"head": "kg_retrieval", "relation": "provides", "tail": "evidence_branch", "confidence": 0.91},
+    {"head": "evidence_branch", "relation": "grounds", "tail": "node_planning", "confidence": 0.9},
+    {"head": "node_planning", "relation": "constructs", "tail": "dag", "confidence": 0.88},
+    {"head": "constraint_checking", "relation": "verifies", "tail": "evidence_branch", "confidence": 0.87},
+    {"head": "kg", "relation": "supports", "tail": "verification", "confidence": 0.9},
+    {"head": "verification", "relation": "reduces", "tail": "hallucination", "confidence": 0.88},
+    {"head": "kg", "relation": "reduces", "tail": "hallucination", "confidence": 0.87},
+    {"head": "constraint_checking", "relation": "reduces", "tail": "hallucination", "confidence": 0.86},
+    {"head": "dag", "relation": "guides", "tail": "scheduler", "confidence": 0.89},
+    {"head": "scheduler", "relation": "supports", "tail": "parallel_decoding", "confidence": 0.88},
+    {"head": "scheduler", "relation": "preserves", "tail": "dependency", "confidence": 0.86},
+    {"head": "aggregation", "relation": "uses", "tail": "evidence_branch", "confidence": 0.84},
+    {"head": "aggregation", "relation": "improves", "tail": "coherence", "confidence": 0.86},
+    {"head": "factuality", "relation": "reduces", "tail": "hallucination", "confidence": 0.88},
+    {"head": "kg", "relation": "improves", "tail": "factuality", "confidence": 0.87},
+    {"head": "coherence", "relation": "improves", "tail": "answer_quality", "confidence": 0.86},
+    {"head": "factuality", "relation": "improves", "tail": "answer_quality", "confidence": 0.88},
+    {"head": "dag", "relation": "improves", "tail": "coherence", "confidence": 0.85},
+    {"head": "artificial_intelligence", "relation": "uses", "tail": "kg", "confidence": 0.78},
+    {"head": "artificial_intelligence", "relation": "has_risk", "tail": "hallucination", "confidence": 0.78},
+    {"head": "artificial_intelligence", "relation": "requires", "tail": "verification", "confidence": 0.82}
+  ],
+  "constraints": [
+    {"relation": "reduces", "opposite": "causes", "severity": "hard"},
+    {"relation": "strong_at", "opposite": "weak_at", "severity": "soft"},
+    {"relation": "verifies", "opposite": "contradicts", "severity": "hard"}
+  ]
+}

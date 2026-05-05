@@ -1,0 +1,27 @@
+# Python cache and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local secrets and machine-specific config
+.env
+*.local.json
+config.local.json
+
+# Generated experiment outputs
+outputs/*.json
+outputs/*.csv
+outputs/*.md
+outputs/*.cypher
+
+# Local KG expansion cache can become large
+data/kg_expansion/
+
+# Neo4j and runtime logs
+*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

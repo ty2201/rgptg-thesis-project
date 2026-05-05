@@ -1,0 +1,15 @@
+{"id":"general_001","category":"general_knowledge","query":"Explain how AlphaFold changed protein structure prediction and what limitations remain."}
+{"id":"general_002","category":"general_knowledge","query":"What are the main differences between supervised learning, unsupervised learning, and reinforcement learning?"}
+{"id":"general_003","category":"general_knowledge","query":"Why are transformers important for modern natural language processing?"}
+{"id":"general_004","category":"general_knowledge","query":"How do diffusion models generate images, and what are their main limitations?"}
+{"id":"general_005","category":"general_knowledge","query":"What is the role of embeddings in information retrieval systems?"}
+{"id":"dependency_001","category":"logical_dependency","query":"Why must an AI system verify retrieved evidence before aggregating an answer, and what can go wrong if these steps are executed in parallel without dependencies?"}
+{"id":"dependency_002","category":"logical_dependency","query":"Explain why entity linking should happen before knowledge graph retrieval in a grounded text generation pipeline."}
+{"id":"dependency_003","category":"logical_dependency","query":"Why should a reasoning system build dependencies between claims before expanding them in parallel?"}
+{"id":"dependency_004","category":"logical_dependency","query":"In a multi-step answer generation pipeline, why should contradiction checking happen before final summarization?"}
+{"id":"dependency_005","category":"logical_dependency","query":"Explain why some thought nodes can be generated in parallel while others must wait for prerequisite evidence."}
+{"id":"verification_001","category":"fact_verification","query":"How can knowledge graphs help reduce hallucination in retrieval-augmented generation systems?"}
+{"id":"verification_002","category":"fact_verification","query":"Why can outdated evidence cause factual errors in AI-generated answers, and how should a system handle it?"}
+{"id":"verification_003","category":"fact_verification","query":"How should an AI system handle two retrieved sources that make conflicting claims?"}
+{"id":"verification_004","category":"fact_verification","query":"Why is source provenance important when generating answers from retrieved knowledge?"}
+{"id":"verification_005","category":"fact_verification","query":"Explain how evidence grounding improves the reliability of long-form generated reports."}
