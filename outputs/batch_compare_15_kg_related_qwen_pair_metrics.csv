@@ -1,0 +1,193 @@
+﻿id,category,query,winner,judge_reason,plain_judge_avg,kg_judge_avg,plain_fact,kg_fact,plain_relevance,kg_relevance,plain_structure,kg_structure,plain_clarity,kg_clarity,plain_usefulness,kg_usefulness,plain_grounding,kg_grounding,plain_risk,kg_risk,plain_graph,kg_graph,plain_deps,kg_deps,plain_evidence,kg_evidence,plain_coherence,kg_coherence,plain_answer,kg_answer
+kgrel_dependency_001,kg_related_dependency,Why should entity linking happen before evidence retrieval and answer synthesis in a KG-guided generation pipeline?,A,"A provides deeper, technically precise justification with concrete KG-specific examples (e.g., 'Mercury' disambiguation across planet/element/god/brand), explicitly articulates the strict dependency chain (linking → retrieval → synthesis), and emphasizes semantic anchoring, interpretability, and failure modes. B is strong but more generic—lacks illustrative KG structure details, omits explicit causal sequencing (e.g., no mention of how ambiguous retrieval corrupts synthesis), and uses vaguer terms like 'semantic drift'. A’s reasoning is more faithful to KG-guided DAG generation requirements.",9.8,9.0,10,9,10,10,9,8,10,9,10,9,0.0,0.804,1.0,0.196,0.0,1.0,0,6,0,20,0.0,1.0,"实体链接必须在证据检索和答案合成之前完成，因为它是整个知识图谱（KG）引导生成流程的语义锚定步骤：只有先将用户输入中模糊、歧义的表面指称（如“苹果”“Java”“Washington”“Mercury”）唯一映射到知识图谱中结构化、无歧义的实体节点（例如“Apple Inc.”而非水果，“George Washington”而非华盛顿州），后续所有操作才具备明确的语义坐标。
+
+这一前置要求具有严格的执行顺序约束——**实体链接是证据检索的必要前提**。若跳过该步骤，系统无法区分同形异义实体，将被迫向图谱中多个无关节点发起并行或随机查询，导致检索出的事实路径混杂、冗余甚至相互矛盾（例如“Mercury”同时触发行星、元素、神祇、汽车品牌等分支），使证据失去主题一致性。而**答案合成又严格依赖于检索结果的准确性与语义连贯性**：它需整合来自同一语义单元的可信三元组，构建逻辑自洽、可追溯的推理链条；若输入证据本身已因实体歧义而失焦，合成结果必然失真或自相矛盾。
+
+因此，实体链接不是可选预处理，而是不可绕过的语义校准环节——它为整个KG引导流程提供唯一的语义起点，确保从检索到合成的每一步都锚定在同一真实意图所指向的实体上。没有这一步，KG就无法被精准导航，整个生成过程将退化为缺乏语义约束的统计匹配，丧失可解释性与可靠性。","实体链接必须在证据检索和答案合成之前完成，因为它是整个知识图谱引导的生成流程中不可替代的语义锚定步骤。
+
+用户问题中常包含模糊指称（如“它”“该技术”）或歧义名称，这些表达本身不携带明确语义指向。只有先将它们精准映射到知识图谱中唯一确定的实体（例如“Evidence Retrieval”这一具体技术节点），后续所有操作才具备统一、可靠的事实基础。这一步是严格前置的：没有明确的实体锚点，证据检索就失去目标对象，无法区分相关与无关证据；多跳推理因缺乏起点而无法构建有效路径；嵌入匹配和答案合成也因缺少共同参照系，容易产生语义漂移与事实错位。
+
+因此，实体链接不是可选预处理，而是强制性前提——它必须最先执行，且必须完成之后，证据检索与答案合成才能并行或顺序开展。一旦跳过或延迟此步，后续环节无论技术多么先进，都将因根基不稳而系统性降低准确性、一致性和事实可信度。"
+kgrel_dependency_002,kg_related_dependency,Why should contradiction checking happen after evidence retrieval but before final answer synthesis?,B,"B is more factually precise (e.g., explicitly names 'embedding, entity linking, KG query' as non-checking components), better structured with numbered, distinct functional rationales, clearer in distinguishing technical boundaries (e.g., 'pollution prevention', 'function boundary'), and more useful due to actionable design insight for RAG systems. A is strong but slightly more abstract and lacks B's concrete grounding in retrieval-augmented generation architecture.",9.0,9.8,9,10,10,10,8,9,9,10,9,10,0.0,0.79,1.0,0.21,0.0,1.0,0,5,0,20,0.15,1.0,"矛盾检查必须在证据检索完成后、最终答案生成前进行，原因在于这一位置兼具**必要性**与**可行性**：它既是检验的逻辑起点，也是干预的最后有效窗口。
+
+首先，**必须在证据检索之后**——因为矛盾是证据之间的关系属性，而非先验假设；没有具体 retrieved 证据，就不存在可比对的事实单元，任何提前检查都缺乏判断依据，形同空转。
+
+其次，**必须在最终答案合成之前**——因为一旦进入合成阶段，不同证据已被隐式加权、融合或叙事化，冲突可能被掩盖、调和甚至误构为“多角度互补”；此时再修正，往往需推翻已形成的推理路径，易引入补偿性偏差，且难以追溯矛盾源头。
+
+因此，该环节本质上是一个**强制校验闸口**：它要求所有检索到的证据在同一框架下接受一致性审查，识别出逻辑抵触、事实互斥或数值不可调和等问题；只有通过校验（或经筛选/加权后达成协调）的证据集，才被允许进入后续综合推理与表述生成。这确保了最终答案不是多个孤立主张的拼接，而是建立在内部自洽信息基础之上的可靠结论。","矛盾检查必须在证据检索完成后、最终答案合成开始前执行，原因在于这一位置具有不可替代的承上启下作用：它以**已具象化的外部证据为唯一依据**，对信息的内部一致性、逻辑兼容性及问题相关性进行实证校验，从而确保后续推理始于可靠前提。
+
+具体而言，该时序安排具备三重必要性：  
+1. **前提依赖性**：矛盾检查需要具体、可验证的事实单元作为比对基础——这只能由证据检索阶段提供。若提前至检索前，缺乏事实支撑，判断将流于主观或空泛；  
+2. **污染防控性**：冲突或偏离问题的证据一旦进入答案合成环节，便会嵌入推理链条与语言结构，导致错误深度耦合；此时修正需推倒重来，成本显著升高；  
+3. **功能边界性**：嵌入、实体链接、知识图谱查询等底层技术仅服务于高效、精准地获取证据，本身不具备逻辑校验能力；矛盾检查是唯一承担“事实质量把关”职责的独立环节，直接保障多跳推理的稳健性。
+
+因此，该步骤不是可选优化，而是检索增强生成范式中保障答案可靠性与推理可信度的关键控制点——它既不能前置（无据可依），也不容后置（纠错代价过高），必须严格位于证据落地之后、合成启动之前。"
+kgrel_dependency_003,kg_related_dependency,Explain why a dependency graph is useful when some thought nodes can run in parallel and others require prerequisite evidence.,A,"A provides deeper, more precise mechanistic explanation (e.g., 'dynamic readiness checking', 'forced serialization vs. elastic concurrency', 'assembly line vs. multithreading analogy') with no factual errors; B is strong but slightly vaguer on execution semantics (e.g., 'automatically pause' lacks technical specificity) and conflates 'text generation' with general reasoning—misaligning scope. A’s structure is tighter, clarity sharper, and usefulness higher for system designers.",9.8,9.0,10,9,10,10,9,8,10,9,10,9,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,17,0.15,1.0,"依赖图在并行推理中至关重要，因为它将抽象的逻辑依赖关系转化为可执行的调度规则，从而协调“必须串行”与“可以并行”的两类思维节点。
+
+其核心作用体现在两个互补维度：**保障正确性**与**提升效率**。  
+首先，对于必须依赖前置证据（如检索结果、中间推导结论）才能运行的节点，依赖图通过有向边明确约束执行次序——只有当其所依赖的所有上游节点完成并输出有效结果后，该节点才被允许启动。这从根本上防止了因证据缺失导致的错误推理、空转计算或逻辑断裂。  
+其次，对于彼此独立、输入条件完备且不共享前提的节点，依赖图自动识别其为“就绪态”，允许它们被并发调度、同步执行。这种并行不是随意的，而是严格基于依赖关系的动态判断：系统持续检查各节点的依赖是否全部满足，一旦满足即刻激活，无需等待无关任务。
+
+因此，依赖图并非简单地列出顺序，而是构建了一个兼具**强制性时序约束**与**弹性并发空间**的执行框架：串行是为确保因果严谨，而并行是在此前提下对冗余等待的彻底消除。最终，它使复杂推理过程既能像精密装配线一样严守逻辑链条，又能像多线程程序一样高效利用计算资源——在正确性的刚性边界内，实现性能的最大化。","依赖图在并行文本生成中至关重要，因为它统一解决了效率与严谨性的双重需求：一方面，它使可独立执行的推理任务（如验证不同事实、分析不同维度）真正实现同步推进，从而提升计算效率；另一方面，它强制约束必须按因果或逻辑次序执行的任务——例如，某结论的推导必须等待其前提证据被确认后才能启动，否则系统会自动暂停该路径，避免仓促推理导致矛盾。
+
+这种双重作用依赖于明确的执行规则：**所有需前置证据支撑的推理步骤，必须严格串行于其依赖项之后；而无共享依赖、语义互不干扰的任务，则可安全并行执行。** 依赖图正是通过显式刻画这些先后关系与并发边界，将抽象的逻辑规则（如“结论不能早于前提成立”）转化为可调度、可验证的操作约束。
+
+最终，只有当依赖图中所有前置条件均被满足——即所有必需证据已就绪、所有必要推理已完成——系统才允许进入答案综合阶段。这确保了最终输出不仅高效生成，而且在因果链条、事实依据和逻辑一致性上完全可靠。"
+kgrel_dependency_004,kg_related_dependency,Why does source attribution need to be attached before aggregation in long-form report generation?,B,"B provides deeper, factually precise justification with three distinct, interdependent causal mechanisms (semantic anchoring, uncertainty management, verifiability), grounded in NLP/LLM reporting best practices. Its DAG-inspired structure enhances logical flow and pedagogical utility, while maintaining clarity and adding actionable insight (e.g., source-aware weighting, real-time cross-checking). A is strong but more generic and lacks the layered, evidence-aware reasoning that makes B more authoritative and practically instructive.",8.6,9.8,9,10,10,10,7,10,9,9,8,10,0.0,0.811,1.0,0.189,0.0,1.0,0,8,0,18,0.15,1.0,在长篇报告生成中，源出处标注必须在内容聚合之前完成，因为聚合过程本身会融合、概括、改写或删减原始信息——一旦不同来源的陈述被合并，其原始作者、数据来源、上下文依据等归属信息将不可逆地弱化甚至丢失。因此，标注出处是前置性保障步骤：只有先为每条输入信息明确绑定其可信来源（如权威文献、实证数据或经核实的专家陈述），后续的整合、归纳与逻辑重构才能始终锚定在可验证的基础之上。这并非可选环节，而是强制性时序约束——若先聚合再补标，不仅技术上难以准确归因，更会导致主张与证据脱钩，使报告丧失学术严谨性、责任可追溯性及事实核查可行性。结论：源出处标注是聚合的前提条件，而非后处理步骤。,"源出处标注必须在聚合前完成，因为它是保障长篇报告事实准确性、逻辑稳健性与可验证性的先决条件——而非事后补充的格式规范。
+
+这一前置要求源于三个不可逆的依赖关系：  
+**第一，语义锚定不可后补。** 聚合过程会融合、压缩、重构原始信息，一旦完成，各陈述与原始证据之间的细粒度对应关系即被模糊或丢失。若此时再尝试回溯标注，无法可靠判定某句结论具体源自哪条证据、是否经过推断或泛化，导致推理路径断裂、验证基础瓦解。  
+**第二，不确定性管理必须基于来源分级。** 不同证据具有不同可信度、时效性与立场倾向；只有在聚合前绑定来源，系统才能在整合过程中对高置信实证优先采信、对存疑信息显式标记或降权处理。若延迟标注，则所有信息在融合时被视为同等可靠，必然放大偏差、诱发幻觉。  
+**第三，事实核查与可解释性依赖源头可追溯性。** 交叉比对、逻辑校验、偏差识别等操作，均需实时访问原始证据的上下文与元信息（如发布机构、时间、方法论）。这些能力在聚合后已无数据支撑——因为聚合本身消解了证据的独立存在形态。
+
+因此，源出处标注不是生成流程末端的引用整理步骤，而是聚合操作得以安全、可控、可验证开展的必要前提。它必须在信息融合启动前完成，且与证据检索、筛选同步就位；后续的事实核查、不确定性评估、逻辑连贯性保障等环节，均以此为根基展开。缺失这一前置锚定，长篇报告将丧失扎实性（groundedness）、可信度与可验证性，退化为不可追溯的文本堆砌。"
+kgrel_dependency_005,kg_related_dependency,"How should a KG-guided DAG schedule fact checking, contradiction detection, and answer synthesis?",B,"B is more factually precise (e.g., distinguishes 'support/驳回/未定' states, specifies KG roles like semantic constraints and entity relations), fully relevant, structurally superior with explicit DAG semantics (data/control dependencies, parallelizable subtasks), clearer about conditional concurrency and KG integration points, and more useful for implementation due to actionable scheduling principles and error-mitigation mechanisms (e.g., semantic alignment, hallucination reduction). A is sound but abstract, lacks KG operationalization, and incorrectly asserts *no* parallelism—contradicting real-world DAG-based systems.",7.8,9.8,8,10,9,10,7,10,8,9,7,10,0.0,0.817,1.0,0.183,0.0,1.0,0,6,0,34,0.0,1.0,"在知识图谱引导的有向无环调度中，事实核查、矛盾检测与答案合成必须遵循严格的逻辑依赖顺序：**事实核查 → 矛盾检测 → 答案合成**。
+
+这一顺序不可颠倒或并行，因为每一步都以前一步的输出为必要前提：  
+- **事实核查必须最先执行**——它独立验证每个原子主张与知识图谱中可信信源的一致性，输出明确的真值标注（真/假/未证实）。若跳过此步，后续所有判断将建立在未经检验的前提之上，导致错误放大。  
+- **矛盾检测必须紧随其后**——它仅作用于已通过事实核查、带有真值标注的主张集合，据此识别逻辑冲突或证据层面的不一致；若直接对原始未验证主张进行比对，可能将共同错误误判为矛盾，或掩盖真实分歧。  
+- **答案合成必须置于最后**——它整合经核查为真、且经矛盾检测确认彼此兼容（或已消解冲突）的命题，生成语义连贯、信息完备、逻辑自洽的最终回答。任何提前合成都会因输入不可靠而丧失准确性与一致性。
+
+因此，该流程本质上是**单向递进的认知验证链**：先确立局部真实性，再评估全局一致性，最终完成整体解释。三者之间不存在可并行的环节；调度系统必须强制保障这一时序约束，以确保推理结果的可靠性与可追溯性。","知识图谱（KG）引导的有向无环图（DAG）调度应遵循“核查先行、依赖受控、合成统合”的原则，实现事实核查、矛盾检测与答案合成三阶段的严谨协同：
+
+**第一步：事实核查必须前置且严格启动**  
+以待验证主张（Claim）为唯一入口，同步执行来源归属判断（Source Attribution）与外部证据检索；知识图谱在此阶段提供可追溯的结构化依据（如权威实体关系、时序约束、数值范围），并与检索到的实证材料共同支撑真值判定。该步骤不可延后或并行绕过——它是整个流程的语义锚点和可信度基石，直接决定后续环节的输入有效性，并实质性降低幻觉风险。
+
+**第二步：矛盾检测必须严格依赖核查结论，不可独立并行**  
+仅在事实核查输出明确真值状态（如“支持”“驳回”“未定”）后启动，聚焦于多源陈述间的逻辑一致性（如因果倒置、条件冲突）与数值一致性（如时间、量纲、比例偏差）；知识图谱通过建模语义约束（如“出生日期 < 死亡日期”“同一事件只能有一个发生地点”）为该比对提供形式化判据。此步骤虽可与其他子任务（如证据链摘要生成）并行，但其输入必须锁定为已验证的核查结果，禁止基于原始主张或未验证证据直接推理。
+
+**第三步：答案合成是唯一终局整合阶段，必须串行于前两步之后**  
+以核查结论为事实基础、以矛盾检测定位为逻辑焦点、以证据链摘要为支撑依据，生成语义统一、逻辑自洽、抗幻觉的答案；知识图谱在此阶段发挥结构化引导作用——利用实体间关系（如层级、时序、隶属）约束生成内容的合理性，确保答案不违背图谱中已确立的常识性与领域性约束。
+
+综上，该DAG调度的核心逻辑是：**事实核查为强制前置节点，矛盾检测为其直接后继（数据依赖），答案合成是全局汇入终点（控制与数据双重依赖）；其余操作（如证据检索、实体链接、摘要生成）可并行展开，但所有分支输出必须经由核查结果进行语义对齐与可信度校准。** 最终系统在保障并行效率的同时，确保推理链可审计、错误不传播、输出可回溯。"
+kgrel_general_001,kg_related_general,Explain the relationship between knowledge graphs and retrieval-augmented generation in reducing hallucination.,B,"B is more factually precise (e.g., correctly states KGs don’t generate text and emphasizes grounding/auditability), strictly adheres to DAG-like sequential logic (retrieve→constrain→verify), avoids overclaiming (e.g., no 'hard constraint' language that misrepresents LLM behavior), and uses clearer, more operational terminology ('groundedness', 'boundary conditions', 'pre-deployment KG curation'). A is excellent but slightly overstates KG's 'hard' enforcement capability and blurs timing (e.g., 'parallel retrieval' contradicts its own 'must complete before generation' requirement). B’s structure mirrors actual RAG-KG pipeline design best practices.",9.0,10.0,9,10,10,10,8,10,9,10,9,10,0.0,0.805,1.0,0.195,0.0,0.8,0,7,0,26,0.15,1.0,"知识图谱与检索增强生成（RAG）协同作用，系统性降低大语言模型的幻觉风险，其核心机制在于：**以结构化、可验证的事实为锚点，约束模型生成过程，使其从依赖内部隐式记忆转向基于外部权威知识的按需推理。**
+
+这一协同需遵循明确的执行顺序：  
+**首先**，RAG系统在响应用户问题前，必须同步执行两类检索——既从非结构化文档中提取相关文本片段，也从知识图谱中精准查询与问题强相关的实体关系与属性断言（如“爱因斯坦→获得奖项→1921年诺贝尔物理学奖”或“爱因斯坦→获奖原因→光电效应”）。这两类检索可并行进行，但**必须在生成开始前完成**，确保所有外部证据已注入提示上下文。  
+
+**其次**，知识图谱提供的事实具有本质优势：它们是原子化、语义严谨且经过人工校验或逻辑验证的结构化断言，能明确界定概念定义、事件时序、因果边界等易出错维度。当模型生成答案时，这些事实构成硬性约束——例如，图谱中“未因相对论获奖”的明确声明，直接排除了模型将相对论错误关联为获奖原因的可能性；而“1921年”与“物理学奖”的精确绑定，则杜绝了年份或学科类幻觉。相比之下，仅依赖文档片段可能引入模糊、矛盾甚至过时的表述，而知识图谱则提供可追溯、不可篡改的事实基线。
+
+因此，知识图谱并非RAG的简单信息补充，而是其抗幻觉能力的关键支柱：它将生成过程锚定在可验证的语义结构上，使模型的回答既忠实于共识性知识，又具备清晰的事实溯源路径。最终结论是——**知识图谱通过提供高精度、低歧义的结构化事实源，并与RAG的实时检索机制深度耦合，显著压缩了模型自由编造的空间，从而系统性降低事实性幻觉的发生率。**","知识图谱与检索增强生成（RAG）协同降低幻觉的核心机制在于：**知识图谱为RAG提供结构化、语义明确、可验证且可追溯的外部事实源，而RAG通过显式检索—约束—生成的闭环流程，将模型输出严格锚定于这些真实事实之上**。
+
+这一协同作用需按严格顺序执行三个关键步骤：  
+1. **检索先行**：RAG在生成前必须主动触发检索，从知识图谱中精准定位与用户问题语义匹配的核心实体及其关系（而非依赖模型参数中隐含的、未经验证的记忆）；  
+2. **证据约束**：检索到的图谱事实（如“巴黎是法国首都”这类明确的实体-关系断言）作为刚性输入，直接参与生成过程，构成内容生成的边界条件；  
+3. **可追溯验证**：每条生成语句均需能回溯至图谱中的具体节点与边，确保其根基性（groundedness）——即输出与真实世界状态的一致性。
+
+其中，检索与约束必须先后执行（无检索则无可靠约束），而知识图谱的构建（如实体识别、关系抽取、标准化对齐）是前置基础工作，需在RAG部署前完成，不可与生成过程并行。  
+
+最终结论：知识图谱本身不直接生成文本，但通过为RAG提供高保真、逻辑自洽、可审计的事实骨架，使RAG从“基于概率猜测的生成”转向“基于证据推理的生成”，从而系统性削弱脱离依据的臆测倾向，显著降低幻觉风险。"
+kgrel_general_002,kg_related_general,Why is entity linking an important prerequisite for knowledge graph based answer generation?,B,"Both are factually accurate and highly relevant, but B excels in structure (logical flow with clear cause-effect sequencing), clarity (concise, precise English; avoids dense nominalizations), and usefulness (explicitly names downstream tasks like fact checking and symbolic reasoning, linking entity linking to concrete KG operations). A’s Chinese-English mix and slightly denser phrasing reduce accessibility for a global technical audience; B’s consistent terminology, emphasis on 'computable, graph-based semantics', and DAG-aligned framing ('strictly sequential', 'before knowledge graph activation') better reflect KG-guided DAG generation principles.",9.6,10.0,10,10,10,10,9,10,9,10,10,10,0.0,0.872,1.0,0.128,0.0,1.0,0,6,0,25,0.0,1.0,"实体链接是知识图谱驱动问答生成的关键前提，因为它在自然语言输入与结构化知识之间构建了**必要且不可替代的语义桥梁**。
+
+其核心作用在于：将问题中模糊、多义或表面形式不统一的实体提及（如“苹果”“Java”“巴黎”“乔布斯”）**精准映射到知识图谱中唯一、语义明确的实体节点上**。这一步必须**严格先于**后续所有知识操作——包括事实检索、关系路径推理、属性查询与答案合成——因为只有锚定正确的实体，系统才能可靠访问其关联的结构化信息（例如“巴黎→首都→法国”“乔布斯→创立→苹果公司”“苹果公司→市值→XXX”）。
+
+若跳过或错误执行实体链接，整个问答流程将失去确定性基础：同形异义词无法区分（如“Java”指编程语言还是岛屿）、指代歧义无法消解（如“苹果”指水果还是企业）、同名实体无法甄别（如多位“史蒂夫·乔布斯”），进而导致事实错配、推理链断裂、答案失真或空响应。这些错误无法在后续步骤中被修正，因其根源在于语义入口的失效。
+
+因此，实体链接不是可选预处理环节，而是**强制前置步骤**；它保障了从自由文本到结构化知识的语义一致性、推理的准确性与答案的可追溯性。没有高质量的实体链接，知识图谱就无法被真正“激活”用于问答生成。","Entity linking is an essential prerequisite for knowledge graph–based answer generation because it **must be completed before any knowledge graph–driven reasoning or retrieval can begin**, and it serves as the sole reliable bridge between ambiguous natural language and precise, structured knowledge.
+
+Natural language questions often contain ambiguous terms—such as “Apple” (company vs. fruit) or “Paris” (city vs. person)—that lack inherent meaning in isolation. Entity linking resolves this ambiguity by mapping each mention to a unique, unambiguous node in the knowledge graph. This step is strictly sequential: **it must occur before knowledge graph activation**, because only after entities are disambiguated and anchored can the system reliably retrieve relevant facts, verify claims against known data, or perform logical inference over relationships (e.g., causality, temporal order, or hierarchical structure).
+
+Once entity linking is complete, downstream capabilities—including retrieval-augmented generation, fact checking, and symbolic logical reasoning—become feasible and grounded. Without it, all subsequent steps suffer from semantic drift: retrieved evidence may be irrelevant, logical premises become ill-defined, and generated answers lose factual grounding and verifiability.
+
+In short: entity linking is not merely helpful—it is foundational and non-optional. It transforms open-ended language into computable, graph-based semantics, enabling every knowledge-intensive operation that follows to operate on a shared, consistent, and verifiable foundation."
+kgrel_general_003,kg_related_general,How do embeddings and evidence retrieval work together in a grounded generation system?,B,"B is more factually precise (explicitly names KG-anchored nodes, multi-hop decomposition, contrastive learning feedback), structurally superior (clear DAG-like sequencing with conditional parallelism), and more useful for system design—its KG-guided framing reflects real-world grounded generation architectures (e.g., RAG+KG, GraphRAG). A is strong but omits key technical realities: no mention of knowledge graph structure, no handling of multi-hop reasoning, and no feedback loop for embedding refinement—making it less accurate and actionable.",8.8,9.8,9,10,10,10,8,10,9,9,8,10,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,20,0.0,1.0,"在基于证据的生成系统中，嵌入与证据检索协同工作，构成一个语义驱动、事实约束的两阶段闭环流程：**嵌入是检索的前提，检索是生成的依据，二者必须严格先后执行，不可颠倒或跳过。**
+
+首先，用户输入（如问题或提示）和知识库中的所有候选文本片段——包括已验证的事实性段落、文档节选或结构化陈述——被统一编码为高维语义向量。这一映射过程不依赖关键词匹配，而是捕捉深层语义关系（例如，“苹果公司”与“iPhone制造商”在向量空间中自然靠近），从而支撑跨表述的精准对齐。**这一步必须先于检索完成**，因为只有当查询与知识库处于同一语义空间时，相似度计算（如余弦相似度）才具备可比性和判别力。
+
+其次，系统基于向量相似度从知识库中高效召回若干最相关的证据片段。这些片段不是泛泛相关的文本，而是经预验证、具明确信息源的事实性内容。**检索必须在嵌入之后立即执行，且结果必须显式传递给生成模块**——它不作为隐含背景，而是作为与原始提示并列的关键条件输入。
+
+最后，语言模型以“原始提示 + 检索到的证据”为联合上下文进行生成。在此阶段，模型通过注意力机制动态权衡用户意图与证据支持度：既保持语言连贯性，又严格锚定于所检出的具体文本来源。当证据充分时，输出高度可追溯、事实一致；当证据缺失或冲突时，模型主动抑制过度推断，体现谨慎性。**生成不能脱离检索结果独立发生**——若跳过检索或仅用嵌入向量替代真实证据，系统将退化为无依据的自由生成，丧失“ grounded ”（有据可依）的核心特性。
+
+综上，嵌入与检索不是并行选项，而是严格串行、相互校准的必要环节：嵌入实现语义对齐，检索实现事实定位，二者共同确保生成结果既贴合用户意图，又忠于可验证的真实信息。","在基于证据的生成系统中，嵌入与证据检索协同工作，共同保障生成结果的事实准确性、逻辑连贯性与可验证性。这一协作遵循明确的先后依赖关系，并支持部分环节并行展开。
+
+首先，**嵌入是证据检索的前提基础**：系统将用户问题和知识库（包括文本片段、概念、实体及关系）统一映射到高维语义向量空间。该映射使系统能超越关键词匹配，识别深层语义关联——例如自动对齐“心梗”与“急性心肌梗死”，实现术语归一与语义消歧。这一步必须在检索前完成，且其质量直接决定后续召回的精准度。
+
+其次，**证据检索严格依赖嵌入产出的向量表示**：基于语义相似性计算（如余弦相似度），系统从知识库中高效定位与问题最相关的外部证据。这些证据并非原始杂乱文本，而是经结构化处理、锚定于知识图谱中的可信节点——每个节点天然携带实体身份、属性及关系上下文，确保其可追溯、可验证。
+
+当面对复杂查询时，**问题分解需先于多跳检索执行**：系统将原问题拆解为若干可独立验证的子任务（如“病因→机制→治疗”链），再针对每个子任务并行调用嵌入+检索模块，分别获取对应证据。这种并行检索显著提升效率，但各子任务的分解逻辑必须严格先行，否则证据之间无法建立可靠推理路径。
+
+最后，所有检索所得证据被统一注入生成模型，作为硬性约束参与文本合成。嵌入与检索由此形成闭环：检索结果反馈用于持续优化嵌入模型的语义判别能力（如通过对比学习强化相关概念的向量邻近性），而更优的嵌入又进一步提升后续检索精度。
+
+**结论**：嵌入为证据检索提供语义理解能力，检索则将嵌入结果转化为结构化、可验证的事实依据；二者缺一不可，且必须按“嵌入构建 → 问题分解（如需）→ 证据检索 → 生成约束”的顺序执行，其中多子任务检索可并行。最终实现的不是泛泛而谈的文本生成，而是每句输出均可回溯至知识图谱中具体节点的扎实、可解释、低幻觉的 grounded 生成。"
+kgrel_general_004,kg_related_general,What role does source attribution play in improving the trustworthiness of generated reports?,B,"B provides deeper, more precise conceptual grounding (e.g., 'groundedness', 'uncertainty management', interdependent functions) with a logically rigorous DAG-like progression—explicitly showing necessity, non-substitutability, and structural roles. It avoids overstatement while elevating trust from signal to mechanism. A is strong but more linear and less analytically granular; B’s structured interdependence of traceability, explainability, and uncertainty management makes it more factually nuanced and practically useful for high-assurance applications.",9.0,9.8,9,10,10,10,8,10,9,9,9,10,0.0,0.975,1.0,0.025,0.0,0.0,0,0,0,25,0.0,1.0,"Source attribution plays a foundational role in improving the trustworthiness of generated reports by enabling verifiability and accountability. When every key claim is explicitly linked to its original source—such as peer-reviewed literature, official statistics, or authoritative institutional publications—readers gain the ability to independently trace, cross-check, and assess the accuracy, context, and limitations of that information. This transparency directly reduces the risk of misrepresentation and discourages unsupported or overly confident assertions. Crucially, attribution must be applied *before* final report generation: claims cannot be reliably verified or contextualized retroactively. While source identification and claim-to-source mapping can occur in parallel during preprocessing, the actual linkage—i.e., embedding precise, human-readable citations at the point of claim presentation—must be completed *before* the report is finalized and delivered. The result is not merely cosmetic citation; it transforms the report from an opaque assertion into a traceable, auditable artifact—thereby strengthening credibility, especially in high-stakes professional, academic, or policy contexts.","Source attribution plays a foundational role in improving the trustworthiness of generated reports by systematically linking every claim to verifiable external evidence. This linkage is not optional—it must precede or accompany claim generation, because without it, groundedness (i.e., the degree to which statements reflect actual, observable reality) cannot be meaningfully achieved.
+
+The process unfolds in a necessary sequence: first, claims are anchored to specific sources; only then can they support fact-checking, explainability, and uncertainty management. Fact-checking depends on traceability—readers or automated tools must be able to locate original evidence to verify accuracy. Explainability follows naturally: citing sources clarifies *why* a conclusion is drawn, transforming opaque assertions into transparent reasoning. Uncertainty management also relies on attribution—when evidence is partial, conflicting, or ambiguous, explicit sourcing allows readers to recognize the limits of confidence rather than mistaking speculation for consensus.
+
+These functions reinforce one another but cannot substitute for one another. For example, traceability enables fact-checking, but traceability alone does not ensure explainability—contextual framing of the source’s relevance is required. Similarly, while all three—groundedness, fact-checking, and explainability—contribute to trust, none is sufficient on its own. Only when attribution is consistently applied across the report does it operationalize accountability: trust shifts from reliance on the model’s authority to reliance on auditable, inspectable provenance.
+
+In conclusion, source attribution is not merely a credibility signal—it is the structural mechanism that makes trust *verifiable*, *interpretable*, and *sustainable*. Without it, generated reports remain self-referential and untestable; with it, they become accountable artifacts grounded in shared evidence."
+kgrel_general_005,kg_related_general,Explain how a knowledge graph can provide structured evidence for a large language model.,A,"A accurately and concisely explains how KGs provide structured evidence (triples, RAG, GNN alignment, multi-hop reasoning) with correct technical grounding; B misrepresents the question’s scope by over-specifically modeling the LLM *itself* as a KG node (e.g., 'LLM uses Transformer' is true but irrelevant to *how KGs provide evidence for LLMs*), introduces unsupported causal claims ('Transformer... inherently reveals幻觉根源'), and conflates model architecture ontology with evidence provision—reducing factuality and usefulness.",9.0,7.4,9,6,10,8,8,9,9,7,9,7,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,22,0.15,1.0,"知识图谱通过将真实世界事实建模为结构化的“主体—关系—客体”三元组（例如“巴黎—是首都—法国”），为大语言模型提供可精确检索、可逻辑调用的结构化证据。这种表示方式具有明确的语义边界和类型约束，使模型能锚定实体间的本质关联，而非依赖文本表面的统计模式，从而显著提升事实核查、多跳推理和上下文一致生成的能力。
+
+要充分发挥这一优势，需按顺序执行两个关键步骤：首先，必须将知识图谱中的结构化信息与语言模型的推理过程对齐——例如通过检索增强生成（RAG）动态召回相关三元组，或借助图神经网络将图结构编码为向量表示；其次，在此基础上，模型才能并行地完成多项任务：验证候选答案的事实一致性、展开跨实体的路径推理、或在生成时实时注入权威约束。前者是后者的前提，不可省略；而后者各项能力可在同一推理步中协同激活。
+
+最终结论是：知识图谱本身不直接生成文本，但它以机器可读、语义明确、拓扑可溯的方式，为大语言模型提供了坚实的事实基座，既抑制幻觉，又增强推理深度与结果可解释性。","知识图谱通过将大语言模型建模为一个结构化枢纽，为其提供可验证、可追溯的外部证据支撑。这一过程需按序完成两个关键步骤：**首先进行实体链接与语义锚定，再基于已建立的结构化关系开展推理校准**；而图谱中不同关系（如架构归属、类别层级、风险关联）的构建可并行进行，共同构成闭环验证逻辑。
+
+具体而言，知识图谱明确将大语言模型锚定为两个核心事实：它**使用Transformer架构**，且**属于基础模型这一上位类别**。这两个断言不是孤立标签，而是相互支撑的结构性约束——Transformer的自注意力机制解释了其长程依赖建模能力，也内在地揭示了幻觉产生的技术根源；而“基础模型”的定位则自然引出对训练数据规模、泛化边界、微调必要性及部署适配性的系统性约束。与此同时，隐私隐患与幻觉倾向并非抽象警告，而是作为该模型的固有属性，被显式建模为与其直接关联的可验证关系。
+
+这种结构化表达超越了统计共现模式：在生成过程中，大语言模型不再仅依赖参数中的概率分布，而是能援引真实世界中稳定、可追溯的实体关系（例如“使用→Transformer”“属于→基础模型”“导致→幻觉倾向”），将统计输出转化为有据可依的语义推理。它既支撑检索增强生成与实时事实核查等外部能力，也内化逻辑结构，使响应在科学概念、历史事件等需严格事实依据的场景中，保持语义一致性与可靠性。
+
+**结论**：知识图谱通过提供明确定义的实体身份、层级归属与因果关联，将大语言模型从黑箱概率系统转变为可解释、可校准、可验证的结构化推理主体——其核心价值在于用真实、稳定、互证的关系网络，替代模糊的经验性归纳，从而实质性提升生成内容的准确性、可信度与可追溯性。"
+kgrel_verification_001,kg_related_verification,How can groundedness metrics reveal whether an answer is supported by retrieved evidence?,B,"B is more factually precise (e.g., explicitly names entailment, paraphrase, and logical derivation as core mechanisms; correctly stresses mandatory retrieval-before-synthesis sequence and constraint-compliant reasoning), better structured with tighter logical flow and stronger operational framing, and more useful for practitioners due to its emphasis on safeguards against hallucination and its distinction between citation and genuine fidelity. A is excellent but slightly less rigorous on logical boundaries and implementation constraints.",9.0,9.6,9,10,10,10,8,9,9,9,9,10,0.0,0.846,1.0,0.154,0.0,0.8,0,5,0,15,0.0,1.0,"Groundedness metrics reveal whether an answer is supported by retrieved evidence by quantifying the degree to which every substantive claim in the answer aligns with that evidence—across three interdependent dimensions:  
+
+First, **lexical alignment** checks for direct reuse or close paraphrasing of key terms, phrases, and named entities from the evidence. This step must precede deeper analysis, as it establishes surface-level anchoring.  
+
+Second, **semantic coherence** evaluates whether concepts in the answer are logically entailed by, or meaningfully paraphrased from, the evidence—not just matching words, but preserving relational and contextual meaning. This can be assessed in parallel with lexical alignment once the text spans are identified, but its interpretation depends on the lexical foundation.  
+
+Third, **factual consistency** verifies that all claims about entities, events, attributes, and relationships match what the evidence explicitly states or strongly implies—flagging unsupported extrapolations, contradictions, or omissions. This step must follow semantic analysis, because determining whether a claim *contradicts* the evidence requires understanding intended meaning, not just surface form.  
+
+Crucially, groundedness does not measure absolute truth; it measures fidelity *to the provided evidence*. A high score means nearly every non-trivial assertion in the answer is traceable—either directly or through valid entailment—to the retrieved content. A low score indicates reliance on external knowledge, vague generalizations, or statements inconsistent with the evidence. Thus, groundedness metrics serve as a diagnostic tool: they distinguish responses that are genuinely evidence-grounded from those that are merely fluent or plausible.","Groundedness metrics reveal whether an answer is supported by retrieved evidence by measuring the degree to which every claim in the answer is *entailed*, *paraphrased*, or *logically derived* from that evidence—not merely whether surface-level facts overlap, but whether all inferences respect the evidence’s factual scope, internal consistency, and logical boundaries.
+
+This evaluation must occur *after* evidence retrieval and *before* final answer delivery, because groundedness depends on a fixed, authoritative baseline: the retrieved evidence sets the constraints for what can be validly asserted. Retrieval must therefore precede synthesis—this sequence is mandatory. In contrast, different aspects of the metric (e.g., checking verbatim coverage, assessing logical entailment, detecting contradictions) can be computed in parallel, as long as they all reference the same retrieved evidence set.
+
+A high groundedness score indicates that the answer stays within the boundaries of the evidence—either restating it faithfully or drawing only those inferences explicitly permitted by its content and logic. A low score signals one or more critical failures: unsupported assertions (hallucinations), overgeneralizations beyond the evidence, implicit assumptions contradicted by the sources, or subtle contradictions—even when wording appears plausible. Crucially, mere citation or topical relevance is insufficient; an answer may quote evidence accurately yet still introduce incompatible claims, resulting in a low score.
+
+Thus, groundedness metrics function as operational safeguards: they do not just validate surface consistency, but actively prevent drift into speculation by enforcing fidelity to what was actually retrieved—while still allowing legitimate interpretation where the evidence supports it. The clear conclusion is that groundedness is not about presence of evidence, but about *constraint-compliant reasoning*: an answer is supported only if every claim coheres with the retrieved evidence as a unified, logically consistent foundation."
+kgrel_verification_002,kg_related_verification,"Why can conflicting retrieved evidence increase hallucination risk, and how should the system respond?",A,"A is more factually precise (e.g., explicitly names failure modes like 'blending irreconcilable statements'), structurally tighter with a memorable, actionable 4-step sequence ('detect → pause → disclose → delegate'), and clearer in explaining *why* conflict causes hallucination (semantic ambiguity undermining grounding). B introduces plausible but less substantiated mechanisms ('implicit reconciliation', 'overgeneralization') and uses vaguer terms ('evidence strength', 'cross-verification') without defining operational criteria. A’s emphasis on user delegation and transparency is more practically useful for real-world reliability.",10.0,9.0,10,9,10,10,10,9,10,8,10,9,0.0,0.777,1.0,0.223,0.0,1.0,0,6,0,14,0.0,1.0,"Conflicting retrieved evidence increases hallucination risk because it introduces semantic ambiguity that undermines the model’s ability to ground its output in reliable facts. When contradictory claims coexist—such as differing dates, opposing causal attributions, or incompatible entity roles—the system cannot resolve them solely through pattern matching or internal priors. Instead, it may default to plausible-sounding but unsupported inferences, or inadvertently blend irreconcilable statements into a superficially coherent yet factually invalid narrative.
+
+To respond effectively, the system must prioritize *detection before integration*:  
+- First, it must identify contradictions at the semantic level (e.g., mutually exclusive states, incompatible quantifiers, or logically incompatible assertions) — this step is mandatory and must precede any attempt to synthesize or summarize.  
+- Second, it must refrain from forcing reconciliation; attempts to “average out” or heuristically weight conflicting evidence often mask uncertainty rather than mitigate it.  
+- Third, it should transparently surface the conflict: explicitly state what is inconsistent, why the sources disagree (e.g., “Source A attributes the event to Policy X; Source B attributes it to Policy Y, with no shared supporting evidence”), and flag the affected claim(s) as unresolved.  
+- Finally, it must halt automated generation for those claims and guide the user toward resolution—by requesting clarification, suggesting authoritative verification, or offering alternative query refinements.
+
+This response sequence—detect → pause → disclose → delegate—is non-negotiable for reliability: detection and disclosure must occur sequentially and before generation; user engagement cannot be bypassed or deferred. The result is not a polished but untrustworthy answer, but a rigorously bounded one—clear about what is known, what conflicts, and what remains to be verified.","冲突的检索证据会显著增加幻觉风险，根本原因在于：它们破坏了事实核查所依赖的一致性锚点，使系统在答案合成阶段失去可靠的事实基础。当相互排斥的主张同时存在时，系统既可能仓促择一而引入错误前提，也可能主动填补逻辑空缺、过度泛化或隐式调和矛盾，从而生成与所有证据均不相符的失实内容。
+
+因此，系统必须将证据冲突视为一个**强制性干预信号**，并严格遵循以下响应顺序：
+
+1. **立即暂停答案合成流程**——冲突检测是前置条件，必须在合成开始前完成识别与响应；  
+2. **激活强化的事实核查**——对冲突证据开展交叉验证，依据来源可靠性、逻辑自洽性与证据强度进行可信度排序；  
+3. **严格筛选输入信息**——仅允许高置信度、可相互印证的信息片段进入后续推理与合成；  
+4. **显式管理不确定性**——若分歧无法消解，则必须在输出中明确标注证据状态，采用限定性表述（如“部分证据表明”“尚无共识”），杜绝将存疑结论表述为确定事实，并确保每一项关键主张均可追溯至具体证据来源。
+
+这一流程不可颠倒：核查必须先于合成，筛选必须先于断言，标注必须伴随弱化语气。唯有如此，才能使生成内容的确定性强度与系统实际认知状态严格对齐，从根本上抑制幻觉产生。"
+kgrel_verification_003,kg_related_verification,How does source provenance help users audit generated claims?,B,"B is more factually precise (e.g., emphasizes claim-level tracing, retrieval-before-synthesis causality, and explicit handling of conflicting sources), better structured with logical flow mirroring the audit process, clearer in phrasing and concision, and more useful due to actionable distinctions (e.g., reliability assessment criteria, parallel vs. sequential steps). A is strong but slightly more abstract and less operational in its guidance.",9.0,9.8,9,10,10,10,8,9,9,10,9,10,0.0,0.887,1.0,0.113,0.0,0.0,0,2,0,9,0.0,1.0,"Source provenance helps users audit generated claims by enabling direct, transparent tracing of each claim back to its original supporting material—such as peer-reviewed publications, official datasets, or authoritative websites. This traceability is only effective when the system explicitly links claims to specific sources *and* indicates where in those sources the relevant information appears (e.g., section, figure, or data point). With this contextual citation, users can verify whether the claim accurately reflects the source—checking for misinterpretation, omission, or decontextualization—and assess timeliness, scope, and methodological soundness. Crucially, auditing must begin *after* provenance is disclosed; the two steps—source attribution and user verification—are sequential, not interchangeable. In contrast, evaluating multiple cited sources for consistency or bias can occur in parallel. Ultimately, robust source provenance transforms auditing from speculative skepticism into actionable, evidence-based scrutiny—shifting accountability from the model’s output to the verifiable foundation behind it.","Source provenance helps users audit generated claims by enabling precise, claim-level tracing from each assertion back to its original supporting evidence. This traceability is foundational to auditability: because the retrieval of source material must occur before any claim is synthesized, users can systematically compare each generated statement against its underlying source to verify factual fidelity—ensuring the claim accurately reflects, and does not overstate or distort, the evidence.
+
+This direct linkage also powers effective fact-checking: users can identify logical gaps, unsupported inferences, or contradictions between a claim and its cited source. When multiple sources provide conflicting information, provenance allows users to locate the origin of each conflicting piece of evidence, assess their relative reliability (e.g., based on source authority, recency, or methodological rigor), and make informed judgments about the credibility of the generated claim—rather than accepting it solely on the basis of internal coherence or confidence scores.
+
+In practice, auditing proceeds sequentially: first, users use provenance to locate the relevant source(s) for a given claim; then, they examine those sources to assess alignment and consistency. While multiple claims can be audited in parallel once their sources are identified, the verification step for each claim depends on having already retrieved and linked its specific evidence—making source attribution a necessary prerequisite, not an optional add-on."
+kgrel_verification_004,kg_related_verification,Why should low-confidence evidence be downweighted or flagged in KG-guided generation?,A,"A is more factually grounded (avoids unsupported claims like 'KG's reasoning capability has inherent limitation of ~0.78'), clearer in explaining *why* downweighting must occur *before* generation, and more useful for practitioners with concrete guidance on implementation (e.g., parallel confidence assessment, purpose of labeling). B introduces arbitrary numerical confidences (0.78, 0.86) without source or context, weakening factuality; its DAG-centric framing overcomplicates the core issue without added insight.",9.0,8.2,9,7,10,10,8,9,9,7,9,8,0.0,0.79,1.0,0.21,0.0,1.0,0,7,0,23,0.0,1.0,"在知识图谱引导的文本生成中，低置信度证据应被降权或明确标注，根本原因在于：**知识图谱本身并非绝对真理库，而是对现实世界认知状态的动态建模；若将不确定性高的信息与高可靠性知识等同对待，会将局部、孤立或存疑的断言错误地转化为确定性陈述，从而污染推理链条、损害生成内容的事实准确性与可验证性。**
+
+这一处理必须**优先于生成阶段执行**——即在整合知识证据、构建生成依据时，就需完成置信度评估与权重调整；否则，一旦低置信信息已参与语义合成，其偏差将难以在后续步骤中追溯或修正。而置信度评估本身可与知识检索并行开展：一边从图谱中提取相关事实，一边同步分析其来源权威性、共识程度与时效性。
+
+降权不等于丢弃：它保留了边缘信息的提示价值（如启发进一步查证或提示知识缺口），但将其影响限制在可控范围内；而显式标注（如“据非主流报道”“尚无共识支持”）则为读者划清已知与未知的边界。最终，这种机制不是削弱表达力，而是以结构化审慎提升生成结果的可信度——确保输出既忠实于当前最佳共识，又坦诚反映认知局限。","低置信度证据应在知识图谱（KG）引导的文本生成中被降权或显式标注，根本原因在于：**知识图谱的可靠性具有传递性与结构性依赖，而低置信证据会系统性破坏事实准确性、逻辑严谨性和结果可验证性**。
+
+这一要求并非出于对个别证据的否定，而是由KG引导生成的内在机制决定的——整个过程存在严格的先后依赖链：**实体链接必须先于知识图谱构建，知识图谱结构又必须先于证据检索与推理应用**。若实体链接阶段存在歧义未解或映射错误，其不确定性将沿“实体链接 → 图谱构建 → 证据检索 → 推理驱动 → 文本生成”逐级放大，导致支撑依据薄弱、关联事实失真。
+
+同时，知识图谱虽整体为生成提供高可靠性外部证据，但其自身建模逻辑推理的能力存在固有局限（例如置信度约0.78），且所检索证据可能隐含冲突线索（如置信度0.86时已逼近不确定性边界）。若将低置信证据与高置信支撑关系同等权重参与合成，不仅会混淆支持性与矛盾性信息，削弱事实核查的判别力，还可能扭曲前提到结论的推导路径，损害生成结果的可解释性与逻辑连贯性。
+
+因此，降权或标注低置信证据是必要且主动的校准机制：它阻断误差传播路径，确保高确定性语义锚点主导生成；它动态调节不同证据的影响强度，使稳健的知识关系掌控推理主导权；它也为人工复核保留可追溯的不确定性提示，在自动化与可控性之间取得平衡。
+
+**结论：必须对低置信证据进行降权或标注，这是维系KG引导生成的事实根基、逻辑稳健性与结果可验证性的关键保障措施。**"
+kgrel_verification_005,kg_related_verification,Explain how fact checking and source attribution reduce hallucination in retrieval-augmented generation.,B,"B is more factually precise (e.g., correctly names 'source attribution' as 'source attribution' or 'source归因', avoids conflation with citation formatting; explicitly sequences claim identification → evidence retrieval → attribution → verification — aligning with RAG best practices); structurally superior with clear four-step DAG logic; clarifies that KG operates *implicitly* to improve evidence quality (not as exposed output), avoiding A's ambiguous 'KG-guided' implication; and enhances usefulness by emphasizing operational constraints (e.g., 'attribution is a hard constraint', 'verification is bound to attribution') rather than abstract 'dual rigid constraints'. A is excellent but slightly overstates mechanistic necessity (e.g., 'must be sequential' without acknowledging viable interleaved variants) and lacks B's precision on claim-centric grounding.",9.0,9.8,9,10,10,10,9,10,8,9,9,10,0.0,0.79,1.0,0.21,0.0,1.0,0,7,0,27,0.15,1.0,"事实核查与来源标注通过协同构建“证据锚定”机制，系统性抑制检索增强生成（RAG）中的幻觉：**事实核查负责验证内容真伪，来源标注负责锁定依据出处，二者缺一不可，且必须按序配合——先确保所用信息源自可靠检索结果（来源标注的约束前提），再严格比对生成陈述与该结果的一致性（事实核查的执行基础）。**
+
+具体而言，来源标注在生成过程中强制模型将每一项关键主张（如时间、主体、因果关系、数值等）明确关联至检索所得的具体文档片段。这不仅划定了“可言说”的边界——模型只能复述、转述或合理归纳已有证据，不得引入检索结果之外的信息；也赋予输出可追溯性，使用户或系统能即时回溯原始上下文，识别断章取义、过度推断或语境缺失等问题。
+
+在此基础上，事实核查作为校验环节，必须紧随其后（可嵌入生成前、生成中或生成后，但须基于已标注的来源进行）：它逐项比对模型输出与对应标注源的内容，在逻辑一致性、数值准确性、实体指代和时序关系等维度进行验证。例如，当生成声称“某政策于2023年实施”，而标注来源明确记载生效时间为2024年时，核查即触发修正；若某主张在所有标注来源中均无支持，则判定为潜在幻觉，系统应拒绝生成或如实声明信息缺失。
+
+二者不可并行替代：仅标注来源而不核查，可能放行被误读或扭曲的表述；仅有核查而无明确标注，则无法定位偏差根源，也无法区分是检索失败、推理错误还是纯粹虚构。唯有将来源标注作为事实核查的必要输入，并以核查结果反向约束标注质量，才能形成闭环反馈，从根本上压缩模型依赖参数内隐知识自由发挥的空间。
+
+**结论：事实核查与来源标注构成RAG系统抵御幻觉的双重刚性约束——前者保障“所说即所见”，后者保障“所见有据可查”。二者顺序执行、相互强化，共同推动生成从概率拟合转向证据驱动，显著降低虚构实体、捏造事件、杜撰因果等典型幻觉风险，切实提升输出的可靠性、可验证性与可信度。**","事实核查与来源归因通过协同构建“主张—证据—出处”闭环，系统性降低检索增强生成（RAG）中的幻觉风险。该机制的有效性依赖于严格的执行顺序与内在耦合：**必须先识别生成内容中的具体主张，再基于这些主张检索外部证据，随后强制为每一项主张绑定可验证的原始出处，最后才对主张与所绑定证据的一致性进行系统性核查**。这四个步骤不可颠倒——若跳过主张识别，则核查失去靶向；若未完成来源归因，则核查无法验证；若证据检索早于主张识别（即盲目预检），则易引入无关噪声，反而干扰判断。
+
+其中，来源归因不是事后标注，而是生成过程的硬性约束：模型必须为每个陈述明确关联到已检索证据中的具体片段（如文档ID、段落位置或结构化事实），这直接抑制了模糊表述和无依据推断。而事实核查并非独立后处理，而是依托归因结果开展的逐项比对——仅当主张与其绑定出处在语义和事实层面一致时才被接受。知识图谱等结构化知识不直接暴露于输出，但通过提升证据检索的相关性与关系一致性，隐式强化该闭环的鲁棒性。
+
+最终结论：**事实核查与来源归因不是并行的可选模块，而是前后咬合、互为前提的双重锚定机制——归因确保“每句话有据可查”，核查确保“所查之据真实支撑该句”。二者共同将生成严格约束在检索所得的真实信息基底之上，从根本上压缩幻觉的生存空间。**"

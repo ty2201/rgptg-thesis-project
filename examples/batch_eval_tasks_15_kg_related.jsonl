@@ -1,0 +1,15 @@
+{"id":"kgrel_general_001","category":"kg_related_general","query":"Explain the relationship between knowledge graphs and retrieval-augmented generation in reducing hallucination."}
+{"id":"kgrel_general_002","category":"kg_related_general","query":"Why is entity linking an important prerequisite for knowledge graph based answer generation?"}
+{"id":"kgrel_general_003","category":"kg_related_general","query":"How do embeddings and evidence retrieval work together in a grounded generation system?"}
+{"id":"kgrel_general_004","category":"kg_related_general","query":"What role does source attribution play in improving the trustworthiness of generated reports?"}
+{"id":"kgrel_general_005","category":"kg_related_general","query":"Explain how a knowledge graph can provide structured evidence for a large language model."}
+{"id":"kgrel_dependency_001","category":"kg_related_dependency","query":"Why should entity linking happen before evidence retrieval and answer synthesis in a KG-guided generation pipeline?"}
+{"id":"kgrel_dependency_002","category":"kg_related_dependency","query":"Why should contradiction checking happen after evidence retrieval but before final answer synthesis?"}
+{"id":"kgrel_dependency_003","category":"kg_related_dependency","query":"Explain why a dependency graph is useful when some thought nodes can run in parallel and others require prerequisite evidence."}
+{"id":"kgrel_dependency_004","category":"kg_related_dependency","query":"Why does source attribution need to be attached before aggregation in long-form report generation?"}
+{"id":"kgrel_dependency_005","category":"kg_related_dependency","query":"How should a KG-guided DAG schedule fact checking, contradiction detection, and answer synthesis?"}
+{"id":"kgrel_verification_001","category":"kg_related_verification","query":"How can groundedness metrics reveal whether an answer is supported by retrieved evidence?"}
+{"id":"kgrel_verification_002","category":"kg_related_verification","query":"Why can conflicting retrieved evidence increase hallucination risk, and how should the system respond?"}
+{"id":"kgrel_verification_003","category":"kg_related_verification","query":"How does source provenance help users audit generated claims?"}
+{"id":"kgrel_verification_004","category":"kg_related_verification","query":"Why should low-confidence evidence be downweighted or flagged in KG-guided generation?"}
+{"id":"kgrel_verification_005","category":"kg_related_verification","query":"Explain how fact checking and source attribution reduce hallucination in retrieval-augmented generation."}
