@@ -1,0 +1,238 @@
+﻿id,category,query,winner,judge_reason,plain_judge_avg,kg_judge_avg,plain_fact,kg_fact,plain_relevance,kg_relevance,plain_structure,kg_structure,plain_clarity,kg_clarity,plain_usefulness,kg_usefulness,plain_grounding,kg_grounding,plain_risk,kg_risk,plain_graph,kg_graph,plain_deps,kg_deps,plain_evidence,kg_evidence,plain_coherence,kg_coherence,plain_answer,kg_answer
+dependency_001,logical_dependency,"Why must an AI system verify retrieved evidence before aggregating an answer, and what can go wrong if these steps are executed in parallel without dependencies?",B,"Both are factually sound and highly relevant, but B excels in structure by explicitly distinguishing retriever-verification parallelism (permissible) from verification-aggregation parallelism (harmful), adds nuance like 'term standardization' and 'cost of correction', and clarifies the *type* of failure ('false consensus', 'bias fixation') with sharper conceptual framing. Its conclusion ties reliability to *debuggability* ('hard to trace/revise'), enhancing practical usefulness for system designers.",9.8,10.0,10,10,10,10,9,10,10,10,10,10,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,15,0.15,1.0,"AI系统必须先验证检索到的证据，再进行答案聚合，因为验证是确保信息可信、一致与事实准确的必要前提；而聚合过程本身依赖于这一质量门槛——它并非中立的拼接操作，而是基于可信前提的逻辑整合。因此，**验证必须严格先于聚合，二者存在不可绕过的顺序依赖关系**；任何试图将它们并行执行（即在验证完成前就启动聚合）的做法，都会破坏推理链的根基。
+
+若跳过验证而强行并行处理，三类严重问题会系统性发生：  
+1. **矛盾固化**：当多源证据对同一事实给出冲突陈述（如时间、因果、归属等关键属性不一致）时，未经识别的聚合会机械拼接矛盾内容，生成内部自相矛盾的回答（例如“事件发生于2020年”与“事件发生于2023年”被同时断言为真）；  
+2. **错误放大**：幻觉内容、已被证伪的旧结论或隐含错误前提的表述，若未被过滤，会在聚合中被当作有效支撑，导致结论偏离事实，且因多源“佐证”而显得更具迷惑性；  
+3. **可信度崩塌**：聚合过程可能赋予低质证据与高质量证据同等权重，使最终答案表面覆盖全面，实则缺乏统一的事实锚点，丧失可追溯性与可验证性。
+
+简言之，验证是聚合的守门人，而非可选预处理；没有它，聚合不再是收敛认知的过程，而成为误差扩散的通道。因此，**验证与聚合不可并行，必须串行执行，且验证必须完成并确认证据整体一致性后，聚合才能启动**。","AI系统必须先验证检索到的证据，再聚合生成答案，因为证据本身具有内在不确定性：不同来源可能提供相互矛盾、过时、片面或错误的信息（例如“某政策已实施”与“该政策尚未通过”并存）。验证是必要的前置过滤与校准步骤，其核心作用是识别冲突、剔除谬误、统一事实基准，从而确保输入答案合成阶段的所有信息具有一致性、可靠性和可推理性。
+
+这一流程存在严格的逻辑依赖：**验证必须在聚合之前完成，不可跳过或倒置**。原因在于，答案聚合本质上是基于证据的推理与综合，若将未经验证的原始证据直接送入聚合环节，系统会不加甄别地融合冲突陈述，导致三种典型失效：
+
+1. **虚假共识**：将对立主张（如“已实施”与“未通过”）误判为一致结论，输出看似确定实则自相矛盾的答案；  
+2. **偏差固化**：错误前提一旦参与推理并嵌入最终答案，就会成为后续解释的隐含假设，使纠错需推翻整个推理链，成本指数级上升；  
+3. **分歧掩盖**：关键争议点被平滑处理为中性表述，丧失事实判断的粒度与可信度。
+
+相比之下，检索（获取候选证据）与验证（评估其真实性与一致性）虽可部分并行以提升效率，但**验证结果必须在聚合启动前完成收敛**——即所有待用证据须经统一核查、冲突消解、术语标准化后，方可进入答案合成阶段。换言之：检索可并行，验证须收敛，聚合必后置。
+
+结论：验证不是可选质检环节，而是保障答案可靠性与可修正性的必要闸门；跳过验证而强行让验证与聚合并行，实质上是用效率牺牲逻辑根基，最终产出的不是高效答案，而是难以追溯、难以修正的“伪共识”。"
+dependency_002,logical_dependency,Explain why entity linking should happen before knowledge graph retrieval in a grounded text generation pipeline.,A,"A provides deeper, technically precise justification (e.g., explicit mention of URIs/IDs, distinction between surface forms and canonical identifiers, explanation of why linking doesn’t require retrieval), stronger logical framing (‘semantic anchoring’, ‘strict serial dependency’), and concrete failure modes (e.g., ‘apple’ fruit vs. company). B is accurate and clear but more generic, omits key technical nuance (e.g., no mention of knowledge base indexing or ID-based querying), and lacks the rigorous causal structure that makes A more instructive for pipeline design.",9.8,9.0,10,9,10,10,9,8,10,9,10,9,0.0,0.79,1.0,0.21,0.0,1.0,0,7,0,26,0.15,1.0,"在基于知识的文本生成流程中，实体链接必须严格先于知识图谱检索执行，这是由语义对齐的基本逻辑决定的：**只有先确认“文本中指代的是谁或什么”，才能可靠查询“关于该实体已知哪些事实”**。
+
+原因在于，原始输入文本中的名词短语（如“苹果”“华盛顿”“巴黎”）普遍存在歧义性与指代模糊性——它们可能是多义词（水果 vs. 科技公司）、同名异义实体（法国首都 vs. 得州城市）、或依赖上下文的代词（如“它”“他”）。知识图谱本身不理解自然语言表面形式，仅响应标准化、唯一、无歧义的实体标识（如规范URI或知识库ID）。若跳过实体链接而直接用原始字符串发起检索，系统将无法区分语义身份，只能进行脆弱的字面匹配，必然导致召回错误节点（如把“苹果”公司事件误检为水果营养数据）、遗漏关键关系（因未解析指代链而丢失隐含主体），甚至引入矛盾事实。
+
+因此，实体链接不是可选预处理步骤，而是整个流程的语义锚定环节：它将非结构化文本转化为图谱可理解的精确查询入口，为后续检索划定明确的语义边界和可信锚点。这一先后顺序不可颠倒——检索必须依赖链接输出的确定实体标识才能启动；而链接本身无需图谱检索即可完成（通常基于上下文消歧模型与知识库索引）。换言之，**实体链接是知识检索的必要前提，二者构成严格的串行依赖关系，而非并行可选操作**。
+
+结论：实体链接前置是 grounded text generation 保持事实准确性、语义一致性与过程可解释性的根本保障；颠倒顺序将使知识检索失去语义根基，导致生成内容脱离真实知识支撑。","实体链接必须在知识图谱检索之前执行，因为它是将自然语言中模糊、简略或指代性的表述（如“它”“该框架”“该方法”）精准映射到知识图谱中唯一、明确实体的必要前提。只有完成这一语义锚定，后续的知识图谱检索才能拥有清晰的目标——即围绕已识别的实体，准确获取其直接关联的事实、关系与结构化证据。
+
+这一先后顺序不可颠倒：若跳过实体链接而直接检索，系统将缺乏明确的检索对象，既无法区分同名异义概念（例如“Graph”可能指数学结构、社交网络或可视化图表），也无法解析代词或缩略语所指的真实语义，最终导致召回内容偏离上下文核心，甚至引入错误或无关信息。
+
+因此，在 grounded text generation 管道中，实体链接是知识图谱能力被有效激活的基础环节；它为检索增强生成、事实核查和逻辑推理等下游任务提供可靠的语义入口。所有依赖外部知识的生成过程，都必须以这一语义对齐为起点——先锚定“是什么”，再检索“关于它有什么”。"
+dependency_003,logical_dependency,Why should a reasoning system build dependencies between claims before expanding them in parallel?,B,"B is more precise, structurally rigorous (explicitly naming three non-redundant, functionally distinct roles of dependency modeling), and avoids informal phrasing (e.g., 'safe', 'fused' in A). It correctly frames dependency modeling as a strict temporal prerequisite—not just 'necessary' but logically prior and non-parallelizable—aligning with formal DAG semantics and KG-guided reasoning theory. Its emphasis on synthesis naturalness and conflict prevention reflects deeper understanding of consistency guarantees in distributed inference. A is strong but slightly less technically grounded and more narrative than formally principled.",9.0,9.8,9,10,10,10,8,10,9,9,9,10,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,15,0.15,1.0,"因为推理系统必须先明确主张之间的逻辑先后关系和语义约束，才能安全、一致、高效地并行展开后续推导。
+
+具体而言：若某主张以另一主张为前提（如“模型输出需经校验”依赖于“置信度阈值已设定”），或多个主张共享同一隐含假设（如若干结论均基于“数据分布平稳”这一未明示前提），则这些前提必须在并行扩展前被识别、验证并固化——否则，各分支将基于不确定或冲突的基础同步推进，极易产生矛盾结论、未定义状态或循环推导。例如，在“甲导致乙→乙引发丙”的链式结构中，对丙的推理必须等待乙的结论稳定；若跳过依赖建模而直接并发处理，丙的推导将因输入缺失或变动而失效。
+
+因此，构建依赖关系不是额外负担，而是必要前置步骤：它确立了哪些主张必须串行求解（作为前提），哪些可在前提就绪后真正并行（作为后续推论），从而为并行过程提供可验证的逻辑骨架。这一结构既防止竞态与逻辑断裂，又避免重复计算和资源浪费，最终在保障推理一致性的同时，实现可扩展的效率提升。","一个推理系统必须先构建主张之间的依赖关系图，再启动并行展开，原因在于：**依赖建模是保障并行推理既高效又内洽的逻辑前提，而非可选的辅助步骤**。
+
+具体而言，该过程存在严格的先后顺序约束——**依赖关系的识别与结构化建模必须在任何并行推演开始之前完成，并且必须在最终答案综合之前彻底固化**。这是因为依赖图承担三项不可替代的功能：  
+1. **统一前提框架**：它显式定义各主张间的先后、支撑或排斥关系，为所有并行分支提供共享的逻辑骨架和边界约束，确保不同路径从同一组前提出发、遵循一致的推理规则；  
+2. **预防性冲突控制**：通过前置锚定逻辑依赖，系统在推演启动前就排除了相互矛盾的展开方向，避免后期出现无法调和的结论分歧；  
+3. **保障合成自然性**：只有当所有并行分支基于同一依赖结构生成结果时，最终整合才不是对冲突结论的权衡或修补，而是基于共同根基的必然收敛。
+
+因此，依赖建模与并行展开不可并行，也不可后置；它是整个流程中必须最先完成的基础性步骤。跳过或弱化这一步，将导致并行推理丧失一致性保障，使效率优势被后续的矛盾协调成本所抵消。"
+dependency_004,logical_dependency,"In a multi-step answer generation pipeline, why should contradiction checking happen before final summarization?",B,"B is more factually precise (e.g., explicitly names 'causal dependency', 'irreversible damage to traceability/repairability', and 'loss of fine-grained structure'), better structured with logical progression (cause → consequence → necessity), clearer in phrasing (e.g., 'mandatory gate' vs 'necessary前置校验'), and more useful for pipeline design due to actionable rationale (e.g., 'non-optional prerequisite', 'not an optional post-processing step'). A is strong but slightly more generic and less grounded in formal reasoning constraints.",9.0,9.8,9,10,10,10,8,9,9,10,9,10,0.0,0.777,1.0,0.223,0.0,1.0,0,6,0,14,0.15,1.0,在多步答案生成流程中，矛盾检测必须在最终 summarization 之前执行，因为 summarization 是对前期所有推理结果的压缩与凝练，不具备纠错或协调冲突的能力。一旦中间步骤产出相互矛盾的陈述（例如前提冲突、结论互斥或数值不一致），而这些矛盾未被识别和消解，它们将被原样保留并固化进摘要中——导致最终输出表面简洁、实则内在失洽，且错误根源难以定位。因此，矛盾检测是必要的前置校验环节：它必须在所有中间结果汇入总结阶段之前完成，以确保输入 summarization 的内容在语义上自洽、在逻辑链条上连贯。该步骤不可与 summarization 并行，也不可后置；唯有先完成矛盾识别与协调（如通过优先级裁决、证据权重重估或分支回溯），才能为生成可靠、可解释的最终摘要奠定一致性的基础。,"在多步答案生成流程中，矛盾检查必须在最终总结之前执行，这是由生成逻辑的因果依赖关系决定的：**总结步骤的输入必须是已验证为内部一致的中间结果，否则冲突信息一旦被压缩进摘要，将不可逆地损害结论的可靠性与可修正性。**
+
+具体而言，各并行分支生成的中间内容可能隐含逻辑冲突（如相互排斥的事实、不兼容的时间顺序或矛盾的因果判断）。若跳过前置矛盾检查而直接进入总结，这些冲突会被无差别地融合、简化甚至掩盖，导致摘要既难以回溯问题源头，也无法无损修正——因为总结过程本身会丢失原始分支的细粒度结构和推理依据。相反，将矛盾检查设为总结前的强制关卡，能主动识别并清除冲突，确保所有参与聚合的信息在语义上彼此兼容。这一时序安排不是经验性优化，而是流程内在逻辑的必然要求：只有先达成中间结果的一致性，后续的综合归纳才具备稳健性和可信度。因此，矛盾检查是总结的前提条件，而非可选的后处理步骤。"
+dependency_005,logical_dependency,Explain why some thought nodes can be generated in parallel while others must wait for prerequisite evidence.,B,"B grounds explanation concretely in evidence lifecycle (retrieval → verification → integration → conflict detection), explicitly names real-world reasoning dependencies (e.g., 'preliminary consistency check' for contradiction detection), and maps scheduling to three precise semantic relations (precedence, support, conflict) — all factually accurate, more structured, clearer in causal logic, and more actionable for system design than A's abstract dependency framing.",9.2,10.0,9,10,10,10,9,10,9,10,9,10,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,17,0.15,1.0,"在并行文本生成中，某些思维节点可以同时生成，而另一些必须等待前置证据，根本原因在于**推理过程中的逻辑依赖与数据依赖是否已满足**。
+
+具体而言：  
+- **可并行的节点**，必须满足三个条件：（1）各自处理的信息片段相互独立，不共享前提；（2）不构成因果或推导链条（如无需用A的结论来支撑B的推理）；（3）所有输入信息（包括事实、约束、上下文）均已就绪且无歧义。例如，在分析一个复杂事件时，可同步生成“时间线梳理”“涉事主体识别”和“动机初步归类”三个节点——它们基于同一组原始材料，彼此不互为前提，因而能真正并行展开。
+
+- **必须串行的节点**，则存在刚性依赖：其推理**必须以至少一个未完成节点的输出为必要输入**。典型情形包括：需先确认事实真伪才能进行归因判断；需先确立事件先后顺序才能推断因果关系；需先完成概念定义才能在其基础上展开论证。这种依赖不是执行层面的调度选择，而是语义完整性与逻辑一致性的刚性要求——若跳过前提直接生成后续内容，将导致结论失据、矛盾或断裂。
+
+因此，并行与否并非由节点形式或类型决定，而取决于**实际推理路径中是否存在尚未兑现的知识依赖**。只有当所有必需的前提性证据已被生成、验证并稳定可用时，依赖它的后续节点才可启动；而所有输入完备、逻辑解耦的节点，则可同步推进。最终，并行能力是任务内在知识结构的映射，其边界由推理链的拓扑关系严格界定。","某些推理步骤可以并行执行，而另一些必须严格串行，根本原因在于它们与“已检索证据”之间的语义依赖关系不同：**并行与否取决于任务是否共享同一组就绪的输入证据，且彼此不产生需要对方先行完成的中间结论；而串行则由刚性的逻辑前提关系强制决定——即某一步骤的执行在语义上必须以另一步骤的输出（或证据本身的完备性与可信性）为必要条件。**
+
+具体而言：  
+- **事实核查**与**答案综合**可并行启动，因为二者都以**已检索证据**为直接输入，且互不依赖对方的中间结果；但二者都**必须等待证据检索完成并初步就绪**——前者依赖证据的真实性支撑，后者依赖证据的内容完整性来整合结论。  
+- **答案综合**则进一步要求证据不仅存在，还需经过基本验证（如格式统一、来源可信度初筛），因此它虽可与事实核查并行，却**不可早于证据检索完成**，更不能在证据尚不完整时启动。  
+- **矛盾检测**看似独立，实则对证据状态最敏感：它不依赖其他推理步骤的输出，但**必须等待全部相关证据就绪且完成初步一致性校验**，否则易将暂态信息缺口或未对齐的表述误判为真实冲突。这种对证据完备性与稳定性的强依赖，使其既不能早于证据就绪，也不能与其他步骤盲目并行。
+
+因此，调度逻辑并非人为设定，而是由三类关系自然导出：  
+1. **先后关系**（如证据检索 → 答案综合）：无证据则无整合对象；  
+2. **支撑关系**（如证据真实性 → 事实核查有效性）：核查需以证据为真为默认前提；  
+3. **潜在冲突关系**（如多源证据间张力 → 矛盾检测触发时机）：只有证据全部到位，系统才能可靠识别并协调内在张力。
+
+最终结论：**能否并行，取决于任务是否共用同一组已就绪、可信赖的证据输入，且不构成彼此的前提；而必须串行，则源于不可绕过的语义前提——没有A，B在逻辑上无法成立。**"
+general_001,general_knowledge,Explain how AlphaFold changed protein structure prediction and what limitations remain.,A,"A is more factually precise (e.g., correctly distinguishes AlphaFold 2 vs. 3 capabilities, accurately describes pLDDT limitations, and avoids overclaiming on multimer/complex prediction), better structured with a clear three-category limitation framework tied to biological principles (dynamics, context, process), and significantly more useful for researchers due to its nuanced, actionable insights about where and why experimental validation remains essential. B oversimplifies evolutionary dependence, misattributes 'sequential foundation' (MSA generation is pre-processing, not part of AlphaFold’s inference sequence), and conflates limitations (e.g., grouping PTMs and disorder without distinguishing their distinct mechanistic origins).",9.6,8.8,10,9,10,10,9,8,9,9,10,8,0.0,0.672,1.0,0.328,0.0,0.0,0,3,0,4,0.0,1.0,"AlphaFold fundamentally transformed protein structure prediction by achieving near-experimental accuracy for static, well-folded monomeric proteins—effectively solving the decades-old “protein folding problem” for this broad class of targets. It replaced labor-intensive experimental methods (e.g., X-ray crystallography) and fragmented computational approaches (e.g., homology modeling, fragment assembly, or physics-based simulations) with an end-to-end deep learning framework that directly maps amino acid sequences to precise 3D atomic coordinates. Its breakthrough stemmed from jointly learning evolutionary constraints (from massive multiple sequence alignments), geometric consistency, and implicit physical priors—enabling high-confidence predictions even for proteins lacking close structural homologs. As a result, researchers can now model entire proteomes in days rather than years, accelerating drug target identification, enzyme engineering, and hypothesis generation across biology.
+
+However, critical limitations remain—many stemming from AlphaFold’s core design goal: predicting *a single, static, dominant conformation* rather than modeling biological *dynamics*, *context*, or *process*. These limitations fall into three interdependent categories:
+
+1. **Conformational dynamics and ensembles**: AlphaFold outputs one structure, not a distribution of functionally relevant states. It therefore struggles with intrinsically disordered regions, large-scale domain motions, allosteric transitions, and transient or multi-state proteins—despite advances like ensemble sampling in AlphaFold 2 or multistate modeling in AlphaFold 3, robust prediction of biologically meaningful conformational ensembles remains unsolved.
+
+2. **Context-dependent folding and function**: The method does not incorporate cellular environment—such as pH, temperature, molecular crowding, chaperones, or co-factors—and cannot model how post-translational modifications, ligand binding (to small molecules, DNA, RNA, or other proteins), or membrane embedding alter structure. While AlphaFold 3 extends prediction to some complexes, general-purpose, accurate modeling of heterogeneous, transient, or condition-dependent macromolecular assemblies is still experimental and not yet routine.
+
+3. **Beyond structure**: AlphaFold predicts *what* a folded state looks like—not *how* it folds (kinetics or pathways), *how stable* it is under physiological variation, or *how functional* it is. It offers no built-in physical energy terms, temporal resolution, or mechanistic insight into folding mechanisms or allostery. Confidence metrics (e.g., pLDDT) are per-residue and coarse; they do not replace experimental validation for functional interpretation, therapeutic design, or mechanistic studies.
+
+In summary: AlphaFold shifted structural biology from a bottleneck-driven, experiment-heavy discipline to a predictive, scalable science—for static, globular, monomeric proteins. But because biological function arises from dynamics, context, and process—not just static snapshots—experimental determination and context-aware, physics-integrated, or simulation-augmented methods remain essential to bridge the gap between predicted structure and biological","AlphaFold revolutionized protein structure prediction by replacing decades-old physics-based and fragment-assembly methods with a deep learning system that infers accurate 3D structures directly from amino acid sequences. Its breakthrough stems from jointly modeling evolutionary constraints—extracted from multiple sequence alignments—with geometric and physical plausibility, using attention-based neural networks trained on experimentally determined structures. As a result, AlphaFold achieves near-experimental accuracy for many monomeric proteins, enabling rapid, large-scale structural modeling across biology and accelerating target identification and drug design.
+
+This transformation relies on a sequential foundation: high-quality multiple sequence alignments must first be generated, as AlphaFold’s accuracy critically depends on sufficient evolutionary signal; only then can its neural architecture reliably infer spatial coordinates. In contrast, inference itself—generating the final structure—is highly parallelizable and scalable across proteins.
+
+Despite this leap, key limitations remain. First, predictions degrade significantly for proteins with few or no detectable homologs, because evolutionary information is sparse or absent. Second, standard AlphaFold is designed for single-chain proteins; modeling multi-protein complexes requires explicit multimer training—and even then, performance drops for large, transient, or asymmetric assemblies. Third, AlphaFold predicts only a single, static conformation: it cannot capture conformational dynamics, ligand-bound states, post-translational modifications, or disordered regions in context. Finally, it provides no mechanistic insight—such as folding pathways, thermodynamic stability determinants, or functional allostery—because it learns statistical patterns, not physical causality.
+
+Therefore, while AlphaFold has redefined the baseline for structural inference, experimental validation (e.g., cryo-EM or X-ray crystallography) remains essential for functionally relevant contexts, and complementary methods—molecular dynamics simulations, ensemble modeling, or biophysical assays—are still required to address questions of dynamics, interactions, and mechanism."
+general_002,general_knowledge,"What are the main differences between supervised learning, unsupervised learning, and reinforcement learning?",B,"B matches the question precisely with sharper conceptual distinctions (type/timing/source of feedback), superior logical flow (parallel vs. sequential applicability), and more accessible, concise phrasing. Its structure is tighter, clarity higher (e.g., 'learns from answers/from data alone/from consequences'), and usefulness enhanced by explicit guidance on when each paradigm *must* or *can* be applied. A is factually flawless and rich but slightly denser, with marginally less intuitive framing (e.g., 'feedback mechanism determines learning flow' is insightful but less immediately graspable than B's tripartite summary).",9.2,10.0,10,10,10,10,9,10,8,10,9,10,0.0,0.817,1.0,0.183,0.0,0.0,0,0,0,3,0.0,1.0,"监督学习、无监督学习和强化学习是机器学习的三大范式，其根本区别在于**学习过程中所依赖的信息类型、反馈机制及目标导向方式**。三者并非互斥，但在实际应用中需根据问题性质选择合适范式；其中，**反馈机制决定学习流程的结构**：监督学习与无监督学习可基于静态数据集并行开展（如同时训练分类模型与聚类预处理模块），而强化学习必须串行执行——因为策略更新严格依赖前序交互产生的延迟奖励，无法脱离环境试错闭环。
+
+具体而言：  
+- **监督学习**以**带标签的数据对（输入–输出）为前提**，模型通过拟合标注样本中的映射关系，完成分类或回归任务。其学习过程是“有标准答案的训练”：每一步预测都可立即对照真实标签计算误差，并据此调整参数。因此，它要求高质量标注，适用于输出定义明确的问题（如图像识别、房价预测）。  
+
+- **无监督学习**则**完全不依赖人工标注或外部反馈**，仅利用原始输入数据自身的统计特性与内在结构（如相似性、分布密度或低维流形）来发现模式。典型任务包括聚类（将相似样本分组）、降维（保留关键特征的同时压缩维度）和异常检测。它常作为探索性分析或监督学习的前置步骤（例如用聚类初始化分类器），但本身不追求对特定输出的精确预测。  
+
+- **强化学习**既不使用标签，也不仅分析静态数据，而是让智能体在**动态环境中持续交互**：每执行一个动作后，环境返回一个标量奖励（可能稀疏、延迟甚至间接），智能体据此评估行为优劣，并逐步优化长期累积回报。该过程天然具有**时序依赖性与策略迭代性**——当前决策影响后续状态与奖励，因此必须按“感知–决策–行动–反馈–学习”的闭环顺序执行，无法并行化。典型应用场景包括机器人路径规划、游戏AI和资源调度等序贯决策问题。
+
+综上，三者的本质差异可归结为：  
+✅ **监督学习**：靠**即时、精确的外部标签**驱动映射学习；  
+✅ **无监督学习**：靠**数据自身结构**驱动模式发现；  
+✅ **强化学习**：靠**延迟、稀疏的环境反馈**驱动策略演化。  
+选择哪种范式，取决于任务是否具备标注数据、是否涉及交互式决策，以及优化目标是拟合、探索还是长期控制。","Supervised learning, unsupervised learning, and reinforcement learning differ fundamentally in how they receive and use feedback during training—specifically, in the *type*, *timing*, and *source* of learning signals.
+
+Supervised learning requires **explicit, human-provided labels** (e.g., class tags or numerical targets) paired with input data. The model learns a mapping from inputs to these known outputs—enabling tasks like classification and regression. This approach must be performed *first* when labeled data is available and the goal is predictive accuracy on well-defined output spaces.
+
+Unsupervised learning operates **without any labels**, relying solely on raw input data. It discovers inherent structure—such as groupings (clustering), low-dimensional representations (dimensionality reduction), or statistical anomalies—by analyzing patterns, similarities, or distributions within the data itself. It can be applied *in parallel* with or *prior to* supervised learning—for example, to preprocess data, uncover hidden features, or guide labeling efforts—but does not aim to predict external targets.
+
+Reinforcement learning differs most critically in its **sequential, interactive nature**: an agent learns by taking actions in an environment and observing delayed, sparse, and often cumulative rewards (or penalties). There are no fixed input-output pairs or static datasets; instead, learning emerges from trial-and-error interaction over time, with the explicit objective of maximizing long-term reward. This paradigm *must follow* the definition of a well-specified environment, action space, and reward function—and cannot substitute for supervised or unsupervised learning when the task demands direct prediction or structural exploration of static data.
+
+In summary:  
+- **Supervised learning** learns *from answers* (labeled examples);  
+- **Unsupervised learning** learns *from data alone* (no answers, only structure);  
+- **Reinforcement learning** learns *from consequences* (delayed, sequential rewards through interaction).  
+
+These paradigms are complementary—not interchangeable—and their choice depends on the availability of labels, the presence of an interactive environment, and the nature of the learning objective."
+general_003,general_knowledge,Why are transformers important for modern natural language processing?,B,"Both are factually accurate and highly relevant. B edges out A in structure (clearer DAG-like logical flow: architecture → mechanism → consequences → paradigm → implications) and conceptual cohesion, while maintaining excellent clarity. Its emphasis on modularity, scalability, and the foundation model pipeline adds nuanced usefulness for technically informed readers—without sacrificing accessibility. A is superb but slightly more linear; B integrates implications (e.g., instruction tuning, structural flexibility) more deliberately and anticipates deeper follow-up questions.",9.8,9.8,10,10,10,10,9,10,10,9,10,10,0.0,0.717,1.0,0.283,0.0,0.0,0,5,0,8,0.0,1.0,"Transformers are foundational to modern natural language processing because they fundamentally redefined how models understand and generate language—through two interdependent innovations: **parallel sequence processing** and the **self-attention mechanism**.
+
+First, unlike RNNs and LSTMs—which process words sequentially and suffer from computational bottlenecks and vanishing gradients over long sequences—transformers process all tokens in a sentence simultaneously. This parallelization is not merely an implementation detail; it is a *prerequisite* for scaling training to massive datasets and billion-parameter models. Without it, efficient pretraining on web-scale corpora would be infeasible.
+
+Second, self-attention enables each token to dynamically attend to *any other token* in the sequence—regardless of distance—with learnable weights. This directly addresses the core linguistic challenge of long-range dependencies: resolving pronoun references, tracking discourse coherence across sentences, or parsing deeply nested syntax. Crucially, this capability emerges *naturally* from the architecture—it does not rely on fixed windows (like CNNs) or incremental state propagation (like RNNs).
+
+These two features work synergistically: parallel computation makes self-attention tractable at scale, while self-attention gives parallel processing *linguistic meaning*. Together, they enabled the **pretraining–fine-tuning paradigm**, where a single model learns general language representations on vast unlabeled text (e.g., BERT, GPT), then adapts efficiently to specific tasks—translation, summarization, question answering, code generation—with minimal task-specific data.
+
+As a result, transformers are not just one option among many—they are the architectural foundation that made large language models possible, and they have become the de facto standard across both cutting-edge research and production NLP systems worldwide.","Transformers are foundational to modern natural language processing (NLP) because they replace sequential, step-by-step processing—used in earlier models like RNNs and CNNs—with parallel, context-aware computation powered by self-attention. This shift is not incremental but transformative: self-attention allows the model to dynamically weigh the relevance of *every* token in the input sequence when representing *any* given token, enabling precise, position-agnostic modeling of long-range dependencies (e.g., resolving pronouns across sentences or capturing hierarchical syntactic structure). As a result, Transformers scale efficiently with data and compute, making them uniquely suited for pretraining on massive text corpora—where they learn rich, generalized representations of language.
+
+This architectural advantage directly enables the modern foundation model paradigm: the same Transformer backbone supports both large-scale unsupervised pretraining (to absorb linguistic patterns and world knowledge) and subsequent task-specific adaptation (e.g., via instruction tuning), all while maintaining strong generalization across diverse NLP tasks. Crucially, its modular, stackable design ensures that improvements in depth, width, or attention variants translate reliably into capability gains—without breaking core assumptions about how context should be integrated.
+
+Therefore, Transformers are indispensable—not merely as one option among many, but as the *necessary architectural foundation* that made today’s powerful, general-purpose language models possible. Their parallelism accelerates training; their global attention ensures deep contextual understanding; and their structural flexibility sustains the entire pipeline from pretraining to deployment. While challenges like factual consistency and reasoning fidelity remain active research frontiers, no alternative architecture has matched the Transformer’s combination of scalability, expressivity, and empirical success across the full spectrum of modern NLP."
+general_004,general_knowledge,"How do diffusion models generate images, and what are their main limitations?",A,"A is more factually precise (e.g., explicitly names U-Net, quantifies step counts, links limitations to serial dependency), better structured (hierarchical, numbered, logically grouped), and significantly more useful—providing concrete examples ('four hands', 'left of the red car'), actionable research directions (DDIM, ControlNet), and clear cause-effect reasoning. B is accurate and clear but vaguer on mechanisms, omits key technical details (e.g., no mention of cross-attention in text conditioning, oversimplifies controllability), and lacks illustrative specificity and practical context.",9.8,8.8,10,9,10,10,10,8,9,9,10,8,0.0,0.767,1.0,0.233,0.0,0.0,0,0,0,2,0.0,1.0,"扩散模型通过**迭代去噪**生成图像：首先，在前向过程中，将真实图像逐步添加高斯噪声，经过数十至数千步后完全退化为纯随机噪声；随后，在反向过程中，一个神经网络（通常为U-Net）被训练来学习每一步的噪声残差，并从纯噪声出发，严格按时间顺序、逐轮预测并移除噪声，最终重建出符合文本提示的清晰图像。该过程本质上是学习数据分布的逆向演化路径，其生成质量高度依赖于每一步噪声估计的准确性。
+
+这一机制决定了若干**必须串行执行的关键步骤**：  
+- 去噪必须严格按时间步递进（如从步长 $T$ 到 $1$），因为每一步的输入依赖上一步的输出，无法并行加速；  
+- 每次去噪都需一次完整的神经网络推理，因此总计算量正比于采样步数（通常50–1000步），直接制约生成速度与实时性。
+
+其主要局限可归纳为三类，且彼此关联：  
+
+**1. 效率瓶颈**：由于去噪过程不可并行，单张高分辨率图像生成常耗时数秒至数十秒，显著高于GAN等前馈模型；计算与显存开销随图像分辨率和步数急剧上升，限制了在资源受限设备或交互式场景中的应用。  
+
+**2. 控制能力薄弱**：模型缺乏对空间结构与细粒度语义的显式建模——例如难以稳定控制物体姿态、肢体比例、部件数量或局部纹理一致性，易出现解剖错误、构图失衡或概念混淆（如“四只手”“漂浮的椅子”）；同时，对文本提示高度敏感，微小措辞变化（如“holding a cup” vs. “with a cup”）可能导致语义偏移或结构失真。  
+
+**3. 数据与泛化依赖性强**：训练需海量高质量图像-文本对，模型性能紧密耦合于训练数据的覆盖度与偏差；当提示涉及罕见概念、跨域风格或复杂逻辑关系（如“left of the red car, behind the tree”）时，生成质量显著下降，且难以通过简单调参弥补。  
+
+综上，扩散模型以**高保真度与强分布建模能力**为优势，但其**固有的串行去噪范式**是效率与可控性瓶颈的根本原因；当前研究正围绕**加速采样（如DDIM、LCM）、结构引导（如ControlNet）、分布鲁棒训练及可解释性增强**等方向突破这些限制。","Diffusion models generate images through a two-phase process: first, a forward noising process gradually corrupts real images with Gaussian noise over many steps until only pure noise remains; second, a reverse denoising process learns to iteratively reconstruct images from random noise by predicting and subtracting noise at each step—guided by a neural network trained to invert the forward process. This iterative refinement enables high-fidelity and diverse image synthesis, but it inherently requires hundreds or thousands of sequential steps, making inference slow and computationally expensive.
+
+The core limitations follow directly from this design:  
+- **Inference speed and efficiency** are fundamentally constrained because denoising must be performed step-by-step—no parallelization across timesteps is possible without significant quality trade-offs. This prevents real-time use or scalable deployment.  
+- **Fine-grained controllability** is limited in the base architecture; modifying specific attributes (e.g., object pose, texture, or layout) requires external conditioning mechanisms (like classifier guidance or cross-attention), as the model does not natively encode structured, editable representations.  
+- **Spatial and structural coherence**, especially over long ranges, can degrade because each denoising step operates locally on pixel-level noise estimates rather than globally reasoning about object relationships, geometry, or semantic consistency.
+
+In summary, diffusion models excel at generating high-quality, diverse images but are bottlenecked by sequential inference, lack native interpretability or editability, and struggle with global structural fidelity—limitations rooted in their probabilistic, stepwise reconstruction paradigm."
+general_005,general_knowledge,What is the role of embeddings in information retrieval systems?,A,"A excels in structure and usefulness by explicitly framing embeddings as a *complement* to lexical methods (e.g., BM25), detailing the standard two-stage pipeline (retrieval + re-ranking), and emphasizing practical deployment tradeoffs—making it more actionable for engineers and designers. B is factually precise and clear but overly focuses on the encoding→scoring sequence, omitting critical real-world context (hybrid architectures, efficiency constraints, production best practices) that A delivers. Both are fully factual and relevant, but A’s richer contextualization and pedagogical scaffolding (examples, contrast with legacy methods, summary statement) yield higher clarity and usefulness.",9.8,9.2,10,10,10,10,9,8,10,9,10,9,0.0,0.883,1.0,0.117,0.0,0.0,0,0,0,4,0.0,1.0,"Embeddings play a central role in modern information retrieval systems by converting queries, documents, and other textual units into dense numerical vectors that encode *semantic meaning*—not just surface-level word matches. This transformation enables the system to measure conceptual similarity through geometric relationships in vector space (e.g., cosine similarity), allowing it to retrieve relevant results even when there is little or no lexical overlap—for example, matching “car” with “automobile”, “leaking faucet” with “dripping tap”, or “how to change a bike tire” with “what to do when a bicycle inner tube bursts”.
+
+This semantic capability fundamentally extends beyond traditional lexical methods like TF-IDF or BM25, which depend on exact term presence, frequency, or statistical co-occurrence. While those methods remain valuable for precision, efficiency, and interpretability, embeddings provide the necessary foundation for *semantic ranking*, *paraphrase-aware retrieval*, *zero-shot generalization* to unseen phrasings, and *intelligent filtering or clustering* of content by topic or intent.
+
+Critically, embedding-based retrieval does not replace lexical methods—it complements them. In practice, high-performing systems typically apply embeddings *after* an initial lexical or hybrid candidate retrieval stage (to ensure efficiency and coverage), then use vector similarity for fine-grained re-ranking and relevance scoring. This two-stage pipeline—first retrieving a broad set of plausible candidates using fast, interpretable signals, then refining order and relevance using semantic embeddings—is now standard in production search engines, recommendation platforms, and question-answering systems.
+
+In summary: **embeddings serve as the semantic engine of modern retrieval—enabling systems to understand *what users mean*, not just *what they type*—and their integration with traditional methods delivers both robustness and precision.**","Embeddings play a central and transformative role in modern information retrieval systems by enabling semantic, rather than purely lexical, matching between queries and documents.  
+
+They achieve this by converting text—whether individual words, phrases, or full passages—into dense numerical vectors that reside in a shared geometric space. In this space, semantic similarity is reflected as vector proximity: terms like *car* and *automobile*, or paraphrased sentences with identical meaning, are mapped to nearby points, even when they share no surface-level vocabulary.  
+
+This representation shift is foundational: it must precede similarity computation. First, both queries and documents are encoded into embeddings—typically using pre-trained language models (e.g., BERT, Sentence-BERT) or specialized retrieval models (e.g., ColBERT, SPLADE). This encoding step can be performed offline for documents (to enable fast lookup) and online for queries (to support dynamic user input). Second, once all representations exist in the same vector space, the system computes similarity—most commonly via cosine similarity or dot product—to rank documents by conceptual relevance to the query. These two steps—encoding and similarity scoring—are strictly sequential in function: meaningful comparison is only possible *after* consistent vector representations are obtained.
+
+The result is a retrieval process that is robust to synonymy, paraphrasing, and vocabulary mismatch; better aligned with user intent; and capable of retrieving evidence based on underlying meaning rather than keyword overlap. In essence, embeddings transform information retrieval from a syntactic pattern-matching task into a semantic reasoning task—making meaning computationally accessible, comparable, and actionable."
+verification_001,fact_verification,How can knowledge graphs help reduce hallucination in retrieval-augmented generation systems?,B,"B is more factually precise (e.g., distinguishes entity linking as prerequisite, specifies relation-path constraints like 'is a type of', clarifies causal sequencing), better structured (three explicit, ordered, interdependent mechanisms), clearer in distinguishing *how* KGs enforce constraints (not just 'validation' but semantic grounding via alignment → constraint → verification), and more useful for implementation (actionable steps with logical dependencies). A is strong but abstract; B grounds each claim in concrete KG operations and avoids overgeneralization.",8.4,9.8,9,10,9,10,8,10,8,9,8,10,0.0,0.805,1.0,0.195,0.0,0.8,0,7,0,26,0.0,1.0,"Knowledge graphs reduce hallucination in retrieval-augmented generation (RAG) systems by imposing explicit, verifiable semantic constraints on both retrieval and generation stages.  
+
+First, during retrieval, the knowledge graph acts as a factual scaffold: when a query is issued, it enables entity-aware search—identifying not just keyword matches but semantically relevant entities and their validated relationships. This helps retrieve documents that align with established facts (e.g., “Paris is the capital of France”), rather than statistically plausible but unverified text fragments. Crucially, this step must precede generation—it grounds the system in verified structure before any response is composed.
+
+Second, during generation, the graph constrains the language model’s output in real time: instead of relying solely on parametric knowledge (which may be outdated or inconsistent), the model references the graph’s structured assertions to validate entity types, attribute values, and relational logic (e.g., rejecting “Berlin is the capital of France” because the graph encodes only one capital per country). This validation can occur in parallel with token generation—checking candidate outputs against graph constraints as they are proposed—but only after the relevant subgraph has been retrieved and aligned with the query context.
+
+Together, these two functions—fact-grounded retrieval and graph-anchored generation—create a closed-loop verification mechanism. The result is a measurable reduction in hallucinations involving nonexistent entities, spurious relationships, contradictory attributes, or inverted causality. In practice, this means RAG systems augmented with knowledge graphs produce responses that are not only more informative but also more reliably faithful to objective reality.","知识图谱通过提供结构化、可验证的外部证据源，从三个关键环节协同降低检索增强生成（RAG）系统中的幻觉风险：**实体对齐、事实约束与实时校验**，且这三者必须按序执行，不可颠倒。
+
+首先，**实体对齐是前提**：在检索前或检索过程中，系统需将用户查询和文档片段中的文本提及（如“Transformer模型”“BERT”）精准链接到知识图谱中唯一、规范的实体节点。这一步消除了歧义与指代模糊，确保后续所有推理都锚定在明确定义的现实对象上——若跳过此步，后续约束将失去基准。
+
+其次，**事实约束是核心机制**：一旦实体被确认，系统不再仅依赖检索到的文本片段进行自由生成，而是强制要求生成内容必须遵循图谱中已验证的关系路径（例如，“BERT *is a type of* Transformer model”“Transformer model *enables* parallel attention”）。这些显式建模的关系构成可信推理骨架，直接禁止生成违背图谱逻辑的陈述（如“BERT predates Transformers”），从而在生成源头抑制虚构、矛盾或无依据的断言。
+
+最后，**实时校验是闭环保障**：在生成过程中或输出前，系统可同步调用图谱进行轻量级事实核查——例如，验证生成句“RAG improves answer groundedness”是否与图谱中“RAG → enhances → groundedness”这一关系一致。该步骤不替代前两步，而是在其基础上提供动态验证，弥补纯统计模型在逻辑严谨性上的固有短板。
+
+综上，知识图谱并非简单增加信息源，而是重构RAG的事实锚定机制：它以实体对齐为起点，以关系约束为生成主干，以实时校验为最终把关，三者形成不可分割的因果链。只有严格遵循这一顺序，才能将生成过程从“文本拼接”真正转变为“基于真实语义网络的受控推理”，从而系统性降低幻觉。"
+verification_002,fact_verification,"Why can outdated evidence cause factual errors in AI-generated answers, and how should a system handle it?",A,"A provides deeper conceptual grounding (time-dependence of facts), a rigorously sequenced three-stage lifecycle framework with domain-aware thresholds, concrete implementation examples (e.g., 'medical guidelines >3 years old'), and pedagogically precise language that embeds temporal awareness into output itself. B is strong and technically sound but less comprehensive: it omits proactive mitigation (e.g., no equivalent to A’s transparent time-bound phrasing in output), has looser sequencing logic ('synchronous' steps lack clear DAG dependency), and offers fewer actionable domain-specific heuristics. Both are factually accurate, but A’s structure, clarity, and operational usefulness are superior.",10.0,9.0,10,9,10,10,10,8,10,9,10,9,0.0,0.79,1.0,0.21,0.0,1.0,0,6,0,15,0.15,1.0,"过时的证据会导致AI生成答案出现事实性错误，根本原因在于：**事实本身具有时间依赖性**——政策会修订、科学共识会演进、技术标准会迭代、社会结构会调整、法律条文会废止或更新。当系统依据未标注时效、未经验证或已失效的历史信息作答时，它并非“说错”，而是将某一历史时刻的局部真实，错误地映射为当前普遍有效的现实状态。
+
+要有效应对这一问题，系统必须在**信息获取、推理决策与结果呈现**三个阶段协同实施时效治理，且各阶段需严格遵循先后逻辑：
+
+1. **信息获取阶段必须优先完成时效识别与标注**（不可并行于后续步骤）：所有输入证据——无论来自训练数据、检索文档还是知识库——都须附带明确的时间戳（如发布日期、生效日期、最后更新时间），并按领域特性预设时效敏感度阈值（例如法律条文变更需实时响应，数学公理则无时效约束）。这是后续所有处理的前提，缺失此步，后续权重调整与风险提示均失去依据。
+
+2. **推理决策阶段需动态权衡而非简单弃旧**（可与信息标注并行准备，但必须在生成前完成）：对时效敏感领域（如医学指南、法规、技术参数、行政区划），系统应自动降低陈旧证据的置信权重；当关键证据超出合理时效阈值（如医疗建议引用超3年未更新的临床指南），必须触发再验证机制——优先调用经时间戳验证的权威信源，并在必要时启动人工复核或向用户发出更新提示。该步骤不是静态过滤，而是结合领域稳定性进行动态判断。
+
+3. **结果呈现阶段必须透明化时效边界**（必须在生成后、输出前完成，不可省略）：所有涉及时间敏感内容的回答，都应自然嵌入时间限定说明，如“截至2023年12月”“依据现行《XX法》（2024年修订版）”或“该技术参数适用于2021年前的设备型号”。这并非附加免责声明，而是将事实的演进脉络内化为语言表达的一部分，使用户能清晰区分“历史状况”与“当前状态”，从而自主评估信息适用性。
+
+综上，防范过时证据导致的事实错误，不能依赖单一手段：**时效标注是基础，动态加权是核心，透明表达是终点**。三者构成闭环——缺少任一环节，系统就可能将阶段性结论误作永恒真理，最终损害可信度。真正稳健的系统，不追求“永远正确”，而致力于“始终可知其正确之边界”。","过时的证据会导致AI生成答案出现 factual errors（事实性错误），根本原因在于：**证据虽在时间上先于答案生成并用于支撑事实核查与内容合成，但若其内容已与当前公认事实脱节，就会在核查环节误判真实信息为错误，或在合成阶段将陈旧结论当作可靠依据——从而系统性地污染最终输出。** 这不是偶然偏差，而是由证据“存在”却不“有效”所引发的结构性风险。
+
+要妥善应对这一问题，系统必须将证据处理从静态调用升级为动态评估，且以下步骤须严格按序执行：
+
+1. **时效性验证必须前置**：在证据被用于事实核查前，系统须强制检查其时间戳；对无明确时间标记、或发布时间早于关键事件/共识更新节点的证据，自动降权或排除；
+2. **一致性校验同步进行**：在时效验证基础上，实时比对多源高置信度新证据（如权威机构最新发布、经同行评议的更新数据），识别潜在冲突；该步骤可与来源权威性评估并行执行，但结果必须在核查启动前汇总；
+3. **冲突响应机制即时触发**：一旦检测到新旧信息存在不可调和张力，系统不得强行调和或默认采纳旧证据，而应立即暂停确定性输出，转为三种响应之一：标注不确定性（如“截至2024年，该说法已被新研究修正”）、提示用户注意时效局限，或交由人工复核——三者择一取决于冲突严重性与领域风险等级。
+
+简言之，**证据的价值不在于“是否被检索到”，而在于“是否仍能稳健支撑当下事实”**。唯有将时效性验证设为不可绕过的前置关卡，并将冲突响应嵌入生成流程的关键决策点，才能确保AI回答既基于证据，又忠于现实。"
+verification_003,fact_verification,How should an AI system handle two retrieved sources that make conflicting claims?,A,"A provides a more logically sequenced, pedagogically grounded workflow ('identify → assess → respond → collaborate') with explicit emphasis on transparency and user agency. B introduces valuable distinctions (e.g., fact vs. interpretation vs. values) and parallel verification, but its structure is less hierarchical and slightly more abstract; 'anchor the nature of conflict' is insightful but under-explained, and 'must be滞后于核查完成' is awkwardly phrased in English context. Both are factually sound and highly relevant, but A’s clarity, coherence, and actionable framing make it more useful for real-world AI design and user communication.",9.4,8.8,9,9,10,10,9,8,9,8,10,9,0.0,0.3,1.0,0.7,0.0,0.0,0,2,0,0,0.15,1.0,"当AI系统检索到两个相互矛盾的来源时，应遵循以下分步、审慎且透明的处理流程：
+
+**首先，明确识别并呈现冲突**：系统必须立即识别矛盾，并在输出中清晰、中立地指出分歧——例如，“来源A主张X，而来源B主张Y”，不将任一说法默认为事实，也不隐匿、淡化或强行调和差异。
+
+**其次，开展可信度评估（可与呈现同步进行）**：基于客观标准对双方来源进行比较分析，重点考察：信息出处是否清晰可追溯、发布机构在该领域的权威性、内容时效性，以及其主张是否与其他独立、可靠的信源一致。这一评估须避免主观偏好或简单采纳多数意见，而应聚焦可验证的证据质量。
+
+**然后，依据评估结果作出响应**：  
+- 若一方在可信度上具有明显优势（如来自近期权威机构、方法严谨、共识支持充分），则优先采纳该主张，但须明确说明采纳理由及另一方的局限性；  
+- 若双方证据强度相当、无法进一步验证，则**不强行裁决**，而是如实陈述冲突、界定不确定性边界，并提示用户需结合具体场景审慎判断。
+
+**最后，以认知协作为目标完成输出**：整个过程需透明展现推理路径（如“因来源A为2023年同行评议临床指南，而来源B为未署名博客，故倾向前者”），而非仅给出结论。其根本目的不是交付确定答案，而是帮助用户理解分歧根源、评估依据权重，并在知情基础上参与判断——这既是应对信息不确定性的必要克制，也是构建可信人机协作的核心原则。
+
+**结论**：面对冲突主张，AI不应调和、掩盖或武断取舍，而应通过“识别冲突→评估依据→分级响应→透明解释”的结构化流程，将矛盾转化为深化理解的契机，在保障准确性的同时，切实维护用户的知情权与决策自主性。","当AI系统检索到两个相互矛盾的来源时，应遵循**先核查、后呈现**的处理原则：冲突必须被主动识别、系统性调和，而非忽略或随机采纳。
+
+首先，系统须**锚定分歧本质**——明确冲突属于事实性断言（如“某事件发生于2023年”）、解释性框架（如对同一数据的不同归因），还是价值立场差异（如政策效果的利弊权衡）。这一步是后续所有操作的前提，必须优先完成。
+
+其次，启动**多维事实核查**，该过程可并行开展三项关键任务：  
+- 追溯原始出处，验证双方是否基于同一数据源或存在引用偏差；  
+- 评估各方专业资质、发布背景与潜在立场倾向（如学术机构 vs. 倡议组织）；  
+- 检验信息时效性、方法严谨性及证据链完整性。  
+
+上述核查必须同步进行，但**结论生成必须滞后于核查完成**——任何回应都不得早于证据评估结束。
+
+若核查能明确证伪一方或厘清解释边界（例如发现一方数据过时、另一方误读原始文献），则整合答案应清晰陈述核实结果，并说明依据。  
+若核查后冲突依然存在（如权威信源本身存在学界争议），则最终输出**必须并置呈现双方主张**，并附带简明、客观的可信度说明（如“该结论出自2024年同行评议研究，样本覆盖全球12国；对立观点基于2019年区域性模型，未纳入最新变量”），同时指出各自适用条件或未解局限。
+
+总之，AI不应掩盖分歧、折中表述或隐含偏好，而应将核查过程的审慎性转化为用户可理解、可验证、可追问的透明输出——在确定处给出明确结论，在不确定处坦诚呈现张力，始终保障用户的知情权与判断自主性。"
+verification_004,fact_verification,Why is source provenance important when generating answers from retrieved knowledge?,B,"B is more factually precise (e.g., explicitly names retrieval→verification→synthesis pipeline with causal dependencies), structurally superior (clear DAG-aligned sequencing with numbered, logically ordered steps), and more useful due to actionable operational guidance (e.g., 'conflict resolution must revert to original context'). It avoids A’s minor overgeneralizations (e.g., 'non-negotiable' without qualification) and provides tighter conceptual grounding in knowledge engineering practice.",8.4,9.8,9,10,10,10,7,10,8,9,8,10,0.0,0.85,1.0,0.15,0.0,0.0,0,2,0,9,0.0,1.0,"Source provenance is critically important when generating answers from retrieved knowledge because it establishes verifiability, accountability, and contextual integrity. Without clear attribution to original, authoritative sources—such as peer-reviewed publications, official reports, or validated datasets—answers risk drifting from factual grounding: claims may be decontextualized, outdated, or inadvertently biased. Provenance enables users to trace claims back to their origin, assess the source’s credibility and recency, and evaluate whether the information applies to their specific use case. In high-stakes domains like healthcare, law, or policy, this traceability is not optional—it is foundational for responsible decision-making. Crucially, provenance must be established *before* answer generation (to constrain reasoning to reliable inputs) and preserved *throughout* the response (to support user verification); these steps are sequential and non-negotiable. Meanwhile, evaluating multiple sources for consistency or complementarity can occur in parallel—but only after provenance is confirmed for each. Ultimately, robust source provenance transforms generated answers from plausible statements into accountable, auditable knowledge.","源出处之所以重要，是因为它构建了从原始检索证据到最终答案生成的完整可追溯链条。这一链条是保障答案可靠性与可验证性的基础：只有明确每条信息的原始来源，才能开展有效的事实核查、识别潜在矛盾，并确保合成过程透明可信。
+
+具体而言，源出处的作用体现在三个关键环节中，且存在严格的执行顺序：  
+1. **检索必须先于合成**——所有用于生成答案的信息，必须源自已明确定位、可访问的原始证据；没有出处的信息不得参与后续处理。  
+2. **事实核查紧随检索之后、早于合成决策**——利用出处定位原始上下文，检验信息是否被误用、断章取义或脱离语境；此步骤不可跳过，否则合成将失去事实锚点。  
+3. **冲突解析依赖出处标识**——当多份检索证据相互矛盾时，出处使分歧可定位、可比对；唯有回归原始上下文，才能审慎权衡证据权重、调和差异或剔除不可靠陈述。该步骤虽常与合成并行启动（如在生成过程中动态评估证据），但其判断依据必须严格回溯至出处，不能基于模型内部推断。
+
+综上，源出处不是附加说明，而是知识驱动型回答生成中不可省略的前提条件：它使答案从“可能正确”转变为“可验证正确”，并将整个生成过程置于可审计、可修正、可信赖的实践框架之中。"
+verification_005,fact_verification,Explain how evidence grounding improves the reliability of long-form generated reports.,B,"B scores higher in factuality (explicitly mandates evidence-first workflow and conflict resolution), structure (clear three-stage DAG with strict sequencing constraints), and usefulness (actionable, implementation-aware guidance); though slightly less fluent in English clarity, its precision, procedural rigor, and emphasis on evidence integration over citation makes it more authoritative and practically valuable for reliable report generation.",9.0,9.6,9,10,10,10,8,10,9,8,9,10,0.0,0.79,1.0,0.21,0.0,1.0,0,5,0,17,0.0,1.0,"Evidence grounding improves the reliability of long-form generated reports by anchoring every key claim, statistic, and conclusion directly to verifiable, authoritative external sources. This is not merely about appending citations at the end—it embeds empirical validation into the reasoning process itself. As the report unfolds across sections, grounding ensures that each logical step remains tethered to real-world evidence, thereby preventing two critical failure modes: *hallucination* (fabrication of unsupported facts) and *fact drift* (gradual deviation from verified information as the text lengthens and dependencies accumulate).
+
+Crucially, grounding must be applied *during generation*, not as a post-hoc check—because once an unsupported assertion enters the narrative, it can propagate errors downstream through subsequent inferences or summaries. In contrast, when grounding is enforced incrementally—validating claims as they are introduced—it creates distributed factual anchors across the document. These anchors collectively stabilize the report’s internal coherence and resist cumulative distortion. While some verification steps (e.g., checking multiple independent sources for the same claim) can proceed in parallel, the core grounding loop—assertion → source alignment → validation → integration—must be sequential and iterative per claim. The result is a report whose depth and length no longer trade off against trustworthiness; instead, reliability scales with rigor of grounding.","证据锚定通过将长篇报告的生成全过程严格约束于已检索、可验证的外部证据，系统性提升其可靠性。该机制遵循“证据先行”原则：必须先完成证据检索与整合，再启动内容生成；任何结论、推理或叙述都不得早于或脱离证据输入，从而确保事实核查始终有据可依。
+
+具体而言，这一过程包含三个关键且必须先后执行的阶段：  
+1. **证据聚合与预处理**：统一术语表达、识别并调和不同来源间的潜在矛盾，完成逻辑整合；  
+2. **生成约束**：在内容合成阶段，所有主张必须直接映射至至少一项支撑证据，杜绝无依据推断；  
+3. **可追溯验证**：每项陈述均可回溯至原始证据，支持人工复核或自动化事实核查。
+
+其中，证据聚合与生成约束不可并行——若跳过前置整合而直接生成，易放大片面信息或隐性矛盾；但证据检索本身可并行开展（如多源并发检索），只要最终输入到生成环节的是经整合的统一证据集。
+
+综上，证据锚定不是简单的引用标注，而是以证据为唯一事实源头，贯穿从输入整合、内容生成到结果验证的完整闭环。它从根本上抑制幻觉滋生，在保障长篇报告逻辑连贯性的同时，持续维持其准确性、一致性与可验证性。"

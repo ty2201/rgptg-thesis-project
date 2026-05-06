@@ -1,0 +1,1062 @@
+{
+  "topic_id": "local_ai_general_qwen_eval",
+  "topic_name": "AI general reasoning expansion for qwen evaluation",
+  "entities": [
+    {
+      "id": "ai_history",
+      "name": "AI History",
+      "description": "Historical development of artificial intelligence, including symbolic AI, machine learning, and modern foundation models.",
+      "aliases": [
+        "history of AI",
+        "人工智能历史"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "symbolic_ai",
+      "name": "Symbolic AI",
+      "description": "AI approach based on explicit symbols, logic, rules, and knowledge representation.",
+      "aliases": [
+        "GOFAI",
+        "symbolic reasoning",
+        "符号主义人工智能"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "connectionism",
+      "name": "Connectionism",
+      "description": "AI approach that models cognition through networks of simple connected units.",
+      "aliases": [
+        "neural approach",
+        "联结主义"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "machine_learning",
+      "name": "Machine Learning",
+      "description": "Field of AI where systems learn patterns from data rather than relying only on hand-written rules.",
+      "aliases": [
+        "ML",
+        "机器学习"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "deep_learning",
+      "name": "Deep Learning",
+      "description": "Machine learning using multi-layer neural networks to learn hierarchical representations.",
+      "aliases": [
+        "DL",
+        "深度学习"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "neural_network",
+      "name": "Neural Network",
+      "description": "A model made of connected computational units whose parameters are learned from data.",
+      "aliases": [
+        "artificial neural network",
+        "ANN",
+        "神经网络"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "transformer_architecture",
+      "name": "Transformer Architecture",
+      "description": "Neural architecture based on attention mechanisms, widely used in large language models.",
+      "aliases": [
+        "Transformer",
+        "transformers",
+        "注意力架构"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "attention_mechanism",
+      "name": "Attention Mechanism",
+      "description": "Mechanism that weights relevant parts of an input sequence when producing representations or outputs.",
+      "aliases": [
+        "attention",
+        "注意力机制"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "large_language_model",
+      "name": "Large Language Model",
+      "description": "A large neural language model trained on broad text corpora to generate and understand language.",
+      "aliases": [
+        "LLM",
+        "large language models",
+        "大语言模型"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "foundation_model",
+      "name": "Foundation Model",
+      "description": "A broadly trained model that can be adapted to many downstream tasks.",
+      "aliases": [
+        "基础模型"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "knowledge_graph",
+      "name": "Knowledge Graph",
+      "description": "Structured representation of entities and relations used for retrieval, grounding, and reasoning.",
+      "aliases": [
+        "KG",
+        "知识图谱"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "pretraining",
+      "name": "Pretraining",
+      "description": "Training stage in which a model learns general patterns from large-scale data.",
+      "aliases": [
+        "pre-training",
+        "预训练"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "fine_tuning",
+      "name": "Fine-tuning",
+      "description": "Adapting a pretrained model to a specific task or domain using additional training.",
+      "aliases": [
+        "finetuning",
+        "微调"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "alignment",
+      "name": "AI Alignment",
+      "description": "Methods for making model behavior better match human goals, norms, and instructions.",
+      "aliases": [
+        "model alignment",
+        "AI safety alignment",
+        "对齐"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "rlhf",
+      "name": "Reinforcement Learning from Human Feedback",
+      "description": "Alignment method that trains models using reward signals derived from human preferences.",
+      "aliases": [
+        "RLHF",
+        "人类反馈强化学习"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "retrieval_augmented_generation",
+      "name": "Retrieval-Augmented Generation",
+      "description": "Generation method that retrieves external evidence before or during answer generation.",
+      "aliases": [
+        "RAG",
+        "检索增强生成"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "external_evidence",
+      "name": "External Evidence",
+      "description": "Information outside the model parameters used to ground or verify an answer.",
+      "aliases": [
+        "evidence source",
+        "外部证据"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "source_attribution",
+      "name": "Source Attribution",
+      "description": "Linking generated claims to the evidence or source that supports them.",
+      "aliases": [
+        "citation",
+        "evidence attribution",
+        "来源归因"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "fact_checking",
+      "name": "Fact Checking",
+      "description": "Process of checking whether claims are supported, contradicted, or unverifiable.",
+      "aliases": [
+        "factual verification",
+        "事实核验"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "claim",
+      "name": "Claim",
+      "description": "A statement whose truth or support can be evaluated against evidence.",
+      "aliases": [
+        "assertion",
+        "主张"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "evidence_retrieval",
+      "name": "Evidence Retrieval",
+      "description": "Finding relevant facts, passages, triples, or documents to support reasoning.",
+      "aliases": [
+        "retrieve evidence",
+        "证据检索"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "logical_reasoning",
+      "name": "Logical Reasoning",
+      "description": "Reasoning that follows explicit relations, constraints, and dependencies between propositions.",
+      "aliases": [
+        "logic reasoning",
+        "逻辑推理"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "causal_dependency",
+      "name": "Causal Dependency",
+      "description": "A dependency where one event or condition influences another.",
+      "aliases": [
+        "causal relation",
+        "因果依赖"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "temporal_dependency",
+      "name": "Temporal Dependency",
+      "description": "A dependency where one step or event must occur before another.",
+      "aliases": [
+        "time order",
+        "时序依赖"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "prerequisite",
+      "name": "Prerequisite",
+      "description": "A condition or concept that must be established before another step can be valid.",
+      "aliases": [
+        "precondition",
+        "前置条件"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "multi_hop_reasoning",
+      "name": "Multi-hop Reasoning",
+      "description": "Reasoning that combines multiple pieces of evidence or relations to reach a conclusion.",
+      "aliases": [
+        "multi-step reasoning",
+        "多跳推理"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "decomposition",
+      "name": "Problem Decomposition",
+      "description": "Breaking a complex question into smaller subproblems or thought nodes.",
+      "aliases": [
+        "task decomposition",
+        "问题分解"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "answer_synthesis",
+      "name": "Answer Synthesis",
+      "description": "Combining partial results and evidence into a coherent final answer.",
+      "aliases": [
+        "synthesis",
+        "答案综合"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "consistency_check",
+      "name": "Consistency Check",
+      "description": "Checking whether generated statements conflict with each other or with evidence.",
+      "aliases": [
+        "consistency verification",
+        "一致性检查"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "contradiction",
+      "name": "Contradiction",
+      "description": "A relation where two statements cannot both be true under the same assumptions.",
+      "aliases": [
+        "conflict",
+        "矛盾"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "uncertainty",
+      "name": "Uncertainty",
+      "description": "A state where available evidence is incomplete, ambiguous, or low confidence.",
+      "aliases": [
+        "uncertain evidence",
+        "不确定性"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "model_bias",
+      "name": "Model Bias",
+      "description": "Systematic tendency of model outputs to favor certain groups, assumptions, or patterns.",
+      "aliases": [
+        "AI bias",
+        "模型偏见"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "privacy_risk",
+      "name": "Privacy Risk",
+      "description": "Risk that AI systems expose, infer, or misuse personal or sensitive information.",
+      "aliases": [
+        "privacy issue",
+        "隐私风险"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "data_quality",
+      "name": "Data Quality",
+      "description": "Fitness of data for learning, retrieval, or evaluation, including accuracy, coverage, and freshness.",
+      "aliases": [
+        "dataset quality",
+        "数据质量"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "training_data",
+      "name": "Training Data",
+      "description": "Data used to optimize model parameters during training.",
+      "aliases": [
+        "training corpus",
+        "训练数据"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "benchmark",
+      "name": "Benchmark",
+      "description": "A task set or evaluation protocol used to compare model performance.",
+      "aliases": [
+        "evaluation benchmark",
+        "基准测试"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "human_evaluation",
+      "name": "Human Evaluation",
+      "description": "Assessment of model outputs by human judges according to explicit criteria.",
+      "aliases": [
+        "manual evaluation",
+        "人工评测"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "llm_as_judge",
+      "name": "LLM-as-a-Judge",
+      "description": "Using a language model to evaluate outputs, often with rubrics and pairwise comparison.",
+      "aliases": [
+        "model judge",
+        "LLM judge",
+        "模型评审"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "groundedness",
+      "name": "Groundedness",
+      "description": "Degree to which an answer is supported by retrieved or cited evidence.",
+      "aliases": [
+        "grounding",
+        "有据性"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "hallucination_risk",
+      "name": "Hallucination Risk",
+      "description": "Likelihood that an answer contains unsupported or false content.",
+      "aliases": [
+        "risk of hallucination",
+        "幻觉风险"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "explainability",
+      "name": "Explainability",
+      "description": "Ability to make system behavior and reasoning understandable to users.",
+      "aliases": [
+        "interpretability",
+        "可解释性"
+      ],
+      "source": "curated_local"
+    },
+    {
+      "id": "alphafold",
+      "name": "AlphaFold",
+      "description": "DeepMind system for protein structure prediction using deep learning.",
+      "aliases": [
+        "AlphaFold",
+        "protein structure prediction",
+        "protein structures"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "supervised_learning",
+      "name": "Supervised Learning",
+      "description": "Learning from labeled examples with target outputs.",
+      "aliases": [
+        "supervised learning",
+        "labeled data"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "unsupervised_learning",
+      "name": "Unsupervised Learning",
+      "description": "Learning patterns from unlabeled data.",
+      "aliases": [
+        "unsupervised learning",
+        "unlabeled data"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "reinforcement_learning",
+      "name": "Reinforcement Learning",
+      "description": "Learning by actions, rewards, and interaction with an environment.",
+      "aliases": [
+        "reinforcement learning",
+        "reward signal",
+        "environment feedback"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "diffusion_model",
+      "name": "Diffusion Model",
+      "description": "Generative model that learns to denoise random noise step by step.",
+      "aliases": [
+        "diffusion model",
+        "diffusion models",
+        "generate images",
+        "image generation"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "embedding",
+      "name": "Embedding",
+      "description": "Vector representation of text, entities, or items for similarity search and retrieval.",
+      "aliases": [
+        "embedding",
+        "embeddings",
+        "vector representation",
+        "information retrieval",
+        "retrieval systems"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "entity_linking",
+      "name": "Entity Linking",
+      "description": "Mapping text mentions to canonical KG entities.",
+      "aliases": [
+        "entity linking",
+        "link entities",
+        "entity resolution"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "retrieved_evidence",
+      "name": "Retrieved Evidence",
+      "description": "Evidence returned by search, retrieval, or graph traversal before answer generation.",
+      "aliases": [
+        "retrieved evidence",
+        "evidence",
+        "retrieved sources",
+        "sources",
+        "source provenance",
+        "outdated evidence"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "dependency_graph",
+      "name": "Dependency Graph",
+      "description": "Directed structure indicating which thought nodes or claims must precede others.",
+      "aliases": [
+        "dependencies",
+        "dependency",
+        "thought nodes",
+        "prerequisite evidence",
+        "multi-step answer generation",
+        "parallel without dependencies"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "protein_structure_prediction",
+      "name": "Protein Structure Prediction",
+      "description": "",
+      "aliases": [
+        "protein structure prediction"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "labeled_data",
+      "name": "Labeled Data",
+      "description": "",
+      "aliases": [
+        "labeled data"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "latent_structure",
+      "name": "Latent Structure",
+      "description": "",
+      "aliases": [
+        "latent structure"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "reward_signal",
+      "name": "Reward Signal",
+      "description": "",
+      "aliases": [
+        "reward signal"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "self_attention",
+      "name": "Self Attention",
+      "description": "",
+      "aliases": [
+        "self attention"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "iterative_denoising",
+      "name": "Iterative Denoising",
+      "description": "",
+      "aliases": [
+        "iterative denoising"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "sampling_cost",
+      "name": "Sampling Cost",
+      "description": "",
+      "aliases": [
+        "sampling cost"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "semantic_similarity",
+      "name": "Semantic Similarity",
+      "description": "",
+      "aliases": [
+        "semantic similarity"
+      ],
+      "source": "curated_eval"
+    },
+    {
+      "id": "parallel_generation",
+      "name": "Parallel Generation",
+      "description": "",
+      "aliases": [
+        "parallel generation"
+      ],
+      "source": "curated_eval"
+    }
+  ],
+  "triples": [
+    {
+      "head": "ai_history",
+      "relation": "has_part",
+      "tail": "symbolic_ai",
+      "confidence": 0.9
+    },
+    {
+      "head": "ai_history",
+      "relation": "has_part",
+      "tail": "connectionism",
+      "confidence": 0.9
+    },
+    {
+      "head": "symbolic_ai",
+      "relation": "uses",
+      "tail": "logical_reasoning",
+      "confidence": 0.91
+    },
+    {
+      "head": "symbolic_ai",
+      "relation": "uses",
+      "tail": "knowledge_graph",
+      "confidence": 0.82
+    },
+    {
+      "head": "connectionism",
+      "relation": "supports",
+      "tail": "neural_network",
+      "confidence": 0.9
+    },
+    {
+      "head": "machine_learning",
+      "relation": "subclass_of",
+      "tail": "artificial_intelligence",
+      "confidence": 0.93
+    },
+    {
+      "head": "deep_learning",
+      "relation": "subclass_of",
+      "tail": "machine_learning",
+      "confidence": 0.95
+    },
+    {
+      "head": "deep_learning",
+      "relation": "uses",
+      "tail": "neural_network",
+      "confidence": 0.96
+    },
+    {
+      "head": "transformer_architecture",
+      "relation": "uses",
+      "tail": "attention_mechanism",
+      "confidence": 0.96
+    },
+    {
+      "head": "large_language_model",
+      "relation": "uses",
+      "tail": "transformer_architecture",
+      "confidence": 0.88
+    },
+    {
+      "head": "large_language_model",
+      "relation": "subclass_of",
+      "tail": "foundation_model",
+      "confidence": 0.86
+    },
+    {
+      "head": "foundation_model",
+      "relation": "requires",
+      "tail": "pretraining",
+      "confidence": 0.88
+    },
+    {
+      "head": "fine_tuning",
+      "relation": "requires",
+      "tail": "pretraining",
+      "confidence": 0.91
+    },
+    {
+      "head": "alignment",
+      "relation": "has_part",
+      "tail": "rlhf",
+      "confidence": 0.83
+    },
+    {
+      "head": "rlhf",
+      "relation": "improves",
+      "tail": "alignment",
+      "confidence": 0.84
+    },
+    {
+      "head": "retrieval_augmented_generation",
+      "relation": "uses",
+      "tail": "evidence_retrieval",
+      "confidence": 0.94
+    },
+    {
+      "head": "retrieval_augmented_generation",
+      "relation": "uses",
+      "tail": "external_evidence",
+      "confidence": 0.95
+    },
+    {
+      "head": "retrieval_augmented_generation",
+      "relation": "improves",
+      "tail": "groundedness",
+      "confidence": 0.89
+    },
+    {
+      "head": "external_evidence",
+      "relation": "supports",
+      "tail": "source_attribution",
+      "confidence": 0.85
+    },
+    {
+      "head": "source_attribution",
+      "relation": "improves",
+      "tail": "fact_checking",
+      "confidence": 0.83
+    },
+    {
+      "head": "fact_checking",
+      "relation": "requires",
+      "tail": "claim",
+      "confidence": 0.9
+    },
+    {
+      "head": "fact_checking",
+      "relation": "requires",
+      "tail": "external_evidence",
+      "confidence": 0.92
+    },
+    {
+      "head": "fact_checking",
+      "relation": "reduces",
+      "tail": "hallucination_risk",
+      "confidence": 0.88
+    },
+    {
+      "head": "evidence_retrieval",
+      "relation": "provides",
+      "tail": "external_evidence",
+      "confidence": 0.91
+    },
+    {
+      "head": "claim",
+      "relation": "is_checked_by",
+      "tail": "fact_checking",
+      "confidence": 0.86
+    },
+    {
+      "head": "logical_reasoning",
+      "relation": "uses",
+      "tail": "prerequisite",
+      "confidence": 0.85
+    },
+    {
+      "head": "logical_reasoning",
+      "relation": "uses",
+      "tail": "causal_dependency",
+      "confidence": 0.85
+    },
+    {
+      "head": "logical_reasoning",
+      "relation": "uses",
+      "tail": "temporal_dependency",
+      "confidence": 0.84
+    },
+    {
+      "head": "multi_hop_reasoning",
+      "relation": "requires",
+      "tail": "evidence_retrieval",
+      "confidence": 0.85
+    },
+    {
+      "head": "multi_hop_reasoning",
+      "relation": "requires",
+      "tail": "answer_synthesis",
+      "confidence": 0.84
+    },
+    {
+      "head": "decomposition",
+      "relation": "supports",
+      "tail": "multi_hop_reasoning",
+      "confidence": 0.86
+    },
+    {
+      "head": "answer_synthesis",
+      "relation": "requires",
+      "tail": "consistency_check",
+      "confidence": 0.86
+    },
+    {
+      "head": "consistency_check",
+      "relation": "detects",
+      "tail": "contradiction",
+      "confidence": 0.88
+    },
+    {
+      "head": "uncertainty",
+      "relation": "requires",
+      "tail": "source_attribution",
+      "confidence": 0.79
+    },
+    {
+      "head": "uncertainty",
+      "relation": "increases",
+      "tail": "hallucination_risk",
+      "confidence": 0.8
+    },
+    {
+      "head": "data_quality",
+      "relation": "affects",
+      "tail": "machine_learning",
+      "confidence": 0.87
+    },
+    {
+      "head": "training_data",
+      "relation": "affects",
+      "tail": "model_bias",
+      "confidence": 0.83
+    },
+    {
+      "head": "training_data",
+      "relation": "has_property",
+      "tail": "data_quality",
+      "confidence": 0.82
+    },
+    {
+      "head": "model_bias",
+      "relation": "has_risk",
+      "tail": "hallucination_risk",
+      "confidence": 0.72
+    },
+    {
+      "head": "privacy_risk",
+      "relation": "has_risk",
+      "tail": "large_language_model",
+      "confidence": 0.72
+    },
+    {
+      "head": "benchmark",
+      "relation": "supports",
+      "tail": "human_evaluation",
+      "confidence": 0.82
+    },
+    {
+      "head": "human_evaluation",
+      "relation": "supports",
+      "tail": "answer_synthesis",
+      "confidence": 0.7
+    },
+    {
+      "head": "llm_as_judge",
+      "relation": "subclass_of",
+      "tail": "human_evaluation",
+      "confidence": 0.7
+    },
+    {
+      "head": "llm_as_judge",
+      "relation": "requires",
+      "tail": "benchmark",
+      "confidence": 0.76
+    },
+    {
+      "head": "groundedness",
+      "relation": "reduces",
+      "tail": "hallucination_risk",
+      "confidence": 0.88
+    },
+    {
+      "head": "explainability",
+      "relation": "supports",
+      "tail": "source_attribution",
+      "confidence": 0.78
+    },
+    {
+      "head": "knowledge_graph",
+      "relation": "supports",
+      "tail": "retrieval_augmented_generation",
+      "confidence": 0.84
+    },
+    {
+      "head": "knowledge_graph",
+      "relation": "supports",
+      "tail": "fact_checking",
+      "confidence": 0.86
+    },
+    {
+      "head": "knowledge_graph",
+      "relation": "models",
+      "tail": "logical_reasoning",
+      "confidence": 0.78
+    },
+    {
+      "head": "knowledge_graph",
+      "relation": "provides",
+      "tail": "external_evidence",
+      "confidence": 0.83
+    },
+    {
+      "head": "large_language_model",
+      "relation": "has_risk",
+      "tail": "hallucination_risk",
+      "confidence": 0.82
+    },
+    {
+      "head": "retrieval_augmented_generation",
+      "relation": "reduces",
+      "tail": "hallucination_risk",
+      "confidence": 0.84
+    },
+    {
+      "head": "decomposition",
+      "relation": "supports",
+      "tail": "answer_synthesis",
+      "confidence": 0.8
+    },
+    {
+      "head": "prerequisite",
+      "relation": "guides",
+      "tail": "temporal_dependency",
+      "confidence": 0.76
+    },
+    {
+      "head": "causal_dependency",
+      "relation": "guides",
+      "tail": "answer_synthesis",
+      "confidence": 0.75
+    },
+    {
+      "head": "temporal_dependency",
+      "relation": "guides",
+      "tail": "answer_synthesis",
+      "confidence": 0.75
+    },
+    {
+      "head": "alphafold",
+      "relation": "improves",
+      "tail": "protein_structure_prediction",
+      "confidence": 0.9
+    },
+    {
+      "head": "alphafold",
+      "relation": "uses",
+      "tail": "deep_learning",
+      "confidence": 0.82
+    },
+    {
+      "head": "supervised_learning",
+      "relation": "uses",
+      "tail": "labeled_data",
+      "confidence": 0.88
+    },
+    {
+      "head": "unsupervised_learning",
+      "relation": "discovers",
+      "tail": "latent_structure",
+      "confidence": 0.84
+    },
+    {
+      "head": "reinforcement_learning",
+      "relation": "optimizes",
+      "tail": "reward_signal",
+      "confidence": 0.86
+    },
+    {
+      "head": "transformer_architecture",
+      "relation": "uses",
+      "tail": "self_attention",
+      "confidence": 0.9
+    },
+    {
+      "head": "diffusion_model",
+      "relation": "performs",
+      "tail": "iterative_denoising",
+      "confidence": 0.88
+    },
+    {
+      "head": "diffusion_model",
+      "relation": "has_limitation",
+      "tail": "sampling_cost",
+      "confidence": 0.8
+    },
+    {
+      "head": "embedding",
+      "relation": "supports",
+      "tail": "semantic_similarity",
+      "confidence": 0.9
+    },
+    {
+      "head": "embedding",
+      "relation": "supports",
+      "tail": "evidence_retrieval",
+      "confidence": 0.86
+    },
+    {
+      "head": "entity_linking",
+      "relation": "precedes",
+      "tail": "knowledge_graph",
+      "confidence": 0.9
+    },
+    {
+      "head": "entity_linking",
+      "relation": "supports",
+      "tail": "evidence_retrieval",
+      "confidence": 0.84
+    },
+    {
+      "head": "retrieved_evidence",
+      "relation": "precedes",
+      "tail": "answer_synthesis",
+      "confidence": 0.9
+    },
+    {
+      "head": "retrieved_evidence",
+      "relation": "supports",
+      "tail": "fact_checking",
+      "confidence": 0.86
+    },
+    {
+      "head": "retrieved_evidence",
+      "relation": "can_conflict_with",
+      "tail": "contradiction",
+      "confidence": 0.78
+    },
+    {
+      "head": "dependency_graph",
+      "relation": "guides",
+      "tail": "parallel_generation",
+      "confidence": 0.9
+    },
+    {
+      "head": "dependency_graph",
+      "relation": "prevents",
+      "tail": "contradiction",
+      "confidence": 0.78
+    },
+    {
+      "head": "dependency_graph",
+      "relation": "precedes",
+      "tail": "answer_synthesis",
+      "confidence": 0.84
+    },
+    {
+      "head": "source_attribution",
+      "relation": "supports",
+      "tail": "groundedness",
+      "confidence": 0.86
+    }
+  ],
+  "constraints": []
+}

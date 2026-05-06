@@ -31,12 +31,20 @@ def run_batch(
     model: str,
     neo4j_uri: str,
     neo4j_user: str,
-    neo4j_password: str,
+    neo4j_password: str | None,
+    kg_json: Path | None,
 ) -> list[dict[str, Any]]:
     tasks = _load_tasks(input_path)
     if limit is not None:
         tasks = tasks[:limit]
-    neo4j_kg = Neo4jKnowledgeGraph.connect(neo4j_uri, neo4j_user, neo4j_password)
+    if kg_json is not None:
+        optimized_kg = KnowledgeGraph.from_json(kg_json)
+        optimized_method_name = "optimized_json_kg"
+    else:
+        if not neo4j_password:
+            raise ValueError("Set NEO4J_PASSWORD or pass --neo4j-password.")
+        optimized_kg = Neo4jKnowledgeGraph.connect(neo4j_uri, neo4j_user, neo4j_password)
+        optimized_method_name = "optimized_neo4j"
     rows: list[dict[str, Any]] = []
     judge_used = 0
 
@@ -44,7 +52,7 @@ def run_batch(
         task_results = {}
         for method_name, kg, mode in [
             ("plain_sot", KnowledgeGraph(entities={}, triples=[], constraints=[]), "sot"),
-            ("optimized_neo4j", neo4j_kg, "rule_guided"),
+            (optimized_method_name, optimized_kg, "rule_guided"),
         ]:
             llm = _build_llm(use_real_llm, base_url, api_key, model)
             pipeline = GenerationPipeline(kg=kg, llm=llm, max_workers=1 if use_real_llm else 4)
@@ -74,14 +82,14 @@ def run_batch(
             judge = _judge(
                 query=task["query"],
                 answer_a=task_results["plain_sot"]["final_text"],
-                answer_b=task_results["optimized_neo4j"]["final_text"],
+                answer_b=task_results[optimized_method_name]["final_text"],
                 base_url=base_url,
                 api_key=api_key,
                 model=model,
             )
             judge_used += 1
             parsed = _parse_judge(judge)
-            for method_name, label in [("plain_sot", "A"), ("optimized_neo4j", "B")]:
+            for method_name, label in [("plain_sot", "A"), (optimized_method_name, "B")]:
                 target = next(
                     item
                     for item in reversed(rows)
@@ -239,7 +247,7 @@ def _write_markdown(rows: list[dict[str, Any]], path: Path, use_real_llm: bool, 
         f"- Generation mode: {'real LLM' if use_real_llm else 'mock LLM'}",
         f"- Judge samples: {judge_limit}",
         "- A: plain_sot",
-        "- B: optimized_neo4j",
+        "- B: optimized KG method",
         "",
         "## Category Averages",
         "",
@@ -299,7 +307,7 @@ def _write_markdown(rows: list[dict[str, Any]], path: Path, use_real_llm: bool, 
         by_id[row["id"]][row["method"]] = row
     for task_id, methods in sorted(by_id.items()):
         plain = methods.get("plain_sot", {})
-        kg = methods.get("optimized_neo4j", {})
+        kg = next((value for key, value in methods.items() if key.startswith("optimized_")), {})
         source = plain or kg
         lines.append(
             f"| {task_id} | {source.get('category', '')} | {_cell(source.get('query', ''))} | "
@@ -363,10 +371,8 @@ def main() -> None:
     parser.add_argument("--neo4j-uri", default=os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687"))
     parser.add_argument("--neo4j-user", default=os.getenv("NEO4J_USER", "neo4j"))
     parser.add_argument("--neo4j-password", default=os.getenv("NEO4J_PASSWORD"))
+    parser.add_argument("--kg-json", type=Path, help="Use a local JSON knowledge graph instead of Neo4j.")
     args = parser.parse_args()
-
-    if not args.neo4j_password:
-        raise ValueError("Set NEO4J_PASSWORD or pass --neo4j-password.")
 
     rows = run_batch(
         input_path=Path(args.input),
@@ -380,6 +386,7 @@ def main() -> None:
         neo4j_uri=args.neo4j_uri,
         neo4j_user=args.neo4j_user,
         neo4j_password=args.neo4j_password,
+        kg_json=args.kg_json,
     )
     print(f"Finished {len(rows)} rows. JSON: {args.output}")
     print(f"CSV: {Path(args.output).with_suffix('.csv')}")
