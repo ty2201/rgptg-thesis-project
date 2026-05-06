@@ -18,6 +18,8 @@ def main() -> None:
     parser.add_argument("--skip-aggregate", action="store_true", help="Skip final LLM aggregation.")
     parser.add_argument("--no-kg-graph-builder", action="store_true", help="Disable KG-guided DAG construction.")
     parser.add_argument("--no-adaptive-kg", action="store_true", help="Force KG-DAG whenever KG evidence exists.")
+    parser.add_argument("--min-kg-relevance-score", type=float, default=0.70)
+    parser.add_argument("--min-kg-overlap", type=float, default=0.08)
     args = parser.parse_args()
 
     pipeline = create_pipeline(args.config)
@@ -27,6 +29,8 @@ def main() -> None:
         skip_aggregate=args.skip_aggregate,
         use_kg_graph_builder=not args.no_kg_graph_builder,
         adaptive_kg=not args.no_adaptive_kg,
+        min_kg_relevance_score=args.min_kg_relevance_score,
+        min_kg_overlap=args.min_kg_overlap,
     )
     if args.mermaid:
         print(to_mermaid(result, pipeline.kg))

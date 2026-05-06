@@ -33,6 +33,8 @@ def run_batch(
     neo4j_user: str,
     neo4j_password: str | None,
     kg_json: Path | None,
+    min_kg_relevance_score: float,
+    min_kg_overlap: float,
 ) -> list[dict[str, Any]]:
     tasks = _load_tasks(input_path)
     if limit is not None:
@@ -63,7 +65,13 @@ def run_batch(
                     MethodContext(pipeline=pipeline),
                 )
             else:
-                result = pipeline.generate_with_options(task["query"], max_nodes=5, skip_aggregate=False)
+                result = pipeline.generate_with_options(
+                    task["query"],
+                    max_nodes=5,
+                    skip_aggregate=False,
+                    min_kg_relevance_score=min_kg_relevance_score,
+                    min_kg_overlap=min_kg_overlap,
+                )
             elapsed_ms = (time.perf_counter() - started) * 1000
             metrics = evaluate_result(result, elapsed_ms).to_dict()
             row = {
@@ -73,6 +81,9 @@ def run_batch(
                 "method": method_name,
                 **metrics,
                 "rule_event_count": len(result.rule_events),
+                "kg_strategy": result.metadata.get("kg_strategy", ""),
+                "kg_relevance_score": result.metadata.get("kg_relevance_score", ""),
+                "kg_relevance_reason": result.metadata.get("kg_relevance_reason", ""),
                 "final_text": result.final_text,
             }
             rows.append(row)
@@ -219,6 +230,9 @@ def _write_csv(rows: list[dict[str, Any]], path: Path) -> None:
         "verified_ratio",
         "coherence_score",
         "rule_event_count",
+        "kg_strategy",
+        "kg_relevance_score",
+        "kg_relevance_reason",
         "judge_label",
         "judge_winner",
         "judge_score_avg",
@@ -372,6 +386,8 @@ def main() -> None:
     parser.add_argument("--neo4j-user", default=os.getenv("NEO4J_USER", "neo4j"))
     parser.add_argument("--neo4j-password", default=os.getenv("NEO4J_PASSWORD"))
     parser.add_argument("--kg-json", type=Path, help="Use a local JSON knowledge graph instead of Neo4j.")
+    parser.add_argument("--min-kg-relevance-score", type=float, default=0.70)
+    parser.add_argument("--min-kg-overlap", type=float, default=0.08)
     args = parser.parse_args()
 
     rows = run_batch(
@@ -387,6 +403,8 @@ def main() -> None:
         neo4j_user=args.neo4j_user,
         neo4j_password=args.neo4j_password,
         kg_json=args.kg_json,
+        min_kg_relevance_score=args.min_kg_relevance_score,
+        min_kg_overlap=args.min_kg_overlap,
     )
     print(f"Finished {len(rows)} rows. JSON: {args.output}")
     print(f"CSV: {Path(args.output).with_suffix('.csv')}")

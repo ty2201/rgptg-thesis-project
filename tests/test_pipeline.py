@@ -160,7 +160,7 @@ class PipelineTest(unittest.TestCase):
 
     def test_kg_graph_builder_improves_structure_score(self):
         result = GenerationPipeline.from_sample().generate_with_options(
-            "知识图谱如何降低幻觉并优化并行文本生成？",
+            "How can KG reduce hallucination and support verification in parallel text generation?",
             max_nodes=5,
             skip_aggregate=True,
         )
@@ -225,7 +225,9 @@ class PipelineTest(unittest.TestCase):
         )
 
         self.assertEqual(result.metadata["kg_strategy"], "llm_plan_weak_kg")
+        self.assertLess(result.metadata["kg_relevance_score"], result.metadata["min_kg_relevance_score"])
         self.assertFalse(any(node.metadata.get("kg_role") == "aggregation" for node in result.nodes))
+        self.assertFalse(any(node.evidence for node in result.nodes))
 
     def test_adaptive_kg_uses_dag_for_strong_dependency_evidence(self):
         kg = KnowledgeGraph(
@@ -248,8 +250,33 @@ class PipelineTest(unittest.TestCase):
         )
 
         self.assertEqual(result.metadata["kg_strategy"], "kg_dag")
+        self.assertGreaterEqual(result.metadata["kg_relevance_score"], result.metadata["min_kg_relevance_score"])
         self.assertTrue(any(node.metadata.get("kg_role") == "aggregation" for node in result.nodes))
+
+    def test_adaptive_kg_threshold_can_force_plain_fallback(self):
+        kg = KnowledgeGraph(
+            entities={
+                "kg": Entity("kg", "Knowledge Graph", ("knowledge graph", "KG")),
+                "rag": Entity("rag", "Retrieval-Augmented Generation", ("RAG",)),
+                "evidence": Entity("evidence", "Evidence", ("evidence",)),
+            },
+            triples=[
+                KnowledgeTriple("kg", "supports", "rag", 0.9),
+                KnowledgeTriple("rag", "uses", "evidence", 0.9),
+                KnowledgeTriple("kg", "provides", "evidence", 0.85),
+            ],
+            constraints=[],
+        )
+        result = GenerationPipeline(kg).generate_with_options(
+            "Explain how knowledge graphs support RAG with evidence.",
+            skip_aggregate=True,
+            min_kg_relevance_score=1.01,
+        )
+
+        self.assertEqual(result.metadata["kg_strategy"], "llm_plan_weak_kg")
+        self.assertFalse(any(node.evidence for node in result.nodes))
 
 
 if __name__ == "__main__":
     unittest.main()
+
